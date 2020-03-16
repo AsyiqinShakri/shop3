@@ -91,7 +91,8 @@ $js = array(
 	"js/nouislider.min.js",
 	"js/countdown.js",
 	"js/jquery.magnific-popup.min.js",
-	"js/owl.carousel.min.js",
+	"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+	// "js/owl.carousel.min.js",
 	"js/main.js",
 );
 ?>

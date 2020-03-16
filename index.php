@@ -27,7 +27,7 @@
 						</div>
 					</div>
 					<!-- single-slide -->
-					<div class="row single-slide">
+					<div class="row single-slide align-items-center d-flex">
 						<div class="col-lg-5">
 							<div class="banner-content">
 								<h1>Nike New <br>Collection!</h1>
