@@ -106,43 +106,49 @@ $testimony[] = array(
 $blog = array();
 $blog[] = array(
 	'id' => 1,
-	'img' => '../images/image_1.jpg',
+	'img' => '../img/blog/main-blog/m-blog-1.jpg',
 	'name' => 'Even the all-powerful Pointing has no control about the blind texts',
+	'data' => 'MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.',
 	'cdt' => '2018-12-06',
 	'author' => 'Admin'
 );
 $blog[] = array(
 	'id' => 2,
-	'img' => '../images/image_2.jpg',
-	'name' => 'Even the all-powerful Pointing has no control about the blind texts',
+	'img' => '../img/blog/main-blog/m-blog-2.jpg',
+	'name' => 'The Basics Of Buying A Telescope',
+	'data' => 'MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.',
 	'cdt' => '2018-12-06',
 	'author' => 'Admin'
 );
 $blog[] = array(
 	'id' => 3,
-	'img' => '../images/image_3.jpg',
-	'name' => 'Even the all-powerful Pointing has no control about the blind texts',
+	'img' => '../img/blog/main-blog/m-blog-3.jpg',
+	'name' => 'The Glossary Of Telescopes',
+	'data' => 'MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.',
 	'cdt' => '2018-12-06',
 	'author' => 'Admin'
 );
 $blog[] = array(
 	'id' => 4,
-	'img' => '../images/image_4.jpg',
+	'img' => '../img/blog/main-blog/m-blog-4.jpg',
 	'name' => 'Even the all-powerful Pointing has no control about the blind texts',
+	'data' => 'MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.',
 	'cdt' => '2018-12-06',
 	'author' => 'Admin'
 );
 $blog[] = array(
 	'id' => 5,
-	'img' => '../images/image_5.jpg',
+	'img' => '../img/blog/main-blog/m-blog-5.jpg',
 	'name' => 'Even the all-powerful Pointing has no control about the blind texts',
+	'data' => 'MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.',
 	'cdt' => '2018-12-06',
 	'author' => 'Admin'
 );
 $blog[] = array(
 	'id' => 6,
-	'img' => '../images/image_6.jpg',
+	'img' => '../img/blog/main-blog/m-blog-6.jpg',
 	'name' => 'Even the all-powerful Pointing has no control about the blind texts',
+	'data' => 'MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.',
 	'cdt' => '2018-12-06',
 	'author' => 'Admin'
 );
