@@ -8,7 +8,7 @@
 	<div class="desc">
 		<a href="<?= $link ?>" class="title small"><?= $name ?></a>
 		<div class="price">
-			<h5 class="small"><?= $currency ?><?= $new_price ?></h5>
+			<h5 class="small mb-0"><?= $currency ?><?= $new_price ?></h5>
 			<? if ($old_price > 0 && $old_price > $new_price) { ?>
 				<h6 class="l-through small"><?= $currency ?><?= $old_price ?></h6>
 			<? } ?>

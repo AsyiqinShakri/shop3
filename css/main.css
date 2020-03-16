@@ -2328,12 +2328,16 @@ h6 {
 }
 .single-related-product .desc {
 	margin: 0px 10px;
+	line-height: 15px;
+}
+.single-related-product .desc .price {
+	margin-top: 10px;
 }
 .single-related-product .price h6 {
-	font-size: 14px;
+	/* font-size: 14px; */
 	display: inline-block;
-	padding-right: 10px;
-	margin-bottom: 0px;
+	/* padding-right: 10px; */
+	/* margin-bottom: 0px; */
 }
 .single-related-product .price .l-through {
 	text-decoration: line-through;
