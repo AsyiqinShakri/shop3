@@ -1503,6 +1503,7 @@ h6 {
 
 .slick-arrow {
 	cursor: pointer;
+	z-index: 99;
 }
 
 /* banner area css
@@ -1991,10 +1992,21 @@ h6 {
 }
 .single-product {
 	margin-bottom: 50px;
+	position: relative;
+	display: block;
+}
+.single-product .img-container {
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
 .single-product img {
-	margin-bottom: 20px;
+	display: block;
 	width: 100%;
+	transition: all 0.3s ease;
+}
+.single-product img:hover {
+	transform: scale(1.15);
 }
 .single-product .product-details h6 {
 	font-size: 16px;
@@ -2018,7 +2030,7 @@ h6 {
 .single-product .product-details .prd-bottom .social-info {
 	position: relative;
 	display: inline-block;
-	width: 35px;
+	width: 40px;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
@@ -2310,8 +2322,12 @@ h6 {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
+.single-related-product img {
+	width: 70px;
+	border-radius: 3px;
+}
 .single-related-product .desc {
-	margin: 10px 0px 10px 15px;
+	margin: 0px 10px;
 }
 .single-related-product .price h6 {
 	font-size: 14px;
