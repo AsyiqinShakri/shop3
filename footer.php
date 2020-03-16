@@ -84,8 +84,8 @@
 <?
 $js = array(
 	"https://code.jquery.com/jquery-3.4.1.min.js",
-	"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js",
-	"js/vendor/bootstrap.min.js",
+	"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js",
+	"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
 	"js/jquery.nice-select.min.js",
 	"js/jquery.sticky.js",
 	"js/nouislider.min.js",

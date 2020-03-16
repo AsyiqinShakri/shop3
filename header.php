@@ -23,7 +23,7 @@
 		"css/linearicons.css",
 		"css/font-awesome.min.css",
 		"css/themify-icons.css",
-		"css/bootstrap.css",
+		"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
 		"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
 		// "css/owl.carousel.css",
 		"css/nice-select.css",
