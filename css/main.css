@@ -1133,7 +1133,7 @@ h6 {
 .default-select {
 	height: 40px;
 }
-.default-select .nice-select {
+.default-select .select2-results {
 	border: none;
 	border-radius: 0px;
 	height: 40px;
@@ -1141,7 +1141,7 @@ h6 {
 	padding-left: 20px;
 	padding-right: 40px;
 }
-.default-select .nice-select .list {
+.default-select .select2-results .select2-results__options {
 	margin-top: 0;
 	border: none;
 	border-radius: 0px;
@@ -1149,7 +1149,10 @@ h6 {
 	width: 100%;
 	padding: 10px 0 10px 0px;
 }
-.default-select .nice-select .list .option {
+.default-select
+	.select2-results
+	.select2-results__options
+	.select2-results__option {
 	font-weight: 300;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
@@ -1160,11 +1163,17 @@ h6 {
 	font-size: 12px;
 	padding-left: 20px;
 }
-.default-select .nice-select .list .option.selected {
+.default-select
+	.select2-results
+	.select2-results__options
+	..select2-results__option.selected {
 	color: #ffba00;
 	background: transparent;
 }
-.default-select .nice-select .list .option:hover {
+.default-select
+	.select2-results
+	.select2-results__options
+	..select2-results__option:hover {
 	color: #ffba00;
 	background: transparent;
 }
@@ -2665,10 +2674,10 @@ label {
 	margin-top: 20px;
 	margin-right: 0;
 }
-.billing-form .sorting .nice-select {
+.billing-form .sorting .select2 {
 	width: 100%;
 }
-.billing-form .sorting .nice-select .list {
+.billing-form .sorting .select2 .list {
 	width: 100%;
 }
 
@@ -2779,44 +2788,6 @@ label {
 	font-weight: 500;
 	color: #222222;
 	font-size: 18px;
-}
-
-.shipping-area {
-	padding: 15px;
-	border-bottom: 1px solid #eee;
-}
-.shipping-area .filter-list label {
-	margin-right: 10px;
-}
-.shipping-area .calculate {
-	margin-right: 43px;
-}
-.shipping-area .view-btn {
-	border-radius: 0px;
-	box-shadow: none;
-	border: 1px solid #eee;
-	padding: 0 30px;
-	cursor: pointer;
-	width: 172px;
-}
-.shipping-area .view-btn.color-2:after {
-	border-radius: 0;
-}
-.shipping-area .view-btn span {
-	font-weight: 400;
-}
-.shipping-area .sorting {
-	margin-right: 0;
-	width: 300px;
-}
-.shipping-area .sorting .nice-select {
-	width: 100%;
-}
-.shipping-area .sorting .list {
-	width: 100%;
-}
-.shipping-area .common-input {
-	padding: 0 15px;
 }
 
 .quantity-container .quantity-amount {
@@ -5321,7 +5292,7 @@ label {
 .cart_inner .table tbody tr td .media .media-body p {
 	margin-bottom: 0px;
 }
-.cart_inner .table tbody tr td h5 {
+.cart_inner h5 {
 	font-size: 14px;
 	color: #222222;
 	font-family: "Roboto", sans-serif;
@@ -5376,7 +5347,7 @@ label {
 	width: 60px;
 }
 .cart_inner .table tbody tr.bottom_button td .cupon_text {
-	margin-left: -446px;
+	/* margin-left: -446px; */
 }
 .cart_inner .table tbody tr.bottom_button td .cupon_text input {
 	width: 200px;
@@ -5448,23 +5419,20 @@ label {
 .cart_inner .table tbody tr.shipping_area td:nth-child(3) {
 	vertical-align: top;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box {
-	margin-left: -250px;
+.cart_inner .shipping_area .shipping_box {
+	/* margin-left: -250px; */
 	text-align: right;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box .list li {
+.cart_inner .shipping_area .shipping_box .list li {
 	margin-bottom: 12px;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box .list li:last-child {
-	margin-bottom: 0px;
-}
-.cart_inner .table tbody tr.shipping_area .shipping_box .list li a {
+.cart_inner .shipping_area .shipping_box .list li a {
 	padding-right: 30px;
 	font-size: 14px;
 	color: #777777;
 	position: relative;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box .list li a:before {
+.cart_inner .shipping_area .shipping_box .list li a:before {
 	content: "";
 	height: 16px;
 	width: 16px;
@@ -5476,7 +5444,7 @@ label {
 	top: 50%;
 	transform: translateY(-50%);
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box .list li a:after {
+.cart_inner .shipping_area .shipping_box .list li a:after {
 	content: "";
 	height: 10px;
 	width: 10px;
@@ -5499,7 +5467,7 @@ label {
 	a:after {
 	opacity: 1;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box h6 {
+.cart_inner .shipping_area .shipping_box h6 {
 	font-size: 14px;
 	font-weight: normal;
 	color: #222222;
@@ -5507,19 +5475,75 @@ label {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box h6 i {
+.cart_inner .shipping_area .shipping_box h6 i {
 	color: #777777;
 	padding-left: 5px;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box .shipping_select {
+.cart_inner .shipping_area .shipping_box .select2 {
 	display: block;
 	width: 100%;
-	background: #e8f0f2;
-	border: 1px solid #eeeeee;
+	padding: 5px 0;
 	height: 40px;
 	margin-bottom: 20px;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box .shipping_select .list {
+
+.cart_inner .shipping_area .shipping_box .select2-selection__rendered {
+	background: #e8f0f2;
+}
+
+.cart_inner
+	.shipping_area
+	.shipping_box
+	.select2-container
+	.select2-selection--single
+	.select2-selection__rendered {
+	padding-left: 15px;
+	text-align: left;
+}
+
+.cart_inner
+	.shipping_area
+	.shipping_box
+	.select2-container--default
+	.select2-selection--single {
+	border: none;
+}
+
+.cart_inner
+	.shipping_area
+	.shipping_box
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__rendered {
+	line-height: 35px;
+}
+
+.cart_inner
+	.shipping_area
+	.shipping_box
+	.select2-container
+	.select2-selection--single {
+	height: 35px;
+}
+
+.cart_inner
+	.shipping_area
+	.shipping_box
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__arrow {
+	height: 42px;
+}
+
+.cart_inner .shipping_area .shipping_box .shipping_select {
+	width: 100%;
+}
+
+.cart_inner
+	.shipping_area
+	.shipping_box
+	.shipping_select
+	.select2-results__options {
 	width: 100%;
 	border-radius: 0px;
 }
@@ -5529,13 +5553,13 @@ label {
 	tr.shipping_area
 	.shipping_box
 	.shipping_select
-	.list
+	.select2-results__options
 	li {
 	font-size: 14px;
 	font-weight: normal;
 	color: #777777;
 }
-.cart_inner .table tbody tr.shipping_area .shipping_box input {
+.cart_inner .shipping_area .shipping_box input {
 	height: 40px;
 	outline: none;
 	border: 1px solid #eeeeee;
@@ -5544,22 +5568,17 @@ label {
 	padding: 0px 15px;
 	margin-bottom: 20px;
 }
-.cart_inner .table tbody tr.out_button_area .checkout_btn_inner {
+.cart_inner .out_button_area .checkout_btn_inner {
 	margin-left: -388px;
 }
-.cart_inner .table tbody tr.out_button_area .checkout_btn_inner .primary-btn {
+.cart_inner .out_button_area .checkout_btn_inner .primary-btn {
 	height: 40px;
 	padding: 0px 30px;
 	line-height: 38px;
 	text-transform: uppercase;
 	border-radius: 0;
 }
-.cart_inner
-	.table
-	tbody
-	tr.out_button_area
-	.checkout_btn_inner
-	.primary-btn:hover:before {
+.cart_inner .out_button_area .checkout_btn_inner .primary-btn:hover:before {
 	left: 240px;
 }
 
@@ -6631,6 +6650,9 @@ label {
 }
 .blog_right_sidebar .author_widget .social_icon a:hover {
 	color: #c5322d;
+}
+.blog_right_sidebar .popular_post_widget .post_item img {
+	width: 100px;
 }
 .blog_right_sidebar .popular_post_widget .post_item .media-body {
 	justify-content: center;
