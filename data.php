@@ -201,3 +201,9 @@ $lklist["state"] = array(
 	"Wilayah Persekutuan Labuan",
 	"Wilayah Persekutuan Putrajaya",
 );
+
+$category = array();
+$category[] = "Shoe";
+$category[] = "Shoe Lace";
+$category[] = "Shoe Pad";
+$category[] = "Shoe Sole";
