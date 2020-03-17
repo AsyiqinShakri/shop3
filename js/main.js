@@ -12,7 +12,8 @@ $(document).ready(function() {
 
 	//------- Active Nice Select --------//
 
-	$("select").niceSelect();
+	// $("select").niceSelect();
+	$("select").select2();
 
 	$(".navbar-nav li.dropdown").hover(
 		function() {
