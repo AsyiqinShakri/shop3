@@ -17,11 +17,11 @@
 		<div class="blog_post">
 			<img src="<?= $img ?>" alt="">
 			<div class="blog_details">
-				<a href="single-blog.php">
+				<a href="<?= $link ?>">
 					<h2><?= $name ?></h2>
 				</a>
 				<p><?= substr($data, 0, 100); ?></p>
-				<a href="single-blog.php" class="white_bg_btn">View More</a>
+				<a href="<?= $link ?>" class="white_bg_btn">View More</a>
 			</div>
 		</div>
 	</div>
