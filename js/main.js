@@ -1,4 +1,8 @@
-$(document).ready(function() {
+const qs = (s) => {
+	return document.querySelector(s);
+}
+
+$(document).ready(function () {
 	"use strict";
 
 	var window_width = $(window).width(),
@@ -13,17 +17,19 @@ $(document).ready(function() {
 	//------- Active Nice Select --------//
 
 	// $("select").niceSelect();
-	$("select").select2();
+	if ($("select").length) {
+		$("select").select2();
+	}
 
 	$(".navbar-nav li.dropdown").hover(
-		function() {
+		function () {
 			$(this)
 				.find(".dropdown-menu")
 				.stop(true, true)
 				.delay(200)
 				.fadeIn(500);
 		},
-		function() {
+		function () {
 			$(this)
 				.find(".dropdown-menu")
 				.stop(true, true)
@@ -41,11 +47,11 @@ $(document).ready(function() {
 
 	// Search Toggle
 	$("#search_input_box").hide();
-	$("#search").on("click", function() {
+	$("#search").on("click", function () {
 		$("#search_input_box").slideToggle();
 		$("#search_input").focus();
 	});
-	$("#close_search").on("click", function() {
+	$("#close_search").on("click", function () {
 		$("#search_input_box").slideUp(500);
 	});
 
@@ -53,28 +59,6 @@ $(document).ready(function() {
 		javaScript for sticky header
 		============================*/
 	$(".sticky-header").sticky();
-
-	/*=================================
-    Javascript for banner area carousel
-	==================================*/
-	$(".active-banner-slider").slick({
-		slidesToShow: 1,
-		autoplay: true,
-		autoplaySpeed: 5000,
-		dots: false,
-		infinite: true,
-		arrows: true,
-		prevArrow: "<img class='slick-prev' src='img/banner/prev.png'>",
-		nextArrow: "<img class='slick-next' src='img/banner/next.png'>",
-		responsive: [
-			{
-				breakpoint: 425,
-				settings: {
-					arrows: false
-				}
-			}
-		]
-	});
 
 	/*=================================
     Options for carousel
@@ -90,11 +74,30 @@ $(document).ready(function() {
 	};
 
 	/*=================================
+    Javascript for banner area carousel
+	==================================*/
+	if ($(".active-banner-slider").length) {
+		$(".active-banner-slider").slick({
+			...opt,
+			responsive: [
+				{
+					breakpoint: 425,
+					settings: {
+						arrows: false
+					}
+				}
+			]
+		});
+	}
+
+	/*=================================
     Javascript for product area carousel
 	==================================*/
-	$(".active-product-area").slick({
-		...opt
-	});
+	if ($(".active-product-area").length) {
+		$(".active-product-area").slick({
+			...opt
+		});
+	}
 
 	/*=================================
     Javascript for single product area carousel
@@ -117,11 +120,11 @@ $(document).ready(function() {
 		// Remove links that don't actually link to anything
 		.not('[href="#"]')
 		.not('[href="#0"]')
-		.click(function(event) {
+		.click(function (event) {
 			// On-page links
 			if (
 				location.pathname.replace(/^\//, "") ==
-					this.pathname.replace(/^\//, "") &&
+				this.pathname.replace(/^\//, "") &&
 				location.hostname == this.hostname
 			) {
 				// Figure out element to scroll to
@@ -138,7 +141,7 @@ $(document).ready(function() {
 							scrollTop: target.offset().top - 70
 						},
 						1000,
-						function() {
+						function () {
 							// Callback after animation
 							// Must change focus!
 							var $target = $(target);
