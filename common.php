@@ -14,12 +14,13 @@ $mail_sender = "noreply@adrian.com";
 $mail_recipient = "info@adrian.com";
 $site_email = "info@adrian.com";
 $site_url = "http://adrianleong.ddns.net/shop3";	//without www.
-// $site_url = "http://localhost/shop3";	//without www.
+$site_url = "http://localhost/shop3";	//without www.
 $site_phone = '+ 1235 2355 98';
 $site_address = "198 West 21th Street, Suite 721 New York NY 10016";
 
 $page =  isset($page) && $page != '' ? $page : $site_name;
 $currency = "RM";
+$breadcrumb = isset($breadcrumb) ? $breadcrumb : 0;
 
 $v = 0;
 
