@@ -24,7 +24,8 @@
 		"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
 		"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
 		// "css/owl.carousel.css",
-		"css/nice-select.css",
+		// "css/nice-select.css",
+		"https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css",
 		"css/nouislider.min.css",
 		"css/ion.rangeSlider.css",
 		"css/ion.rangeSlider.skinFlat.css",
@@ -109,9 +110,9 @@
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-				<div class="col-first">
+				<div class="col-12 col-md-6 col-first text-md-right">
 					<h1><?= $page ?></h1>
-					<nav class="d-flex align-items-center">
+					<nav class="d-flex align-items-center justify-content-md-end">
 						<a href="<?= $site_url ?>">Home<span class="lnr lnr-arrow-right"></span></a>
 						<a><?= $page ?></a>
 					</nav>
