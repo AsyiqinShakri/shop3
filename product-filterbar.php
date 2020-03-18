@@ -1,7 +1,7 @@
 <!-- Start Filter Bar -->
 <div class="filter-bar d-flex flex-wrap align-items-center">
 	<div class="sorting">
-		<select>
+		<select class="form-control mx-2 border-0">
 			<option value="1">Price: Low to High</option>
 			<option value="1">Price: High to Low</option>
 			<option value="1">Newest</option>
@@ -9,7 +9,7 @@
 		</select>
 	</div>
 	<div class="sorting mr-auto">
-		<select>
+		<select class="form-control mx-2 border-0">
 			<option value="12">Show 12</option>
 			<option value="24">Show 24</option>
 			<option value="36">Show 36</option>
