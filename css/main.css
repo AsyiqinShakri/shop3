@@ -1336,7 +1336,7 @@ h6 {
 	background: #fff;
 }
 @media (min-width: 992px) {
-	.header_area .navbar .nav .nav-item.submenu ul {
+	.header_area .navbar .nav:not(.navbar-right) .nav-item.submenu ul {
 		position: absolute;
 		top: 140%;
 		left: 0px;
@@ -1428,7 +1428,7 @@ h6 {
 		margin-left: 0px;
 	}
 }
-.header_area .navbar .nav.navbar-nav.navbar-right li:first-child {
+.header_area .navbar .nav.navbar-nav.navbar-right > li:first-child {
 	margin-left: 35px;
 }
 @media (max-width: 991px) {
