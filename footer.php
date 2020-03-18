@@ -72,15 +72,6 @@
 	</div>
 </footer>
 <!-- End footer Area -->
-
-<!-- <script src="js/vendor/jquery-2.2.4.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> -->
-<!-- <script src="js/vendor/bootstrap.min.js"></script> -->
-<!-- <script src="js/jquery.ajaxchimp.min.js"></script> -->
-<!--gmaps Js-->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script> -->
-<!-- <script src="js/gmaps.min.js"></script> -->
-
 <?
 $js = array(
 	"https://code.jquery.com/jquery-3.4.1.min.js",
@@ -93,6 +84,8 @@ $js = array(
 	"js/countdown.js",
 	"js/jquery.magnific-popup.min.js",
 	"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
+	"https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE",
+	"js/gmaps.min.js",
 	// "js/owl.carousel.min.js",
 	"js/main.js",
 );
