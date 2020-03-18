@@ -5030,6 +5030,7 @@ label {
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
 	padding-left: 10px;
+	line-height: 30px;
 }
 .product_count button {
 	display: block;
@@ -5098,7 +5099,6 @@ label {
 }
 .product_description_area .nav.nav-tabs li a.active {
 	color: #fff;
-	border: 1px solid transparent;
 }
 .product_description_area .tab-content {
 	border-left: 1px solid #eee;
