@@ -307,3 +307,10 @@ $this_file = substr($_SERVER['PHP_SELF'], strrpos($_SERVER['PHP_SELF'], "/") + 1
 $this_url = $site_url . '/' . $_SERVER['REQUEST_URI'];
 $this_page = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 // pr($_SERVER);
+
+$user = get("user");
+// $cart = get("cart") == "" ? array() : get("cart");
+$coupon = get("coupon");
+$discount = get("discount") == "" ? 0 : $discount;
+$shippingType = get("shippingType") == "" ? "" : get("shippingType") . " : ";
+$shipping = get("shipping") == "" ? 0 : get("shipping");
