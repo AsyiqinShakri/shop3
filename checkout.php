@@ -8,7 +8,7 @@
 		<? if ($user == "") { ?>
 			<div class="returning_customer">
 				<div class="check_title">
-					<h2>Returning Customer? Login here</h2>
+					<h2>Returning Customer?</h2>
 				</div>
 				<p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
 					customer, please proceed to the Billing & Shipping section.</p>
@@ -37,12 +37,12 @@
 				<h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
 			</div>
 			<input type="text" name="coupon" placeholder="Enter coupon code" value="<?= $coupon ?>">
-			<a class="tp_btn" href="#">Apply Coupon</a>
+			<a class="genric-btn primary text-uppercase" href="#">Apply Coupon</a>
 		</div>
 		<div class="billing_details">
 			<div class="row">
 				<div class="col-lg-8">
-					<h3>Billing Details</h3>
+					<h3>Billing / Shipping Details</h3>
 					<form class="row contact_form" action="#" method="post" novalidate="novalidate">
 						<div class="col-md-6 form-group p_star">
 							<input type="text" class="form-control" id="first" name="name">
@@ -97,17 +97,12 @@
 						<? if ($user == "") { ?>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
-									<input type="checkbox" id="f-option2" name="selector">
+									<input type="checkbox" id="f-option2" name="selector" checked>
 									<label for="f-option2">Create an account?</label>
 								</div>
 							</div>
 						<? } ?>
 						<div class="col-md-12 form-group">
-							<div class="creat_account">
-								<h3>Shipping Details</h3>
-								<input type="checkbox" id="f-option3" name="selector">
-								<label for="f-option3">Ship to a different address?</label>
-							</div>
 							<textarea class="form-control" name="message" id="message" rows="1" placeholder="Order Notes"></textarea>
 						</div>
 					</form>
@@ -138,7 +133,7 @@
 						<div class="payment_item">
 							<div class="radion_btn">
 								<input type="radio" id="f-option5" name="selector">
-								<label for="f-option5">Check payments</label>
+								<label for="f-option5">Payments</label>
 								<div class="check"></div>
 							</div>
 							<p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
@@ -155,11 +150,10 @@
 								account.</p>
 						</div>
 						<div class="creat_account">
-							<input type="checkbox" id="f-option4" name="selector">
-							<label for="f-option4">I’ve read and accept the </label>
+							By checking out, you agree to our
 							<a href="#">terms & conditions*</a>
 						</div>
-						<a class="primary-btn" href="#">Proceed to Paypal</a>
+						<a class="primary-btn" href="#">Proceed to Payment</a>
 					</div>
 				</div>
 			</div>

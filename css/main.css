@@ -5751,8 +5751,8 @@ label {
 }
 .cupon_area input {
 	margin-left: 30px;
-	max-width: 730px;
-	width: 100%;
+	max-width: 700px;
+	width: 90%;
 	display: block;
 	height: 40px;
 	border-radius: 3px;
@@ -5763,8 +5763,15 @@ label {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-.cupon_area .tp_btn {
+.cupon_area .genric-btn.primary {
 	margin-left: 30px;
+}
+
+@media(max-width: 425px) {
+	.cupon_area .genric-btn.primary {
+		width: 90%;
+		text-align: center;
+	}
 }
 
 .tp_btn {
@@ -5772,16 +5779,16 @@ label {
 	display: inline-block;
 	line-height: 38px;
 	padding: 0px 40px;
-	color: #222222;
 	text-transform: uppercase;
 	font-family: "Roboto", sans-serif;
 	font-weight: 500;
 	border-radius: 3px;
-}
-.tp_btn:hover {
 	background: #ffba00;
 	color: #fff;
 	border-color: #ffba00;
+}
+.tp_btn:hover {
+	color: #222222;
 }
 
 .billing_details h3 {
@@ -5811,9 +5818,9 @@ label {
 	color: #777777;
 }
 .billing_details .contact_form .form-group textarea {
-	height: 150px;
+	/* height: 150px; */
 	border-radius: 3px;
-	margin-top: 15px;
+	/* margin-top: 15px; */
 }
 .billing_details .contact_form .form-group .country_select {
 	width: 100%;
