@@ -59,7 +59,7 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/category.php">Shop Category</a></li>
-								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/single-product.php">Product Details</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/product-single.php">Product Details</a></li>
 								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/checkout.php">Product Checkout</a></li>
 								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/cart.php">Shopping Cart</a></li>
 								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/confirmation.php">Confirmation</a></li>
@@ -69,7 +69,7 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/blog.php">Blog</a></li>
-								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/single-blog.php">Blog Details</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/blog-single.php">Blog Details</a></li>
 							</ul>
 						</li>
 						<li class="nav-item submenu dropdown">
