@@ -6,6 +6,7 @@
 $c_flux = array(
 	//list			name				align		type			sort
 	"id",			"",					"m",		"",				"0",
+	"code",			"Code",				"m",		"",				"1",
 	"cat_id",		"Category",			"m",		"lk_cat",		"1",
 	"name",			"Name",				"m",		"",				"1",
 );
