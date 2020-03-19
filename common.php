@@ -6,10 +6,10 @@ ini_set("display_errors", 1);
 session_start();
 $db = mysqli_connect("localhost", "adr_shop3", "6SUBhF76aOAQICPZ!", "adr_shop3") or die(mysqli_connect_error());
 
-$session_pfx = "adr_shop2";
-$short_site_name = "Shop 2";
-$site_name = "Shop 2";
-$company_name = "Shop 2";
+$session_pfx = "adr_shop3";
+$short_site_name = "Shop 3";
+$site_name = "Shop 3";
+$company_name = "Shop 3";
 $mail_sender = "noreply@adrian.com";
 $mail_recipient = "info@adrian.com";
 $site_email = "info@adrian.com";
