@@ -13,13 +13,15 @@
 		<div class="row">
 			<div class="col-lg-9">
 				<div class="row">
-					<? for ($i = 0; $i < sizeof($product); $i++) { ?>
+					<? $sql = "SELECT * FROM product WHERE ishide <> 1 AND isdeal = 1"; ?>
+					<? $rs = mq($sql); ?>
+					<? while ($r = mfa($rs)) { ?>
 						<div class="col-lg-4 col-md-4 col-sm-6 mb-20">
-							<? $name = $product[$i]['name']; ?>
-							<? $old_price = $product[$i]['old_price']; ?>
-							<? $new_price = $product[$i]['new_price']; ?>
-							<? $img = $site_url . '/' . getimg($product[$i]['img']); ?>
-							<? $link = $site_url . '/product-single.php?name=' . urlencode($product[$i]['name']); ?>
+							<? $name = $r['name']; ?>
+							<? $old_price = $r['price2']; ?>
+							<? $new_price = $r['price']; ?>
+							<? $img = $site_url . '/' . getimg($r['img1']); ?>
+							<? $link = $site_url . '/product-single.php?name=' . urlencode($r['name']); ?>
 							<? include "components/product-deal.php"; ?>
 						</div>
 					<? } ?>

@@ -1,50 +1,34 @@
 <? include "header.php"; ?>
 
+<? $sql = "SELECT * FROM product WHERE ishomebanner = 1 AND ishide <> 1"; ?>
+<? $rs = mq($sql); ?>
 
 <!-- start banner Area -->
 <section class="banner-area">
 	<div class="container">
 		<div class="row fullscreen align-items-center justify-content-start">
 			<div class="col-lg-12">
-				<div class="active-banner-slider owl-carousel">
-					<!-- single-slide -->
-					<div class="row single-slide align-items-center d-flex">
-						<div class="col-lg-5 col-md-6">
-							<div class="banner-content">
-								<h1>Nike New <br>Collection!</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-									<span class="add-text text-uppercase">Add to Bag</span>
+				<div class="active-banner-slider">
+					<? while ($r = mfa($rs)) { ?>
+						<!-- single-slide -->
+						<div class="row single-slide align-items-center d-flex">
+							<div class="col-lg-5 col-md-6">
+								<div class="banner-content">
+									<h1><?= $r['name'] ?></h1>
+									<p><?= $r['meta_desc'] ?></p>
+									<div class="add-bag d-flex align-items-center">
+										<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+										<span class="add-text text-uppercase">Add to Bag</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-7">
+								<div class="banner-img">
+									<img class="img-fluid" src="<?= $site_url . '/' . getimg($r['img1']) ?>" alt="">
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-7">
-							<div class="banner-img">
-								<img class="img-fluid" src="img/banner/banner-img.png" alt="">
-							</div>
-						</div>
-					</div>
-					<!-- single-slide -->
-					<div class="row single-slide align-items-center d-flex">
-						<div class="col-lg-5">
-							<div class="banner-content">
-								<h1>Nike New <br>Collection!</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-								<div class="add-bag d-flex align-items-center">
-									<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
-									<span class="add-text text-uppercase">Add to Bag</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							<div class="banner-img">
-								<img class="img-fluid" src="img/banner/banner-img.png" alt="">
-							</div>
-						</div>
-					</div>
+					<? } ?>
 				</div>
 			</div>
 		</div>
@@ -102,7 +86,7 @@
 <!-- end features Area -->
 
 <!-- Start category Area -->
-<section class="category-area">
+<!-- <section class="category-area">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8 col-md-12">
@@ -166,11 +150,11 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 <!-- End category Area -->
 
 <!-- start product Area -->
-<section class="owl-carousel active-product-area section_gap">
+<section class="active-product-area section_gap">
 	<!-- single product slide -->
 	<div class="single-product-slider">
 		<div class="container">
@@ -185,14 +169,16 @@
 				</div>
 			</div>
 			<div class="row">
+				<? $sql = "SELECT * FROM product WHERE ishide <> 1 AND islatest = 1"; ?>
+				<? $rs = mq($sql); ?>
 				<!-- single product -->
-				<? for ($i = 0; $i < sizeof($product); $i++) { ?>
+				<? while ($r = mfa($rs)) { ?>
 					<div class="col-lg-3 col-md-6">
-						<? $name = $product[$i]['name']; ?>
-						<? $old_price = $product[$i]['old_price']; ?>
-						<? $new_price = $product[$i]['new_price']; ?>
-						<? $img = $site_url . '/' . getimg($product[$i]['img']); ?>
-						<? $link = $site_url . '/product-single.php?name=' . urlencode($product[$i]['name']); ?>
+						<? $name = $r['name']; ?>
+						<? $old_price = dfd($r['price2']); ?>
+						<? $new_price = dfd($r['price']); ?>
+						<? $img = $site_url . '/' . getimg($r['img1']); ?>
+						<? $link = $site_url . '/product-single.php?name=' . urlencode($r['name']); ?>
 						<? include "components/product-card.php" ?>
 					</div>
 				<? } ?>
@@ -213,15 +199,16 @@
 				</div>
 			</div>
 			<div class="row">
+				<? $sql = "SELECT * FROM product WHERE ishide <> 1 AND isupcoming = 1"; ?>
+				<? $rs = mq($sql); ?>
 				<!-- single product -->
-				<? $product = array_reverse($product); ?>
-				<? for ($i = 0; $i < sizeof($product); $i++) { ?>
+				<? while ($r = mfa($rs)) { ?>
 					<div class="col-lg-3 col-md-6">
-						<? $name = $product[$i]['name']; ?>
-						<? $old_price = $product[$i]['old_price']; ?>
-						<? $new_price = $product[$i]['new_price']; ?>
-						<? $img = $site_url . '/' . getimg($product[$i]['img']); ?>
-						<? $link = $site_url . '/product-single.php?name=' . urlencode($product[$i]['name']); ?>
+						<? $name = $r['name']; ?>
+						<? $old_price = dfd($r['price2']); ?>
+						<? $new_price = dfd($r['price']); ?>
+						<? $img = $site_url . '/' . getimg($r['img1']); ?>
+						<? $link = $site_url . '/product-single.php?name=' . urlencode($r['name']); ?>
 						<? include "components/product-card.php" ?>
 					</div>
 				<? } ?>
@@ -266,38 +253,28 @@
 			</div>
 			<div class="col-lg-6 no-padding exclusive-right">
 				<div class="active-exclusive-product-slider">
-					<!-- single exclusive carousel -->
-					<div class="single-exclusive-slider">
-						<img class="img-fluid" src="img/product/e-p1.png" alt="">
-						<div class="product-details">
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<h4>addidas New Hammer sole
-								for Sports person</h4>
-							<div class="add-bag d-flex align-items-center justify-content-center">
-								<a class="add-btn" href=""><span class="ti-bag"></span></a>
-								<span class="add-text text-uppercase">Add to Bag</span>
-							</div>
-						</div>
-					</div>
-					<!-- single exclusive carousel -->
-					<div class="single-exclusive-slider">
-						<img class="img-fluid" src="img/product/e-p1.png" alt="">
-						<div class="product-details">
-							<div class="price">
-								<h6>$150.00</h6>
-								<h6 class="l-through">$210.00</h6>
-							</div>
-							<h4>addidas New Hammer sole
-								for Sports person</h4>
-							<div class="add-bag d-flex align-items-center justify-content-center">
-								<a class="add-btn" href=""><span class="ti-bag"></span></a>
-								<span class="add-text text-uppercase">Add to Bag</span>
+					<? $sql = "SELECT * FROM product WHERE ishide <> 1 AND isupcoming = 1"; ?>
+					<? $rs = mq($sql); ?>
+					<!-- single product -->
+					<? while ($r = mfa($rs)) { ?>
+						<!-- single exclusive carousel -->
+						<div class="single-exclusive-slider">
+							<img class="img-fluid mx-auto" src="<?= $site_url . '/' . getimg($r['img1']) ?>" alt="">
+							<div class="product-details">
+								<div class="price">
+									<h6><?= $currency ?><?= dfd($r['price']) ?></h6>
+									<? if ($r['price2'] > 0 && $r['price2'] > $r['price']) { ?>
+										<h6 class="l-through"><?= $currency ?><?= dfd($r['price2']) ?></h6>
+									<? } ?>
+								</div>
+								<h4><?= $r['name'] ?></h4>
+								<div class="add-bag d-flex align-items-center justify-content-center">
+									<a class="add-btn" href=""><span class="ti-bag"></span></a>
+									<span class="add-text text-uppercase">Add to Bag</span>
+								</div>
 							</div>
 						</div>
-					</div>
+					<? } ?>
 				</div>
 			</div>
 		</div>
