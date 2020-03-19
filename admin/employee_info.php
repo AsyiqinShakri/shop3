@@ -24,56 +24,46 @@ $post_fld["last_login"] .= "<span style='color: red;'> * Default password will b
 
 ?>
 
-<div class="content">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card">
-				<? $id = frm("id"); ?>
-				<? require "lib/sqlmode.lib"; ?>
-				<form name="f" action="<?= $site_url . "/" . $this_file ?>" method="post" <?= ($multipart ? "enctype=\"multipart/form-data\"" : "") ?>>
-					<div class="card-header">
-						<h5 class="title"><?= $modet ?> Employee</h5>
-					</div>
-					<div class="card-body">
-						<?
-						require "lib/mergei.lib";
-						require "lib/preparam.lib";
+<? require $libbase . "prefrmbasic.lib"; ?>
+<? $id = frm("id"); ?>
+<? require $libbase . "sqlmode.lib"; ?>
+<? require $libbase . "subheader.lib"; ?>
+<form name="f" action="<?= $site_url . "/" . $this_file ?>" method="post" <?= ($multipart ? "enctype=\"multipart/form-data\"" : "") ?>>
+	<div class="card-body">
+		<? require $libbase . "mergei.lib"; ?>
+		<? // require $libbase . "sqlbasic.lib"; 
+		?>
+		<?
+		require $libbase . "preparam.lib";
 
-						if ($submitted) {
-							require_once "lib/validation.lib";
-							if ($validated) {
-								if ($id == "") {
-									require "lib/sqlinsert.lib";
-									$sql = "SELECT id FROM " . $sql_table . " WHERE usr = '" . $_POST['usr'] . "'";
-									$r = mfa(mq($sql));
+		if ($submitted) {
+			require_once $libbase . "validation.lib";
+			if ($validated) {
+				if ($id == "") {
+					require $libbase . "sqlinsert.lib";
+					$sql = "SELECT id FROM " . $sql_table . " WHERE usr = '" . $_POST['usr'] . "'";
+					$r = mfa(mq($sql));
 
-									$pwd = md5($session_pfx . $_POST['usr']);
-									$sql = "UPDATE " . $sql_table . " SET pwd = '" . $pwd . "' WHERE id=" . $r[0];
-									mq($sql);
-								} else {
-									require "lib/sqlupdate.lib";
-								}
-								set("update", "Record successfully " . $action);
-								go($next_file);
-							}
-						} else if ($id !== "") {
-							require "lib/sqlselect.lib";
-						} else {
-							$p["last_login"] = now();
-						}
-
-						for ($i = 0; $i < sizeof($p_list); $i++) {
-							require "lib/frmfield.lib";
-						}
-						?>
-					</div>
-					<div class="card-footer">
-						<? require "lib/frmaction.lib" ?>
-					</div>
-				</form>
-			</div>
-		</div>
+					$pwd = md5($session_pfx . $_POST['usr']);
+					$sql = "UPDATE " . $sql_table . " SET pwd = '" . $pwd . "' WHERE id=" . $r[0];
+					mq($sql);
+				} else {
+					require $libbase . "sqlupdate.lib";
+				}
+				set("update", "Record successfully " . $action);
+				go($next_file);
+			}
+		} else if ($id !== "") {
+			require $libbase . "sqlselect.lib";
+		} else {
+			$p["last_login"] = now();
+		}
+		?>
+		<? for ($i = 0; $i < sizeof($p_list); $i++) { ?>
+			<? require $libbase . "frmfield.lib"; ?>
+		<? } ?>
 	</div>
-</div>
+	<? require $libbase . "frmaction.lib" ?>
+</form>
+<? require $libbase . "postfrmbasic.lib"; ?>
 <? include "footer.php"; ?>
-<? require "lib/notification.lib"; ?>

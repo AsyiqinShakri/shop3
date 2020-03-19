@@ -18,6 +18,16 @@ $post_fld['dura'] = " day(s) ";
 ?>
 <? require_once $libbase . "mergel.lib"; ?>
 <? require_once $libbase . "presql.lib"; ?>
-<? require_once $libbase . "list.lib" ?>
+<? require_once $libbase . "prefrmbasic.lib"; ?>
+<? require_once $libbase . "listaction.lib"; ?>
+<? require_once $libbase . "subheader.lib"; ?>
+<div class="card-body">
+	<div>
+		<? require_once $libbase . "sqldelete.lib"; ?>
+		<? require_once $libbase . "prelist.lib"; ?>
+		<? require_once $libbase . "listing.lib"; ?>
+	</div>
+</div>
+<? require_once $libbase . "postfrmbasic.lib"; ?>
 
 <? include "footer.php"; ?>

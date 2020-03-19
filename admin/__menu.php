@@ -15,4 +15,4 @@ $m_flux = array(
 	// "Notifications", $site_url . "/examples/notifications.html",	"icon-bell-55",		"",
 );
 
-include "lib/menu.lib";
+include $libbase . "menu.lib";
