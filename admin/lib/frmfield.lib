@@ -25,6 +25,9 @@ if (strpos($p_check[$i], "display") !== FALSE || $can_e == 0) {
 	$d = "disabled";
 }
 
+$extra_lbl_pre = "";
+$extra_lbl_post = "";
+
 $extra_fld_pre = "<div class='form-group'>";
 $extra_fld_post = "</div>";
 
@@ -59,8 +62,8 @@ if ($skip_lbl || $skip_lbl_l || $p_name[$i] == "") {
 	$field .= "<label class='" . $c . "' >";
 	$field .= $extra_lbl_pre;
 	$field .= $p_name[$i] . " ";
-	$field .= $r === '' ? '' : '*';
 	$field .= $extra_lbl_post;
+	$field .= $r === '' ? '' : ' *';
 	$field .= "</label>";
 }
 $field .= $extra_fld_pre;
@@ -196,7 +199,7 @@ if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
 } else if ($f_tp[0] == "upload" || $f_tp[0] == "uploadx") {
 	if ($f_tp[1] == "image") {
 		$field .= '<div class="fileinput ' . ($f_vl == '' ? 'fileinput-new' : 'fileinput-exists') . '" data-provides="fileinput">';
-		$field .= '<div class="fileinput-preview img-thumbnail" data-trigger="fileinput" style="width: 200px; max-height: 150px;">';
+		$field .= '<div class="fileinput-preview img-thumbnail" data-trigger="fileinput">';
 	} else {
 		$field .= "Current : &nbsp;";
 	}
