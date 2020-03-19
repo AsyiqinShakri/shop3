@@ -10,6 +10,7 @@ $p_flux = array(
 	"name",			"Name",				"text_5",			"req",
 	"cat_id",		"Category",			"lkcbo_cat",		"",
 	"____",			"Info",				"split",			"",
+	"ishomebanner",	"Home Banner",		"cbx",				"",
 	"ishide",		"Hidden",			"cbx",				"",
 	"qty",			"Quantity",			"text",				"int",
 	"price",		"Price",			"text",				"reqdbl",
