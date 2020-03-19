@@ -60,5 +60,5 @@ $id = $new_id;
 
 if ($log_audit["a"]) {
 	$log_info = "INSERT " . $sql_table;
-	require "lib/auditlog.lib";
+	require $libbase . "auditlog.lib";
 }

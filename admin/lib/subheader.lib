@@ -1,0 +1,3 @@
+<div class="card-header">
+	<h4 class="title text-uppercase"><?= $modet ?> <?= $page ?></h4>
+</div>

@@ -1,15 +1,15 @@
 <?
-require "lib/preparam.lib";
+require $libbase . "preparam.lib";
 
 if ($submitted) {
-	require_once "lib/validation.lib";
+	require_once $libbase . "validation.lib";
 	if ($multipart) {
 		for ($i = 0; $i < sizeof($upload); $i++) {
 			if ($validated) {
 				$upload_path = "ul_" . $upload[$i];
 				$target_field = $upload[$i];
 				$upload_label = $upload_lbl[$i];
-				require "lib/fileupload.lib";
+				require $libbase . "fileupload.lib";
 				if ($error != "") {
 					$validated = 0;
 					break;
@@ -21,13 +21,13 @@ if ($submitted) {
 	}
 	if ($validated) {
 		if ($id == "") {
-			require "lib/sqlinsert.lib";
+			require $libbase . "sqlinsert.lib";
 		} else {
-			require "lib/sqlupdate.lib";
+			require $libbase . "sqlupdate.lib";
 		}
 		set("update", "Record successfully " . $action);
 		go($next_file);
 	}
 } else if ($id !== "") {
-	require "lib/sqlselect.lib";
+	require $libbase . "sqlselect.lib";
 }

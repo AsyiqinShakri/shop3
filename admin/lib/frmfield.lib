@@ -15,8 +15,6 @@
 // upload 	| uploadx 		|			
 // cms 		| cmsx 			|			raw
 // mulsel 	| mulselx 		|			
-// split
-
 $d = "";
 $r = strpos($p_check[$i], "req") !== FALSE ? "required" : "";
 $type = "text";
@@ -75,8 +73,9 @@ if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
 	$field .= "<input type='hidden' id='" . $p_list[$i] . "' name='" . $p_list[$i] . "' value='" . $p[$p_list[$i]] . "' />";
 } else if ($f_tp[0] == "split") {
 	$field = "<div class='mt-4 text-center'>";
-	$field .= "<label class='text-uppercase admin-split mb-0 p-2 shadow rounded'>" . $p_name[$i] . "</label>";
-	// $field .= "<hr class='mt-0'>";
+	$field .= "<label class='text-uppercase admin-split mb-0 p-2 '>" . $p_name[$i] . "</label>";
+	// $field .= "<hr>";
+	$field .= "<hr class='mt-0'>";
 } else if ($f_tp[0] == "display") {
 	$f_dsp = $f_vl;
 	if (strpos($p_check[$i], "int") !== false) {

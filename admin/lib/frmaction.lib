@@ -1,4 +1,6 @@
-<? if ($can_a && $can_e) { ?>
-	<input type="submit" name="submit" class="btn btn-fill btn-info" value="<?= $id ? "Update" : "Add" ?>" />
-<? } ?>
-<a href="<?= $site_url . "/" . $next_file ?>" class="btn btn-fill btn-warning"><?= ($id == "") ? "Cancel" : "Close" ?></a>
+<div class="card-footer">
+	<? if ($can_a && $can_e) { ?>
+		<input type="submit" name="submit" class="btn btn-fill btn-info" value="<?= $id ? "Update" : "Add" ?>" />
+	<? } ?>
+	<a href="<?= $site_url . "/" . $next_file ?>" class="btn btn-fill btn-warning"><?= ($id == "") ? "Cancel" : "Close" ?></a>
+</div>

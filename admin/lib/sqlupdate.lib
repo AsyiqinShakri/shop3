@@ -41,5 +41,5 @@ $rs_result = mq($sql);
 
 if ($log_audit["u"]) {
 	$log_info = "UPDATE " . $sql_table;
-	require "lib/auditlog.lib";
+	require $libbase . "auditlog.lib";
 }
