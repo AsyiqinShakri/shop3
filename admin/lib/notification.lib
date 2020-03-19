@@ -1,0 +1,26 @@
+<?
+// type = ['primary', 'info', 'success', 'warning', 'danger'];
+if (get("update") != "") {
+	$update = isset($update) && $update != "" ? $update : get("update");
+	set("update", "");
+}
+if (get("error") != "" || $error != "") {
+	$error = isset($error) && $error != "" ? $error : get("error");
+	set("error", "");
+}
+if (isset($error) || isset($update)) { ?>
+	<script>
+		$.notify({
+			icon: "tim-icons icon-bell-55",
+			message: "<?= $update == '' ? $error : $update; ?>"
+
+		}, {
+			type: "<?= $update == '' ? 'danger' : 'success'; ?>",
+			timer: 4000,
+			placement: {
+				from: "top",
+				align: "right"
+			}
+		});
+	</script>
+<? } ?>

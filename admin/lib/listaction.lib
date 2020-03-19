@@ -1,0 +1,11 @@
+	<div class="row mb-3">
+		<div class="col-md-12">
+			<form id="fs" name="fs" action="<?= $this_file ?>" method="post">
+				<a href="<?= $site_url . '/' . $next_file ?>" class="btn btn-info">Add</a>
+				<? if ($can_d !== 0) { ?>
+					<input type="button" id="delete" name="delete" value="Delete" class="btn btn-warning" onclick="delRec()" />
+					<input type="hidden" id="del_id" name="del_id" value="">
+				<? } ?>
+			</form>
+		</div>
+	</div>

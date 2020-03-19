@@ -1,0 +1,8 @@
+<?
+//usage: specify $l_order_by (column name) and/or $l_direction (ASC/DESC) to override default values
+$l_ord = (isset($l_order_by) ? $l_order_by : $c_list[0]);
+$l_dir = (isset($l_direction) ? $l_direction : "ASC");
+$sql_order = " ORDER BY " . $l_ord . " " . $l_dir;
+
+//search filter
+$sql_where = " WHERE " . $c_list[0] . "<>-1";

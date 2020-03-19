@@ -1,0 +1,12 @@
+<?
+$p_list = array();
+$p_name = array();
+$p_type = array();
+$p_check = array();
+
+for ($i = 0; $i < sizeof($p_flux); $i += 4) {
+	$p_list[] = $p_flux[$i];
+	$p_name[] = $p_flux[$i + 1];
+	$p_type[] = $p_flux[$i + 2];
+	$p_check[] = $p_flux[$i + 3];
+}

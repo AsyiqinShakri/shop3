@@ -1,0 +1,24 @@
+<?
+for ($i = 0; $i < sizeof($p_list); $i++) {
+	if (strpos($p_check[$i], "raw") !== false) {
+		$p[$p_list[$i]] = trim(frmr($p_list[$i]));
+	} else if ($form_method_lenient) {
+		$p[$p_list[$i]] = trim(frm($p_list[$i]));
+	} else if (strpos($p_type[$i], "mulsel") !== false) {
+		$p[$p_list[$i]] = $_POST[$p_list[$i]];
+	} else {
+		$p[$p_list[$i]] = trim(frmp($p_list[$i]));
+	}
+	if (strpos($p_type[$i], "cbx") !== false) {
+		$p[$p_list[$i]] = cbx($p[$p_list[$i]]);
+	}
+	// if int/dbl field value empty, put default value 0
+	if (strpos($p_check[$i], "int") !== false) {
+		if ($p[$p_list[$i]] == "") $p[$p_list[$i]] = "0";
+	}
+	if (strpos($p_check[$i], "dbl") !== false) {
+		if ($p[$p_list[$i]] == "") $p[$p_list[$i]] = "0.00";
+	}
+}
+
+$submitted = (frmp("submit") != "");

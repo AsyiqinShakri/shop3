@@ -1,0 +1,6 @@
+<?
+if (isset($log_info) && $log_info != "") {
+	$sql = "INSERT INTO audit (usr,tbl,rec,log_dt,info) VALUES ('" . get("usr") . "', '" . $sql_table . "', " . $id . " ,'" . now() . "','" . $log_info . "')";
+	mq($sql);
+	$log_info = "";
+}

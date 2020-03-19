@@ -1,0 +1,112 @@
+<?
+if (!function_exists("createthumb")) {
+	function createthumb($imagepath, $thumbpath, $new_w, $new_h)
+	{
+		$system = explode('.', $imagepath);
+		$fileExt = strtolower(substr($imagepath, strrpos($imagepath, ".") + 1));
+		if (preg_match('/jpg|jpeg/', $fileExt)) {
+			$src_img = imagecreatefromjpeg($imagepath);
+		}
+		if (preg_match('/png/', $fileExt)) {
+			$src_img = imagecreatefrompng($imagepath);
+		}
+		$old_x = imageSX($src_img);
+		$old_y = imageSY($src_img);
+
+		if ($old_x <= $new_w && $old_y <= $new_h) {
+			copy($imagepath, $thumbpath);
+			imagedestroy($src_img);
+		} else {
+			if ($old_x > $old_y) {
+				$thumb_w = $new_w;
+				$thumb_h = $old_y / ($old_x / $new_w);
+			} else if ($old_x < $old_y) {
+				$thumb_h = $new_h;
+				$thumb_w = $old_x / ($old_y / $new_h);
+			} else if ($old_x == $old_y) {
+				$thumb_w = $new_w;
+				$thumb_h = $new_h;
+			}
+
+			$dst_img = ImageCreateTrueColor($thumb_w, $thumb_h);
+			imagecopyresampled($dst_img, $src_img, 0, 0, 0, 0, $thumb_w, $thumb_h, $old_x, $old_y);
+
+			if (preg_match("/png/", $system[1])) {
+				imagepng($dst_img, $thumbpath);
+			} else {
+				imagejpeg($dst_img, $thumbpath);
+			}
+			imagedestroy($dst_img);
+			imagedestroy($src_img);
+		}
+	}
+}
+
+$randomizeName = isset($randomizeName) ? $randomizeName : 1;
+$uploadFolderPrefix = isset($uploadFolderPrefix) ? $uploadFolderPrefix : "../uploads/";
+$maxFileSize = isset($maxFileSize) ? $maxFileSize : 1024 * 1024 * 5;
+$maxFileSizeStr = isset($maxFileSizeStr) ? $maxFileSizeStr : "5MB";
+$acceptUploadExt = isset($acceptUploadExt) ? $acceptUploadExt : array("jpg", "png", "jpeg", "gif", "pdf", "doc", "docx", "xls", "xlsx");
+
+if (!file_exists($uploadFolderPrefix)) {
+	$error .= epfx($error, "Upload path not found!");
+} else if (is_uploaded_file($_FILES[$upload_path]['tmp_name'])) {
+	$fileName = $_FILES[$upload_path]['name'];
+	$fileExt = strtolower(substr($fileName, strrpos($fileName, ".") + 1));
+	$filePfx = strtolower(substr($fileName, 0, strrpos($fileName, ".")));
+	if ($_FILES[$upload_path]['size'] > $maxFileSize) {
+		$error .= epfx($error, $upload_label . " uploaded file size is too large (max " . $maxFileSizeStr . ").");
+		unlink($_FILES[$upload_path]['tmp_name']);
+	} else {
+		$extOK = 0;
+		$acceptUploadStr = "";
+		for ($i = 0; $i < sizeof($acceptUploadExt); $i++) {
+			$acceptUploadStr .= ($acceptUploadStr == "" ? "" : ", ") . strtoupper($acceptUploadExt[$i]);
+			if (strtoupper($acceptUploadExt[$i]) == strtoupper($fileExt)) {
+				$extOK = 1;
+				break;
+			}
+		}
+		if (!$extOK) {
+			$error .= epfx($error, $upload_label . " only " . $acceptUploadStr . " allowed (uploaded: " . $fileExt . ").");
+			unlink($_FILES[$upload_path]['tmp_name']);
+		} else {
+			if (!isset($uploadThumbPrefix)) {
+				$uploadThumbPrefix = $uploadFolderPrefix;
+			}
+			$imagepath = "";
+			$thumbpath = "";
+
+			if (isset($randomizeName) && $randomizeName) {
+				$lpcount = 0;
+				while ($lpcount < 50) {
+					$rnd = rnd(16);
+					$imagepath = $uploadFolderPrefix . $rnd . "." . $fileExt;
+					$thumbpath = $uploadThumbPrefix . $rnd . "_." . $fileExt;
+
+					$lpcount++;
+					if (!file_exists($imagepath)) {
+						break;
+					}
+				}
+			} else {
+				$imagepath = $uploadFolderPrefix . $filePfx . "." . $fileExt;
+				$thumbpath = $uploadThumbPrefix . $filePfx . "_." . $fileExt;
+			}
+
+
+			$p[$target_field] = $imagepath;
+			if (!copy($_FILES[$upload_path]['tmp_name'], $imagepath)) {
+				if (!move_uploaded_file($_FILES[$upload_path]['tmp_name'], $imagepath))
+					$error .= epfx($error, "Failed to upload file");
+			}
+			unlink($_FILES[$upload_path]['tmp_name']);
+
+			if (isset($thumbnail) && $thumbnail) {
+				$thumb_w = (isset($thumb_w) ? $thumb_w : 100);
+				$thumb_h = (isset($thumb_h) ? $thumb_h : 100);
+				createthumb($imagepath, $thumbpath, $thumb_w, 100);
+			}
+		}
+	}
+}

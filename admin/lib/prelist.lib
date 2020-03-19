@@ -1,0 +1,11 @@
+
+<?
+	$sql_fld = "";
+	for ($i=0;$i<sizeof($c_list);$i++) {
+		if ($c_list[$i]=="" || substr($c_list[$i],0,2)=="__") continue;
+		$sql_fld.=($sql_fld!="" ? ",":"").$c_list[$i];
+	}
+	$sql_fld = "SELECT * FROM ";
+	$sql = $sql_fld." ".$sql_table." ".$sql_table_x." ".$sql_where." ".$sql_order." ";
+
+	if(isset($debug_select) && $debug_select==1) {echo $sql;}

@@ -1,0 +1,18 @@
+<?
+$p = array();
+if ($id !== "") {
+	$sql_where = " WHERE id > 0 AND id=" . $id;
+}
+$sql_where = $sql_where === "" ? "" : $sql_where;
+$sql_order = $sql_order === "" ? "" : $sql_order;
+$sql_limit = $sql_limit === "" ? "" : $sql_limit;
+$sql = "SELECT * FROM " . $sql_table . $sql_where . $sql_order . $sql_limit;
+if (isset($debug_select) && $debug_select == 1) {
+	echo $sql;
+	exit;
+}
+$r = mfa(mq($sql));
+
+for ($k = 0; $k < sizeof($p_list); $k++) {
+	$p[$p_list[$k]] = $r[$p_list[$k]];
+}

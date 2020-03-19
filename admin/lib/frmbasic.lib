@@ -1,0 +1,19 @@
+<? $id = frm("id"); ?>
+<? require "lib/sqlmode.lib"; ?>
+<form name="f" action="<?= $site_url . "/" . $this_file ?>" method="post" <?= ($multipart ? "enctype=\"multipart/form-data\"" : "") ?>>
+	<div class="card-header">
+		<h5 class="title"><?= $modet ?> <?= $page ?></h5>
+	</div>
+	<div class="card-body">
+		<?
+		require "lib/mergei.lib";
+		require "lib/sqlbasic.lib";
+		for ($i = 0; $i < sizeof($p_list); $i++) {
+			require "lib/frmfield.lib";
+		}
+		?>
+	</div>
+	<div class="card-footer">
+		<? require "lib/frmaction.lib" ?>
+	</div>
+</form>

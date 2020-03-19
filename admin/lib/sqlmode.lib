@@ -1,0 +1,16 @@
+<?
+$mode = "";
+if ($id != "" && $can_e) {
+	$mode = "e";
+	$modet = "Edit ";
+} else if ($id != "" && !$can_e) {
+	$mode = "v";
+	$modet = "View";
+} else if ($id == "" && $can_a) {
+	$mode = "a";
+	$modet = "Add";
+} else {
+	go("login.php");
+}
+
+?>

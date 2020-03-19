@@ -1,0 +1,294 @@
+<?
+// available type 			|		available check
+// hidden 					|			-
+// split 					|			-
+// display	| lkdisplay 	|			-
+// text 	| textx 		|			req | int | dbl | email
+// pwd 						|			req
+// memo 	| memox 		|			req
+// cbx 		| cbxx 			|			req
+// cbo 						|			req
+// lkcbo 	| lkcbox 		|			req
+// rad 						|			req
+// date 	| datex 		|			req
+// tm 		| tmx 			|			req
+// upload 	| uploadx 		|			
+// cms 		| cmsx 			|			raw
+// mulsel 	| mulselx 		|			
+// split
+
+$d = "";
+$r = strpos($p_check[$i], "req") !== FALSE ? "required" : "";
+$type = "text";
+if (strpos($p_check[$i], "int") !== false || strpos($p_check[$i], "dbl") !== false) {
+	$type = "number";
+}
+if (strpos($p_check[$i], "display") !== FALSE || $can_e == 0) {
+	$d = "disabled";
+}
+
+$extra_fld_pre = "<div class='form-group'>";
+$extra_fld_post = "</div>";
+
+$extra_lbl_pre .= (isset($pre_lbl[$p_list[$i]]) ? " " . $pre_lbl[$p_list[$i]] : "");
+$extra_lbl_post .= (isset($post_lbl[$p_list[$i]]) ? " " . $post_lbl[$p_list[$i]] : "");
+$extra_fld_pre .= (isset($pre_fld[$p_list[$i]]) ? " " . $pre_fld[$p_list[$i]] : "");
+$extra_fld_post .= (isset($post_fld[$p_list[$i]]) ? " " . $post_fld[$p_list[$i]] : "");
+
+$cbo_blank = (isset($cbo_noblank[$p_list[$i]]) ? "" : "<option value=''>--- Select ---</option>");
+
+$js_func_action = "";
+
+if ($mode != "v") {
+	if ($js_func[$p_list[$i]] != "") {
+		$js_func_action = $js_func[$p_list[$i]];
+	}
+}
+
+$skip_lbl = (isset($skip_label[$p_list[$i]]) ? 1 : 0);
+$skip_lbl_l = (isset($skip_label_l[$p_list[$i]]) ? 1 : 0);
+$skip_lbl_r = (isset($skip_label_r[$p_list[$i]]) ? 1 : 0);
+
+$f_cl = "";
+$f_tp = explode("_", $p_type[$i]);
+$f_vl = $p[$p_list[$i]];
+$f_nm = $p_list[$i];
+
+$field = "";
+if ($skip_lbl || $skip_lbl_l || $p_name[$i] == "") {
+} else {
+	$c = $f_tp[0] == 'split' ? "text-uppercase admin-split" : "";
+	$field .= "<label class='" . $c . "' >";
+	$field .= $extra_lbl_pre;
+	$field .= $p_name[$i] . " ";
+	$field .= $r === '' ? '' : '*';
+	$field .= $extra_lbl_post;
+	$field .= "</label>";
+}
+$field .= $extra_fld_pre;
+
+$f_cl .= " form-control ";
+
+$f_cl .= ((strpos($p_check[$i], "int") !== false || strpos($p_check[$i], "dbl") !== false) ? " r " : "");
+
+if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
+	$field .= "<input type='hidden' id='" . $p_list[$i] . "' name='" . $p_list[$i] . "' value='" . $p[$p_list[$i]] . "' />";
+} else if ($f_tp[0] == "split") {
+	$field = "<div class='mt-4 text-center'>";
+	$field .= "<label class='text-uppercase admin-split mb-0 p-2 shadow rounded'>" . $p_name[$i] . "</label>";
+	// $field .= "<hr class='mt-0'>";
+} else if ($f_tp[0] == "display") {
+	$f_dsp = $f_vl;
+	if (strpos($p_check[$i], "int") !== false) {
+		$f_dsp = dfi($f_vl);
+	}
+	if (strpos($p_check[$i], "dbl") !== false) {
+		$f_dsp = dfd($f_vl);
+	}
+	if (strpos($p_check[$i], "date") !== false) {
+		$tmp = substr($f_vl, 0, 10);
+		if (isnulldate(rvd($tmp))) {
+			$f_dsp = "-";
+		} else {
+			$f_dsp = sdf($f_vl);
+		}
+	}
+	if (strpos($p_check[$i], "datetime") !== false) {
+		$tmp = substr($f_vl, 0, 10);
+		if (isnulldate(rvd($tmp))) {
+			$f_dsp = "-";
+		} else {
+			$f_dsp = sdtf($f_vl);
+		}
+	}
+	if ($p_check[$i] == "") {
+		$f_dsp = ($f_dsp == "" ? "-" : $f_dsp);
+	}
+	$field .= $f_dsp . "<input type='hidden' name='" . $f_nm . "' id='" . $f_nm . "' value='" . $f_vl . "'>";
+} else if ($f_tp[0] == "lkdisplay") {
+	$field .= $lklist[$f_tp[1]][$f_vl] . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+} else if ($f_tp[0] == "text" || $f_tp[0] == "textx") {
+	$f_dsp = $f_vl;
+	if (strpos($p_check[$i], "int") !== false && $error == "") {
+		// $f_dsp = dfi($f_vl);
+	}
+	if (strpos($p_check[$i], "dbl") !== false && $error == "") {
+		// $f_dsp = dfd($f_vl);
+	}
+	if (strpos($p_check[$i], "email") !== false) {
+		$type = "email";
+	}
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "textx")) {
+		$field .= $f_dsp . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<input type='" . $type . "' id='" . $f_nm . "' name='" . $f_nm . "' size='" . (isset($f_tp[1]) ? $f_tp[1] : "20") . "' class='" . ($f_cl) . "' " . $js_func_action . " onfocus='this.select();' value='" . $f_dsp . "' " . $d . ">";
+	}
+} else if ($f_tp[0] == "pwd") {
+	if ($mode == "v") {
+		$field .= pad("", "*", 8) . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<input type='password' id='" . $f_nm . "' name='" . $f_nm . "' size='" . (isset($f_tp[1]) ? $f_tp[1] : "20") . "' class='" . $f_cl . "' " . $js_func_action . " value='" . $f_vl . "' " . $d . ">";
+	}
+} else if ($f_tp[0] == "memo" || $f_tp[0] == "memox") {
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "memox")) {
+		$field .= lnbr($f_vl) . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<textarea id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' rows='" . (isset($f_tp[1]) ? $f_tp[1] : "5") . "' cols='" . (isset($f_tp[2]) ? $f_tp[2] : "50") . "' " . $js_func_action . " onfocus='this.select();' " . $d . " >" . $f_vl . "</textarea>";
+	}
+} else if ($f_tp[0] == "cbx" || $f_tp[0] == "cbxx") {
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "cbxx")) {
+		$field .= "<div class=' cbx " . ($f_vl ? "on" : "off") . "'></div><input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<div class='form-check'>";
+		$field .= "<label class='form-check-label'>";
+		$field .= "<input type='checkbox' id='" . $f_nm . "' name='" . $f_nm . "' " . $js_func_action . " " . ($f_vl ? "checked" : ($f_tp[1] && $id == 0 ? "checked" : "")) . ">";
+		$field .= $p_name[$i];
+		$field .= "<span class='form-check-sign'>";
+		$field .= "<span class='check'></span>";
+		$field .= "</span>";
+		$field .= "</label>";
+		$field .= "</div>";
+	}
+} else if ($f_tp[0] == "cbo") {
+	if ($mode == "v") {
+		$field .= $f_vl . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<select id='" . $f_nm . "' name='" . $f_nm . "' " . $js_func_action . " " . $d . " >" . $cbo_blank;
+		for ($j = 1; $j < sizeof($f_tp); $j++) {
+			$field .= "<option value='" . $f_tp[$j] . "' " . ($f_vl == $f_tp[$j] ? "selected" : "") . ">" . $f_tp[$j] . "</option>";
+		}
+		$field .= "</select>";
+	}
+} else if ($f_tp[0] == "lkcbo" || $f_tp[0] == "lkcbox") {
+	$l_nm = $f_tp[1];
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "lkcbox")) {
+		$field .= $lklist[$l_nm][$f_vl] . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<select id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " " . $d . " >" . $cbo_blank;
+		$lkkey = array_keys($lklist[$l_nm]);
+		for ($j = 0; $j < sizeof($lkkey); $j++) {
+			if ($lklist[$l_nm][$lkkey[$j]] == "") continue;
+			$field .= "<option value='" . $lkkey[$j] . "' " . ($f_vl == $lkkey[$j] ? "selected" : "") . ">" . $lklist[$l_nm][$lkkey[$j]] . "</option>";
+		}
+		$field .= "</select>";
+	}
+} else if ($f_tp[0] == "rad") {
+	if ($mode == "v") {
+		$field = $f_vl . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		for ($j = 1; $j < sizeof($f_tp); $j++) {
+			$field .= "<input id='" . $f_nm . $j . "' name='" . $f_nm . "' type='radio' " . $js_func_action . " value='" . $f_tp[$j] . "' " . ($f_vl == $f_tp[$j] ? "checked" : ($f_vl == "" && $j == 0 ? "checked" : "")) . " " . $d . " >" . $f_tp[$j];
+		}
+	}
+} else if ($f_tp[0] == "date" || $f_tp[0] == "datex") {
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "datex")) {
+		$field .= (isnulldate($f_vl) ? "-" : $f_vl) . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		if ($f_tp[1] == "") {
+		} else if ($mode == "a" && strpos($f_tp[1], "today") !== false) {
+			$f_vl = rvd(date('Y-m-d'));
+		} else if ($mode == "a" && $f_tp[1] != "") {
+			$f_vl = "'" . rvd($f_tp[1]) . "'";
+		}
+
+		$field .= "<input type='text' id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " value='" . (isnulldate($f_vl) ? "" : $f_vl) . "' " . $d . " placeholder='mm/dd/yyyy' />";
+		$post_script .= "$('#" . $f_nm . "').datepicker({showOnFocus: true});";
+	}
+} else if ($f_tp[0] == "upload" || $f_tp[0] == "uploadx") {
+	if ($f_tp[1] == "image") {
+		$field .= '<div class="fileinput ' . ($f_vl == '' ? 'fileinput-new' : 'fileinput-exists') . '" data-provides="fileinput">';
+		$field .= '<div class="fileinput-preview img-thumbnail" data-trigger="fileinput" style="width: 200px; max-height: 150px;">';
+	} else {
+		$field .= "Current : &nbsp;";
+	}
+	if ($f_tp[1] != "image" && $f_vl == "") {
+		$field .= "(none)";
+	} else {
+		if ($f_tp[1] == "image") {
+			$field .= "<img src='" . $f_vl . "' " . ($f_tp[2] != "" ? "width='" . $f_tp[2] . "'" : "") . " " . ($f_tp[3] != "" ? "height='" . $f_tp[3] . "'" : "") . "/>";
+			$field .= '</div>';
+			$field .= '<div>';
+			$field .= '<span class="btn btn-primary btn-file">';
+			$field .= '<span class="fileinput-new">Select</span>';
+			$field .= '<span class="fileinput-exists">Change</span>';
+			$field .= '</div>';
+		} else if ($f_tp[1] == "media") {
+			$field .= "<embed src='" . $f_vl . "' autostart='false' width='" . ($f_tp[2] == "" ? "250" : $f_tp[2]) . "' height='" . ($f_tp[3] == "" ? "25" : $f_tp[3]) . "'/>";
+		} else {
+			$field .= "<a href='" . $f_vl . "' target='_blank'><b>[View]</b></a>";
+		}
+	}
+
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "uploadx")) {
+		$field .= "<input type='hidden' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		if ($f_vl != "" && $f_tp[1] != "image") {
+			$field .= "&nbsp; <b id='ulrm_" . $f_nm . "'><a href='javascript:void(0);' onclick=\"gebi('ulrm_" . $f_nm . "').innerHTML='[To Remove]'; gebi('" . $f_nm . "').value='';\">[Remove]</a></b>";
+		} else {
+		}
+		$field .= "<input type='file' id='ul_" . $f_nm . "' name='ul_" . $f_nm . "' size='50'>";
+		$field .= "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	}
+	if ($f_tp[1] == "image") {
+		$field .= '</span>';
+		$field .= '<a href="javascript:void(0);" onclick="gebi(`' . $f_nm . '`).value=``;" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>';
+	}
+	$field .= '</div>';
+} else if ($f_tp[0] == "cms" || $f_tp[0] == "cmsx") {
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "cmsx")) {
+		$field .= stripslashes($f_vl) . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		if (isset($mce_init) && $mce_init != "") {
+		} else {
+			$mce_init = '
+				    selector: "textarea[cms]",
+				    height: 400,
+				    plugins: [
+				         "advlist autolink link image lists charmap print preview hr anchor pagebreak code",
+				         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+				         "save table contextmenu directionality emoticons paste textcolor"
+				   ],
+				   toolbar: "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons | code",
+				';
+?>
+			<script language="javascript" type="text/javascript" src="<?= $mce_src_url ?>/tinymce.min.js"></script>
+			<script language="javascript" type="text/javascript">
+				tinymce.init({
+					<?= $mce_init ?>
+				});
+			</script>
+<?
+		}
+		$field .= "<textarea cms id='" . $f_nm . "' name='" . $f_nm . "' rows='" . (isset($f_rt[1]) ? $f_rt[1] : "5") . "' cols='" . (isset($f_rt[2]) ? $f_rt[2] : "40") . "' " . $js_func_action . "'>" . stripslashes($f_vl) . "</textarea>";
+	}
+} else if ($f_tp[0] == 'tm' || $f_tp[0] == 'tmx') {
+	if ($mode == 'v' || ($mode == 'e' && $f_tp[0] == 'tmx')) {
+		$field .= stripslashes($f_vl) . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<input type='text' id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " value='" . (isnulldate($f_vl) ? "" : $f_vl) . "' " . $d . " placeholder='hh:mm' />";
+		$post_script .= "$('#" . $f_nm . "').timepicker({value: '" . $f_vl . "', mode: '24hr', showOnFocus: true});";
+	}
+} else if ($f_tp[0] == "lkmulsel" || $f_tp[0] == "lkmulselx") {
+	$l_nm = $f_tp[1];
+	$f_vl = explode(",", $f_vl);
+	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "lkmulselx")) {
+		$field .= $lklist[$l_nm][$f_vl] . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
+	} else {
+		$field .= "<select id='" . $f_nm . "' name='" . $f_nm . "[]' class='" . $f_cl . "' " . $js_func_action . " " . $d . " multiple>";
+		$lkkey = array_keys($lklist[$l_nm]);
+		for ($j = 0; $j < sizeof($lkkey); $j++) {
+			if ($lklist[$l_nm][$lkkey[$j]] == "") continue;
+			$field .= "<option value='" . $lkkey[$j] . "' " . (in_array($lkkey[$j], $f_vl) ? "selected" : "") . ">" . $lklist[$l_nm][$lkkey[$j]] . "</option>";
+		}
+		$field .= "</select>";
+	}
+}
+
+$field .= $extra_fld_post;
+$skip_lbl = 0;
+$skip_lbl_l = 0;
+$skip_lbl_r = 0;
+?>
+<div class="col-md-12 px-md-3">
+	<?= $field ?>
+</div>

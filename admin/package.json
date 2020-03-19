@@ -1,0 +1,22 @@
+{
+	"name": "axis-front2",
+	"version": "1.0.0",
+	"description": "Axis Stone KPI Program Front End 2",
+	"main": "index.html",
+	"directories": {
+		"example": "root"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^5.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-install": "^1.1.0",
+		"gulp-sass": "^4.0.1",
+		"gulp-sourcemaps": "^2.6.4",
+		"gulp-open": "^3.0.1"
+	}
+}

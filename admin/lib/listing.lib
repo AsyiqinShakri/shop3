@@ -1,0 +1,101 @@
+<?
+$l_class = $table_class ? " data-classes='" . $table_class . "' " : ' data-classes="" ';
+$l_search = $can_search ? ' data-search="true" ' : "";
+$l_sort = $can_sort ? ' data-sortable="true" ' : "";
+$l_sel = ($can_d !== 1 ? "" : ' data-id-field="id" data-select-item-name="id" data-click-to-select="true" ');
+$fld = "";
+?>
+<table class="table tablesorter" data-toggle="table" data-search-time-out="0" data-show-columns="true" data-show-columns-toggle-all="true" data-pagination="true" data-buttons="btn btn-sm" <?= $l_class . $l_search . $l_sort . $l_sel ?>>
+	<thead>
+		<tr>
+			<?= ($l_sel == "" ? "" : '<th data-checkbox="true"></th>'); ?>
+			<?
+			for ($i = 0; $i < sizeof($c_list); $i++) {
+				if (strpos($c_type[$i], "hidden") !== FALSE) {
+					continue;
+				}
+				$open = '<th data-field="' . $c_list[$i] . '" ' . (($l_sort != "" && $c_sort[$i] == 1) ? $l_sort : "") . '  class="' . $c_algn[$i] . '" ' . $js_func[$c_list[$i]] . ' >';
+				$close = '</th>';
+				if ($i == 0) {
+					$tmpfld = ' #';
+				} else {
+					$tmpfld = ' ' . $c_name[$i] . ' ';
+				}
+				$fld .= $open . $tmpfld . $close;
+			}
+			echo $fld;
+			?>
+			<th class="text-center"> Action </th>
+			<?= $post_action_fld ?>
+		</tr>
+	</thead>
+	<tbody>
+		<?
+		$rs = mq($sql);
+		$count = 1;
+		while ($r = mfa($rs)) { ?>
+			<?
+			if ($post_action != "") {
+				$tmp_post_action = $post_action;
+			}
+			?>
+			<? $fld = ""; ?>
+			<tr data-id="<?= $r['id'] ?>">
+				<?= ($l_sel == "" ? "" : '<td></td>'); ?>
+				<?
+				for ($i = 0; $i < sizeof($c_list); $i++) {
+					if (strpos($post_action, "#") !== FALSE) {
+						$tmp_post_action = str_replace("#id#", $r['id'], $tmp_post_action);
+						$tmp_post_action = str_replace("#" . $c_list[$i] . "#", $r[$c_list[$i]], $tmp_post_action);
+					}
+					$open = '<td class="' . $c_algn[$i] . '"> ';
+					$close = ' </td>';
+					if ($i == 0) {
+						$tmpfld = $count;
+					} else {
+						$tmpfld = $r[$c_list[$i]];
+					}
+
+					$tmp_c = "";
+					$tmp_c = $c_type[$i];
+					if ($tmp_c == "hidden") {
+						continue;
+					} else if ($tmp_c == "" && $i !== 0) {
+						$tmpfld = $tmpfld;
+					} else if ($tmp_c == "int") {
+						$tmpfld = dfi($tmpfld);
+					} else if ($tmp_c == "dbl") {
+						$tmpfld = dfd($tmpfld);
+					} else if ($tmp_c == "bool") {
+						$tmpfld = ($tmpfld ? "Yes" : "No");
+					} else if ($tmp_c == "memo") {
+						$tmpfld = lnbr($tmpfld);
+					} else if ($tmp_c == "sdf") {
+						$tmpfld = (isnulldate($tmpfld) ? "-" : sdf($tmpfld));
+					} else if ($tmp_c == "sdtf") {
+						$tmpfld = (isnulldate($tmpfld) ? "-" : sdtf($tmpfld));
+					} else if ($tmp_c == "sdfnm") {
+						$tmpfld = (isnulldate($tmpfld) ? "-" : sdfnm($tmpfld));
+					} else if ($tmp_c == "stf") {
+						$tmpfld = stf($tmpfld);
+					} else if (strpos($tmp_c, "lk_") !== false && strpos($tmp_c, "lk_") < 1) {
+						$tmp_arr = explode("_", $tmp_c);
+						$tmpfld = $lklist[$tmp_arr[1]][$r[$c_list[$i]]];
+					}
+
+					$fld .= $open . $pre_fld[$c_list[$i]] . $tmpfld . $post_fld[$c_list[$i]] . $close;
+				}
+				echo $fld;
+				?>
+				<td class="text-center">
+					<form action="<?= $site_url . "/" . $next_file ?>" method="post">
+						<input type="hidden" name="id" value="<?= $r['id'] ?>">
+						<button class="btn btn-default">View</button>
+					</form>
+				</td>
+				<?= $tmp_post_action ?>
+			</tr>
+			<? $count++; ?>
+		<? } ?>
+	</tbody>
+</table>

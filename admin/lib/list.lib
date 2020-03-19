@@ -1,0 +1,19 @@
+<div class="content">
+	<? require_once "lib/listaction.lib"; ?>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card task-container">
+				<div class="card-header">
+					<h4 class="card-title"> <?= $list_title == "" ? $page : $list_title; ?></h4>
+				</div>
+				<div class="card-body">
+					<div>
+						<? require "lib/sqldelete.lib"; ?>
+						<? require "lib/prelist.lib"; ?>
+						<? require "lib/listing.lib"; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

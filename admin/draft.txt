@@ -1,0 +1,169 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Mar 18, 2020 at 04:40 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.0.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `adr_admin`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audit`
+--
+
+CREATE TABLE `audit` (
+  `id` int(11) NOT NULL,
+  `usr` int(11) NOT NULL,
+  `tbl` text NOT NULL,
+  `rec` int(11) NOT NULL,
+  `log_dt` datetime NOT NULL,
+  `info` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `audit`
+--
+
+INSERT INTO `audit` (`id`, `usr`, `tbl`, `rec`, `log_dt`, `info`) VALUES
+(1, 0, 'template', 1, '2020-03-18 16:36:29', 'INSERT template');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `usr` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `pwd` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `name` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `designation` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `last_login` datetime NOT NULL,
+  `active` int(11) UNSIGNED NOT NULL,
+  `isadmin` int(11) UNSIGNED NOT NULL,
+  `info` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `usr`, `pwd`, `name`, `designation`, `last_login`, `active`, `isadmin`, `info`) VALUES
+(1, 'asdf', '6adc6090ce0039049d6d68eee7cb17d3', 'Asdf', 'Asdf', '2020-03-18 16:09:13', 1, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `general`
+--
+
+CREATE TABLE `general` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `url` text NOT NULL,
+  `addr1` text NOT NULL,
+  `addr2` text NOT NULL,
+  `city` text NOT NULL,
+  `state` text NOT NULL,
+  `postcode` text NOT NULL,
+  `country` int(11) NOT NULL,
+  `email` text NOT NULL,
+  `phone1` text NOT NULL,
+  `phone2` text NOT NULL,
+  `fax` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template`
+--
+
+CREATE TABLE `template` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `depar` int(11) NOT NULL,
+  `cdt` date NOT NULL,
+  `ctm` time NOT NULL,
+  `data` text NOT NULL,
+  `img` text NOT NULL,
+  `img2` text NOT NULL,
+  `img3` text NOT NULL,
+  `mulsel` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `template`
+--
+
+INSERT INTO `template` (`id`, `name`, `depar`, `cdt`, `ctm`, `data`, `img`, `img2`, `img3`, `mulsel`) VALUES
+(1, 'test', 0, '0000-00-00', '00:00:00', '', '', '', '', '0,1,2,3');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `audit`
+--
+ALTER TABLE `audit`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `general`
+--
+ALTER TABLE `general`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template`
+--
+ALTER TABLE `template`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `audit`
+--
+ALTER TABLE `audit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `general`
+--
+ALTER TABLE `general`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template`
+--
+ALTER TABLE `template`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
