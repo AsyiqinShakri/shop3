@@ -1,6 +1,8 @@
 <? require_once "common.php"; ?>
 <? $breadcrumb = 1; ?>
 <? $page = frm("name") ? frm("name") : $page; ?>
+<? $sql = "SELECT p.id, p.name, p.price, p.qty, p.img1, p.img2, p.img3, p.meta_desc, p.data, c.name as cname FROM product p, category c WHERE p.name = '" . $page . "' AND p.cat_id = c.id"; ?>
+<? $p = mfa(mq($sql)); ?>
 <? include "header.php"; ?>
 
 <!--================Single Product Area =================-->
@@ -9,32 +11,29 @@
 		<div class="row s_product_inner">
 			<div class="col-lg-6">
 				<div class="s_Product_carousel">
-					<div class="single-prd-item">
-						<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-					</div>
-					<div class="single-prd-item">
-						<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-					</div>
+					<? for ($i = 1; $i <= 3; $i++) { ?>
+						<? if ($p['img' . $i] != "") { ?>
+							<? $img = $site_url . '/' . getimg($p['img' . $i]); ?>
+							<div class="single-prd-item">
+								<img class="img-fluid" src="<?= $img ?>" alt="<?= $p['name'] ?>">
+							</div>
+						<? } ?>
+					<? } ?>
 				</div>
 			</div>
 			<div class="col-lg-5 offset-lg-1">
 				<div class="s_product_text">
-					<h3>Faded SkyBlu Denim Jeans</h3>
-					<h2><?= $currency ?>149.99</h2>
+					<h3><?= $p['name'] ?></h3>
+					<h2><?= $currency ?><?= dfd($p['price']) ?></h2>
 					<ul class="list">
-						<li><a class="active" href="#"><span>Category</span> : Household</a></li>
-						<li><a href="#"><span>Availibility</span> : In Stock</a></li>
+						<li><a class="active" href="javascript:void(0)"><span>Category</span> : <?= $p['cname'] ?></a></li>
+						<li><a href="javascript:void(0)"><span>Availibility</span> : <?= $p['qty'] ?> left </a></li>
 					</ul>
-					<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for
-						something that can make your interior look awesome, and at the same time give you the pleasant warm feeling
-						during the winter.</p>
+					<p><?= $p['meta_desc'] ?></p>
 					<div class="product_count">
 						<label for="qty">Quantity:</label>
 						<input type="number" name="qty" id="qty" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-						<button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+						<button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty < parseInt('<?= $p['qty'] ?>') ) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
 						<button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 					</div>
 					<div class="card_area d-flex align-items-center">
@@ -52,101 +51,20 @@
 	<div class="container">
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+				<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews</a>
+				<a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews</a>
 			</li>
 		</ul>
 		<div class="tab-content" id="myTabContent">
-			<div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="description-tab">
-				<p>Beryl Cook is one of Britain’s most talented and amusing artists .Beryl’s pictures feature women of all shapes
-					and sizes enjoying themselves .Born between the two world wars, Beryl Cook eventually left Kendrick School in
-					Reading at the age of 15, where she went to secretarial school and then into an insurance office. After moving to
-					London and then Hampton, she eventually married her next door neighbour from Reading, John Cook. He was an
-					officer in the Merchant Navy and after he left the sea in 1956, they bought a pub for a year before John took a
-					job in Southern Rhodesia with a motor company. Beryl bought their young son a box of watercolours, and when
-					showing him how to use it, she decided that she herself quite enjoyed painting. John subsequently bought her a
-					child’s painting set for her birthday and it was with this that she produced her first significant work, a
-					half-length portrait of a dark-skinned lady with a vacant expression and large drooping breasts. It was aptly
-					named ‘Hangover’ by Beryl’s husband and</p>
-				<p>It is often frustrating to attempt to plan meals that are designed for one. Despite this fact, we are seeing
-					more and more recipe books and Internet websites that are dedicated to the act of cooking for one. Divorce and
-					the death of spouses or grown children leaving for college are all reasons that someone accustomed to cooking for
-					more than one would suddenly need to learn how to adjust all the cooking practices utilized before into a
-					streamlined plan of cooking that is more efficient for one person creating less</p>
+			<div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+				<?= $p['data'] ?>
 			</div>
-			<div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
+			<div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
 				<div class="row">
 					<div class="col">
-						<div class="row total_rate justify-content-between">
-							<div class="col-6">
-								<div class="box_total">
-									<h5>Overall</h5>
-									<h4>4.0</h4>
-									<h6>(03 Reviews)</h6>
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="rating_list text-center">
-									<h3>Based on 3 Reviews</h3>
-									<ul class="list">
-										<li><a href="#">5 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-										<li><a href="#">4 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i> 01</a></li>
-										<li><a href="#">3 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> 01</a></li>
-										<li><a href="#">2 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> 01</a></li>
-										<li><a href="#">1 Star <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i> 01</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="review_list">
-							<div class="review_item">
-								<div class="media">
-									<div class="media-body">
-										<h4>Blake Ruiz</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o"></i>
-									</div>
-								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
-							</div>
-							<div class="review_item">
-								<div class="media">
-									<div class="media-body">
-										<h4>Blake Ruiz</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
-							</div>
-							<div class="review_item">
-								<div class="media">
-									<div class="media-body">
-										<h4>Blake Ruiz</h4>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-									commodo</p>
-							</div>
-						</div>
+						<? include "product-review.php"; ?>
 					</div>
 				</div>
 			</div>
@@ -156,6 +74,4 @@
 <!--================End Product Description Area =================-->
 
 <? include "product-related.php" ?>
-
-
 <? include "footer.php"; ?>
