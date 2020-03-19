@@ -4,7 +4,9 @@ $m_flux = array(
 
 	"Dashboard",	"index.php",		"icon-chart-pie-36",		"",
 	"Employee",		"employee.php",		"icon-badge",				"isadmin",
-	// "Applcation",	"application.php",	"icon-bulb-63",				"isadmin",
+	"Orders",		"po.php",			"icon-coins",				"isadmin",
+	"Category",		"category.php",		"icon-bullet-list-67",		"isadmin",
+	"Product",		"product.php",		"icon-app",					"isadmin",
 	"Template",		"template.php",		"icon-components",			"",
 	// "Blog",			"blog.php",			"icon-paper",				"isadmin",
 	// "Client",		"client.php",	"icon-single-02",			"",
