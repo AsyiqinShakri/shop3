@@ -14,7 +14,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Karma Shop</title>
+	<title><?= $site_name ?></title>
 	<!-- CSS ============================================= -->
 
 	<? $css = array(
@@ -24,12 +24,13 @@
 		"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css",
 		"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css",
 		// "css/owl.carousel.css",
-		// "css/nice-select.css",
+		"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css",
 		"https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css",
 		"css/nouislider.min.css",
 		"css/ion.rangeSlider.css",
 		"css/ion.rangeSlider.skinFlat.css",
 		"css/magnific-popup.css",
+		"css/loader.css",
 		"css/main.css",
 	); ?>
 
@@ -83,7 +84,7 @@
 						<li class="nav-item <?= $this_file == 'contact.php' ? 'active' : '' ?>"><a class="nav-link" href="<?= $site_url ?>/contact.php">Contact</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item <?= $this_file == 'cart.php' ? 'active' : '' ?>"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
+						<li class="nav-item <?= $this_file == 'cart.php' ? 'active' : '' ?>"><a href="<?= $site_url ?>/cart.php" class="cart"><span class="ti-bag"></span></a></li>
 						<li class="nav-item submenu dropdown">
 							<a href="#">
 								<span class="ti-user"></span></a>
@@ -130,3 +131,11 @@
 	</section>
 	<!-- End Banner Area -->
 <? } ?>
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+	<svg class="circular" width="48px" height="48px">
+		<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+		<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+	</svg>
+</div>
