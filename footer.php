@@ -85,9 +85,11 @@ $js = array(
 	"js/jquery.magnific-popup.min.js",
 	"//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js",
 	"https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE",
+	"js/bootstrap-notify.min.js",
 	"js/gmaps.min.js",
-	// "js/owl.carousel.min.js",
+	"js/common.js",
 	"js/main.js",
+	"js/shop.js",
 );
 ?>
 <? for ($i = 0; $i < sizeof($js); $i++) { ?>
