@@ -17,8 +17,8 @@ $site_name = "Company Name Here";
 $company_name = "Company Name";
 $mail_sender = "noreply@adrian.com";
 $mail_recipient = "info@adrian.com";
-$site_url = "http://adrianleong.ddns.net/personal-admin/admin";	//without www.
-$site_url = "http://localhost/personal-admin/admin";	//without www
+$site_url = "http://adrianleong.ddns.net/shop3/admin";	//without www.
+$site_url = "http://localhost/shop3/admin";	//without www
 
 $libbase = "lib/";
 $mce_src_url = "assets/tinymce/js/tinymce";
