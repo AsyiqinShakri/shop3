@@ -2011,6 +2011,10 @@ h6 {
 	position: relative;
 	overflow: hidden;
 	margin-bottom: 20px;
+	height: 255px;
+	display: flex;
+	align-items: center;
+	justify-items: center;
 }
 .single-product img {
 	display: block;
@@ -2286,10 +2290,10 @@ h6 {
 .exclusive-deal-area .exclusive-right .product-details .price h6 {
 	font-size: 14px;
 	display: inline-block;
-	padding-right: 15px;
 	margin-bottom: 15px;
 }
 .exclusive-deal-area .exclusive-right .product-details .price .l-through {
+	padding-left: 15px;
 	text-decoration: line-through;
 	color: #cccccc;
 	margin-bottom: 0;
@@ -3968,11 +3972,18 @@ label {
 	border-radius: 0;
 }
 
-.filter-bar .select2-container--default .select2-selection--single,.filter-bar .select2-container--default .select2-selection--single .select2-selection__arrow {
+.filter-bar .select2-container--default .select2-selection--single,
+.filter-bar
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__arrow {
 	height: 38px;
 }
 
-.filter-bar .select2-container--default .select2-selection--single .select2-selection__rendered {
+.filter-bar
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__rendered {
 	line-height: 38px;
 }
 
@@ -5767,7 +5778,7 @@ label {
 	margin-left: 30px;
 }
 
-@media(max-width: 425px) {
+@media (max-width: 425px) {
 	.cupon_area .genric-btn.primary {
 		width: 90%;
 		text-align: center;
