@@ -18,11 +18,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<? for ($i = 0; $i < sizeof($cart); $i++) { ?>
-							<? $name = $cart[$i]['name']; ?>
-							<? $img = $site_url . '/' . getimg($cart[$i]['img']); ?>
-							<? $price = $cart[$i]["price"]; ?>
-							<? $qty = $cart[$i]["qty"]; ?>
+						<? foreach ($cart as $item) { ?>
+							<? $name = $item['name']; ?>
+							<? $img = $site_url . '/' . getimg($item['img']); ?>
+							<? $price = $item["price"]; ?>
+							<? $qty = $item["qty"]; ?>
 							<tr>
 								<td>
 									<div class="cart-delete">
