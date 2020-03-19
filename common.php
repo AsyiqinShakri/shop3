@@ -1,5 +1,5 @@
 <?
-include "data.php";
+// include "data.php";
 // error_reporting(~E_DEPRECATED & ~E_ERROR & ~E_NOTICE & ~E_WARNING);
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -309,7 +309,7 @@ $this_page = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 // pr($_SERVER);
 
 $user = get("user");
-// $cart = get("cart") == "" ? array() : get("cart");
+$cart = get("cart") == "" ? array() : get("cart");
 $coupon = get("coupon");
 $discount = get("discount") == "" ? 0 : $discount;
 $shippingType = get("shippingType") == "" ? "" : get("shippingType") . " : ";
