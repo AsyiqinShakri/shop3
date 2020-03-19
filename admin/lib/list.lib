@@ -1,7 +1,6 @@
-<? require $libbase . "listaction.lib"; ?>
 <? require $libbase . "prefrmbasic.lib"; ?>
-<? // require $libbase . "subheader.php"; 
-?>>
+<? require $libbase . "subheader.lib"; ?>
+<? require $libbase . "listaction.lib"; ?>
 <div class="card-body">
 	<div>
 		<? require $libbase . "sqldelete.lib"; ?>
