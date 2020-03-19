@@ -5307,6 +5307,7 @@ label {
 .cart_inner .table tbody tr td .media .d-flex img {
 	border: 1px solid #eeeeee;
 	border-radius: 3px;
+	max-width: 200px;
 }
 .cart_inner .table tbody tr td .media .media-body {
 	vertical-align: middle;
