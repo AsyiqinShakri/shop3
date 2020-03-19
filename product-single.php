@@ -37,7 +37,7 @@
 						<button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="primary-btn" href="#">Add to Cart</a>
+						<a class="primary-btn" href="javascript:void(0)" data-qty="1" onclick="addToCart('<?= $p['id'] ?>')">Add to Cart</a>
 					</div>
 				</div>
 			</div>
