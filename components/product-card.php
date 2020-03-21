@@ -1,3 +1,4 @@
+<? $id = $id; ?>
 <? $name = $name; ?>
 <? $img = $img; ?>
 <? $old_price = $old_price; ?>
@@ -19,7 +20,7 @@
 			<? } ?>
 		</div>
 		<div class="prd-bottom">
-			<a href="" class="social-info">
+			<a href="javascript:void(0)" class="social-info" onclick="addToCart('<?= $id ?>', 1)">
 				<span class="ti-bag"></span>
 				<p class="hover-text">add to bag</p>
 			</a>

@@ -106,6 +106,7 @@
 				<!-- single product -->
 				<? while ($r = mfa($rs)) { ?>
 					<div class="col-lg-3 col-md-6">
+						<? $id = $r['id']; ?>
 						<? $name = $r['name']; ?>
 						<? $old_price = dfd($r['price2']); ?>
 						<? $new_price = dfd($r['price']); ?>
@@ -136,6 +137,7 @@
 				<!-- single product -->
 				<? while ($r = mfa($rs)) { ?>
 					<div class="col-lg-3 col-md-6">
+						<? $id = $r['id']; ?>
 						<? $name = $r['name']; ?>
 						<? $old_price = dfd($r['price2']); ?>
 						<? $new_price = dfd($r['price']); ?>

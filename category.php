@@ -16,6 +16,7 @@
 			<section class="lattest-product-area pb-40 category-list">
 				<div class="row">
 					<? for ($i = 0; $i < sizeof($product); $i++) { ?>
+						<? $id = $r['id']; ?>
 						<? $name = $product[$i]["name"]; ?>
 						<? $img = $site_url . '/' . getimg($product[$i]["img"]); ?>
 						<? $link = $site_url . '/product-single.php?name=' . rawurlencode($product[$i]["name"]); ?>
