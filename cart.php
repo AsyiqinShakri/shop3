@@ -19,42 +19,17 @@
 					</thead>
 					<tbody>
 						<? foreach ($cart as $item) { ?>
+							<? $id = $item['id']; ?>
 							<? $name = $item['name']; ?>
 							<? $img = $site_url . '/' . getimg($item['img']); ?>
 							<? $price = $item["price"]; ?>
 							<? $qty = $item["qty"]; ?>
-							<tr>
-								<td>
-									<div class="cart-delete">
-										<span class="lnr lnr-cross"></span>
-									</div>
-								</td>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="<?= $img ?>" alt="">
-										</div>
-										<div class="media-body">
-											<p><?= $name ?></p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5><?= $currency ?><?= dfd($price) ?></h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty<?= $i ?>" id="qty<?= $i ?>" maxlength="12" value="<?= $qty ?>" title="Quantity:" class="input-text qty">
-										<button onclick="var result = document.getElementById('qty<?= $i ?>'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-										<button onclick="var result = document.getElementById('qty<?= $i ?>'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-									</div>
-								</td>
-								<td class="text-right">
-									<h5><?= $currency ?><?= dfd($qty * $price);
-														$total += ($qty * $price); ?></h5>
-								</td>
-							</tr>
+							<? $maxQty = $item["maxQty"]; ?>
+							<? $total += ($price * $qty); ?>
+							<? include "components/cart-item.php" ?>
 						<? } ?>
+					</tbody>
+					<tfoot>
 						<tr class="bottom_button">
 							<td colspan="5" class="">
 								<div class="cupon_text d-flex align-items-center justify-content-md-end">
@@ -63,7 +38,7 @@
 								</div>
 							</td>
 						</tr>
-					</tbody>
+					</tfoot>
 				</table>
 			</div>
 			<hr>
