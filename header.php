@@ -86,11 +86,16 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="nav-item <?= $this_file == 'cart.php' ? 'active' : '' ?>"><a href="<?= $site_url ?>/cart.php" class="cart"><span class="ti-bag"></span></a></li>
 						<li class="nav-item submenu dropdown">
-							<a href="#">
+							<a href="javascript:void(0)">
 								<span class="ti-user"></span></a>
 							</a>
 							<ul class="dropdown-menu">
-								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/login.php">Login/Register</a></li>
+								<? if (!empty($user)) { ?>
+									<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/profile.php">My Profile</a></li>
+									<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/logout.php">Logout</a></li>
+								<? } else { ?>
+									<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/login.php">Login/Register</a></li>
+								<? } ?>
 							</ul>
 						</li>
 						<li class="nav-item">
