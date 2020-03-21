@@ -6108,18 +6108,12 @@ label {
 	font-size: 18px;
 	margin-bottom: 30px;
 }
-.login_form_inner .login_form {
+.login_form_inner form {
 	max-width: 385px;
 	margin: auto;
 }
-.login_form_inner.reg_form {
-	padding-top: 60px;
-}
-.login_form_inner.reg_form h3 {
-	margin-bottom: 70px;
-}
 
-.login_form .form-group input {
+.login_form_inner .form-group input {
 	height: 54px;
 	border: none;
 	border-bottom: 1px solid #cccccc;
@@ -6127,16 +6121,16 @@ label {
 	outline: none;
 	box-shadow: none;
 }
-.login_form .form-group .creat_account {
+.login_form_inner .form-group .creat_account {
 	margin-top: 10px;
 	margin-bottom: 15px;
 	text-align: left;
 }
-.login_form .form-group .creat_account input {
+.login_form_inner .form-group .creat_account input {
 	height: auto;
 	margin-right: 10px;
 }
-.login_form .form-group .primary-btn {
+.login_form_inner .form-group .primary-btn {
 	display: block;
 	border-radius: 0px;
 	line-height: 38px;
@@ -6144,10 +6138,10 @@ label {
 	text-transform: uppercase;
 	border: none;
 }
-.login_form .form-group .primary-btn:hover:before {
+.login_form_inner .form-group .primary-btn:hover:before {
 	left: 370px;
 }
-.login_form .form-group a {
+.login_form_inner .form-group a {
 	font-size: 14px;
 	color: #777777;
 	font-family: "Roboto", sans-serif;
