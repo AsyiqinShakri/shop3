@@ -9,7 +9,7 @@ $m_flux = array(
 	"Product",		"product.php",		"icon-app",					"isadmin",
 	"Template",		"template.php",		"icon-components",			"",
 	// "Blog",			"blog.php",			"icon-paper",				"isadmin",
-	// "Client",		"client.php",	"icon-single-02",			"",
+	"Member",		"member.php",	"icon-single-02",			"",
 	// "Project",		"project.php",	"icon-single-copy-04",		"",
 	"Setup",		"setup.php",		"icon-settings-gear-63",		"",
 	// "Icons",		$site_url . "/examples/icons.html",	"icon-atom",		"",
