@@ -1,0 +1,71 @@
+/* Blog Card Area css
+============================================================================================ */
+
+.blog_item {
+	margin-bottom: 40px;
+}
+
+.blog_info {
+	padding-top: 30px;
+}
+.blog_info .post_tag {
+	padding-bottom: 20px;
+}
+.blog_info .post_tag a {
+	font: 300 14px/21px "Roboto", sans-serif;
+	color: #222222;
+}
+.blog_info .post_tag a:hover {
+	color: #777777;
+}
+.blog_info .post_tag a.active {
+	color: #ffba00;
+}
+.blog_info .blog_meta li a {
+	font: 300 14px/20px "Roboto", sans-serif;
+	color: #777777;
+	vertical-align: middle;
+	padding-bottom: 12px;
+	display: inline-block;
+}
+.blog_info .blog_meta li a i {
+	color: #222222;
+	font-size: 16px;
+	font-weight: 600;
+	padding-left: 15px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+.blog_info .blog_meta li a:hover {
+	color: #ffba00;
+}
+
+.blog_post img {
+	max-width: 100%;
+}
+.blog_post .white_bg_btn {
+	border: 1px solid #eeeeee;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 0 30px;
+	line-height: 34px;
+	display: inline-block;
+	color: #222222;
+}
+
+.blog_details {
+	padding-top: 20px;
+}
+.blog_details h2 {
+	font-size: 24px;
+	line-height: 36px;
+	color: #222222;
+	font-weight: 600;
+	transition: all 0.3s linear;
+}
+.blog_details h2:hover {
+	color: #c5322d;
+}
+.blog_details p {
+	margin-bottom: 26px;
+}

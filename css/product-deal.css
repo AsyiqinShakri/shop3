@@ -1,0 +1,45 @@
+/* product-deal area css
+============================================================================================ */
+
+.single-related-product {
+	margin-bottom: 30px;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.single-related-product img {
+	width: 70px;
+	border-radius: 3px;
+}
+.single-related-product .desc {
+	margin: 0px 10px;
+	line-height: 15px;
+}
+.single-related-product .desc .price {
+	margin-top: 10px;
+}
+.single-related-product .price h6 {
+	/* font-size: 14px; */
+	display: inline-block;
+	/* padding-right: 10px; */
+	/* margin-bottom: 0px; */
+}
+.single-related-product .price .l-through {
+	text-decoration: line-through;
+	color: #cccccc;
+	margin-bottom: 0;
+}
+.single-related-product a {
+	color: #222222;
+	text-transform: uppercase;
+}
+.single-related-product:hover .desc a {
+	color: var(--primary);
+}
+
+@media (max-width: 991px) {
+	.ctg-right {
+		display: none;
+	}
+}

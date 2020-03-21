@@ -1,0 +1,64 @@
+
+.organic-breadcrumb {
+	background: url(../img/banner/common-banner.jpg) center no-repeat;
+	background-size: cover;
+	padding-top: 130px;
+}
+@media (max-width: 991px) {
+	.organic-breadcrumb {
+		padding-top: 80px;
+	}
+}
+@media (max-width: 767px) {
+	.organic-breadcrumb {
+		background: none;
+		background: -webkit-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+		background: -moz-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+		background: -o-linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+		background: linear-gradient(90deg, #ffba00 0%, #ff6c00 100%);
+	}
+}
+
+.breadcrumb-banner {
+	padding: 90px 0 100px 0;
+}
+.breadcrumb-banner h1 {
+	font-weight: 600;
+	color: #fff;
+}
+@media (max-width: 767px) {
+	.breadcrumb-banner h1 {
+		font-size: 30px;
+	}
+}
+.breadcrumb-banner p {
+	margin-bottom: 0;
+	color: #fff;
+}
+.breadcrumb-banner nav a {
+	display: inline-block;
+	color: #fff;
+	font-weight: 400;
+}
+.breadcrumb-banner nav a span {
+	display: inline-block;
+	margin: 0 10px;
+}
+.breadcrumb-banner .col-first {
+	padding-right: 15px;
+}
+@media (max-width: 1680px) {
+	.breadcrumb-banner .col-first {
+		padding-right: 40px;
+	}
+}
+@media (max-width: 991px) {
+	.breadcrumb-banner .col-first {
+		width: 48%;
+	}
+}
+@media (max-width: 767px) {
+	.breadcrumb-banner .col-first {
+		width: 100%;
+	}
+}

@@ -1,0 +1,170 @@
+/* Blog Area css
+============================================================================================ */
+
+.blog-pagination {
+	padding-top: 25px;
+	padding-bottom: 95px;
+}
+.blog-pagination .page-link {
+	border-radius: 0;
+}
+.blog-pagination .page-item {
+	border: none;
+}
+
+.page-link {
+	background: transparent;
+	font-weight: 400;
+}
+
+.blog-pagination .page-item.active .page-link {
+	color: #fff;
+}
+
+.blog-pagination .page-link {
+	position: relative;
+	display: block;
+	padding: 0.5rem 0.75rem;
+	margin-left: -1px;
+	line-height: 1.25;
+	color: #8a8a8a;
+	border: none;
+}
+
+.blog-pagination .page-link .lnr {
+	font-weight: 600;
+}
+
+.blog-pagination .page-item:last-child .page-link,
+.blog-pagination .page-item:first-child .page-link {
+	border-radius: 0;
+}
+
+.blog-pagination .page-link:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: #c5322d;
+	border-color: #eee;
+}
+
+/*============ Start Blog Single Styles  =============*/
+.single-post-area .social-links {
+	padding-top: 10px;
+}
+.single-post-area .social-links li {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.single-post-area .social-links li a {
+	color: #cccccc;
+	padding: 7px;
+	font-size: 14px;
+	transition: all 0.2s linear;
+}
+.single-post-area .social-links li a:hover {
+	color: #222222;
+}
+.single-post-area .blog_details {
+	padding-top: 26px;
+}
+.single-post-area .blog_details p {
+	margin-bottom: 10px;
+}
+.single-post-area .quotes {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	padding: 24px 35px 24px 30px;
+	background-color: white;
+	box-shadow: -20.84px 21.58px 30px 0px rgba(176, 176, 176, 0.1);
+	font-size: 14px;
+	line-height: 24px;
+	color: #777;
+	font-style: italic;
+}
+.single-post-area .arrow {
+	position: absolute;
+}
+.single-post-area .arrow .lnr {
+	font-size: 20px;
+	font-weight: 600;
+}
+.single-post-area .thumb .overlay-bg {
+	background: rgba(0, 0, 0, 0.8);
+}
+.single-post-area .navigation-area {
+	border-top: 1px solid #eee;
+	padding-top: 30px;
+	margin-top: 60px;
+}
+.single-post-area .navigation-area p {
+	margin-bottom: 0px;
+}
+.single-post-area .navigation-area h4 {
+	font-size: 18px;
+	line-height: 25px;
+	color: #222222;
+}
+.single-post-area .navigation-area .nav-left {
+	text-align: left;
+}
+.single-post-area .navigation-area .nav-left .thumb {
+	margin-right: 20px;
+	background: #000;
+}
+.single-post-area .navigation-area .nav-left .thumb img {
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.single-post-area .navigation-area .nav-left .lnr {
+	margin-left: 20px;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.single-post-area .navigation-area .nav-left:hover .lnr {
+	opacity: 1;
+}
+.single-post-area .navigation-area .nav-left:hover .thumb img {
+	opacity: 0.5;
+}
+@media (max-width: 767px) {
+	.single-post-area .navigation-area .nav-left {
+		margin-bottom: 30px;
+	}
+}
+.single-post-area .navigation-area .nav-right {
+	text-align: right;
+}
+.single-post-area .navigation-area .nav-right .thumb {
+	margin-left: 20px;
+	background: #000;
+}
+.single-post-area .navigation-area .nav-right .thumb img {
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.single-post-area .navigation-area .nav-right .lnr {
+	margin-right: 20px;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.single-post-area .navigation-area .nav-right:hover .lnr {
+	opacity: 1;
+}
+.single-post-area .navigation-area .nav-right:hover .thumb img {
+	opacity: 0.5;
+}
+@media (max-width: 991px) {
+	.single-post-area .sidebar-widgets {
+		padding-bottom: 0px;
+	}
+}

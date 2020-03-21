@@ -1,0 +1,269 @@
+/* Checkout Area css
+============================================================================================ */
+
+.cupon_area {
+	margin-bottom: 40px;
+}
+.cupon_area input {
+	margin-left: 30px;
+	max-width: 700px;
+	width: 90%;
+	display: block;
+	height: 40px;
+	border-radius: 3px;
+	padding: 0px 15px;
+	border: 1px solid #eeeeee;
+	outline: none;
+	box-shadow: none;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.cupon_area .genric-btn.primary {
+	margin-left: 30px;
+}
+
+@media (max-width: 425px) {
+	.cupon_area .genric-btn.primary {
+		width: 90%;
+		text-align: center;
+	}
+}
+
+.billing_details h3 {
+	font-size: 18px;
+	color: #222222;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+}
+.billing_details .contact_form .form-group {
+	margin-bottom: 20px;
+}
+.billing_details .contact_form .form-group input {
+	border-radius: 3px;
+	color: #777777;
+}
+.billing_details .contact_form .form-group input.placeholder {
+	color: #777777;
+}
+.billing_details .contact_form .form-group input:-moz-placeholder {
+	color: #777777;
+}
+.billing_details .contact_form .form-group input::-moz-placeholder {
+	color: #777777;
+}
+.billing_details .contact_form .form-group input::-webkit-input-placeholder {
+	color: #777777;
+}
+.billing_details .contact_form .form-group textarea {
+	/* height: 150px; */
+	border-radius: 3px;
+	/* margin-top: 15px; */
+}
+.billing_details .contact_form .form-group .country_select {
+	width: 100%;
+}
+.billing_details .contact_form .form-group .country_select span {
+	color: #777777;
+}
+.billing_details .contact_form .form-group .country_select .list {
+	width: 100%;
+	border-radius: 0px;
+}
+.billing_details .contact_form .form-group .country_select .list li {
+	font-size: 14px;
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+}
+.billing_details .contact_form .form-group .creat_account #f-option2 {
+	margin-right: 5px;
+}
+.billing_details .contact_form .form-group .creat_account #f-option3 {
+	margin-right: 5px;
+}
+.billing_details .contact_form .form-group .creat_account a {
+	color: #ffba00;
+}
+
+.order_box {
+	background: #e5ecee;
+	padding: 30px;
+}
+.order_box h2 {
+	border-bottom: 1px solid #dddddd;
+	font-size: 18px;
+	font-weight: 500;
+	color: #222222;
+	padding-bottom: 15px;
+}
+.order_box .list li {
+	font-size: 14px;
+	color: #777777;
+	font-weight: normal;
+	/* border-bottom: 1px solid #eeeeee; */
+	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+.order_box .list li span.name {
+	width: 150px;
+	line-height: 1.5;
+}
+.order_box .list li .middle {
+	color: #222222;
+}
+.order_box .list_2 li a {
+	text-transform: uppercase;
+	color: #222222;
+	font-weight: 500;
+}
+.order_box .list_2 li a span {
+	color: #777777;
+	text-transform: capitalize;
+}
+.order_box .list_2 li:last-child a span {
+	color: #222222;
+}
+.order_box .payment_item h4 {
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #222222;
+	font-weight: 500;
+	padding-left: 22px;
+	position: relative;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+.order_box .payment_item h4:before {
+	content: "";
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	border: 1px solid #cdcdcd;
+	background: #fff;
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.order_box .payment_item h4:after {
+	content: "";
+	height: 4px;
+	width: 4px;
+	background: #fff;
+	border-radius: 50%;
+	display: block;
+	position: absolute;
+	left: 5px;
+	top: 8px;
+}
+.order_box .payment_item h4 img {
+	padding-left: 60px;
+}
+.order_box .payment_item p {
+	background: #fff;
+	padding: 20px;
+}
+.order_box .payment_item.active h4:before {
+	background: #ffba00;
+	border-color: #ffba00;
+}
+.order_box .creat_account {
+	margin-bottom: 15px;
+}
+.order_box .creat_account label {
+	padding-left: 10px;
+	font-size: 12px;
+	color: #222222;
+}
+.order_box .creat_account a {
+	color: #c5322d;
+}
+.order_box .primary-btn {
+	display: block;
+	line-height: 38px;
+	text-transform: uppercase;
+	text-align: center;
+	border-radius: 2px;
+}
+.order_box .primary-btn:hover:before {
+	left: 310px;
+}
+
+
+.radion_btn input[type="radio"] {
+	position: absolute;
+	visibility: hidden;
+}
+
+.radion_btn {
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+.radion_btn img {
+	position: absolute;
+	right: 40px;
+	top: 0px;
+}
+
+.radion_btn label {
+	display: block;
+	position: relative;
+	font-weight: 300;
+	font-size: 1.35em;
+	padding: 0px 25px 21px 25px;
+	height: 14px;
+	z-index: 9;
+	cursor: pointer;
+	-webkit-transition: all 0.25s linear;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	color: #222222;
+	font-size: 13px;
+	letter-spacing: 0.25px;
+	text-transform: uppercase;
+}
+
+.radion_btn .check {
+	display: block;
+	position: absolute;
+	border: 1px solid #cdcdcd;
+	border-radius: 100%;
+	height: 14px;
+	width: 14px;
+	top: 5px;
+	left: 0px;
+	background: #fff;
+	z-index: 5;
+	transition: border 0.25s linear;
+	-webkit-transition: border 0.25s linear;
+}
+
+.radion_btn .check::before {
+	display: block;
+	position: absolute;
+	content: "";
+	border-radius: 100%;
+	height: 4px;
+	width: 4px;
+	top: 4px;
+	left: 4px;
+	margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+.radion_btn input[type="radio"]:checked ~ .check {
+	border: 1px solid #ffba00;
+	background: #ffba00;
+}
+
+.radion_btn input[type="radio"]:checked ~ .check::before {
+	background: #fff;
+}
+
+.radion_btn input[type="radio"]:checked ~ label {
+	color: #000;
+}

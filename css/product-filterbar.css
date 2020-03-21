@@ -1,0 +1,81 @@
+/* product-filterbar area css
+============================================================================================ */
+
+
+.filter-bar {
+	padding: 0px 20px 10px 20px;
+	background: #828bb3;
+}
+.filter-bar a,
+.filter-bar i {
+	color: #000;
+}
+
+.filter-bar .select2-container--default .select2-selection--single {
+	border-radius: 0;
+}
+
+.filter-bar .select2-container--default .select2-selection--single,
+.filter-bar
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__arrow {
+	height: 38px;
+}
+
+.filter-bar
+	.select2-container--default
+	.select2-selection--single
+	.select2-selection__rendered {
+	line-height: 38px;
+}
+
+.sorting {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.sorting .nice-select {
+	border-radius: 0px;
+	border: 1px solid #eee;
+	padding-right: 50px;
+}
+.sorting .nice-select:after {
+	right: 18px;
+}
+.sorting .nice-select .list {
+	border-radius: 0px;
+}
+
+
+.pagination {
+	margin-top: 10px;
+	/* border-left: 1px solid #eee; */
+	border-radius: 0px;
+}
+.pagination a {
+	width: 40px;
+	line-height: 40px;
+	text-align: center;
+	display: inline-block;
+	background: #fff;
+}
+.pagination a.active {
+	color: #fff;
+}
+.pagination a:hover {
+	color: #fff;
+}
+.pagination .dot-dot {
+	width: auto;
+	background: transparent;
+	border-top: 0px;
+	border-bottom: 0px;
+	color: #cccccc;
+	padding: 0 5px;
+}
+.pagination .dot-dot:hover {
+	background: transparent;
+	border: 0px;
+	border-right: 1px solid #eee;
+	color: #cccccc;
+}
