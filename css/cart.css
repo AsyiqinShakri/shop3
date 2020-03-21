@@ -76,7 +76,7 @@
 .cart_inner .table tbody tr td .product_count .reduced {
 	bottom: -6px;
 }
-.cart_inner .table tbody tr.bottom_button .gray_btn {
+.cart_inner .table .bottom_button .gray_btn {
 	line-height: 38px;
 	background: #e8f0f2;
 	border: 1px solid #eeeeee;
@@ -87,13 +87,10 @@
 	text-transform: uppercase;
 	font-weight: 500;
 }
-.cart_inner .table tbody tr.bottom_button td:last-child {
+.cart_inner .table .bottom_button td:last-child {
 	width: 60px;
 }
-.cart_inner .table tbody tr.bottom_button td .cupon_text {
-	/* margin-left: -446px; */
-}
-.cart_inner .table tbody tr.bottom_button td .cupon_text input {
+.cart_inner .table .bottom_button td .cupon_text input {
 	width: 200px;
 	padding: 0px 15px;
 	border-radius: 3px;
@@ -107,7 +104,7 @@
 	outline: none;
 	box-shadow: none;
 }
-.cart_inner .table tbody tr.bottom_button td .cupon_text input.placeholder {
+.cart_inner .table .bottom_button td .cupon_text input.placeholder {
 	font-size: 14px;
 	color: #cccccc;
 	font-family: "Roboto", sans-serif;
@@ -115,8 +112,7 @@
 }
 .cart_inner
 	.table
-	tbody
-	tr.bottom_button
+	.bottom_button
 	td
 	.cupon_text
 	input:-moz-placeholder {
@@ -127,8 +123,7 @@
 }
 .cart_inner
 	.table
-	tbody
-	tr.bottom_button
+	.bottom_button
 	td
 	.cupon_text
 	input::-moz-placeholder {
@@ -139,8 +134,7 @@
 }
 .cart_inner
 	.table
-	tbody
-	tr.bottom_button
+	.bottom_button
 	td
 	.cupon_text
 	input::-webkit-input-placeholder {
@@ -149,7 +143,7 @@
 	font-family: "Roboto", sans-serif;
 	font-weight: normal;
 }
-.cart_inner .table tbody tr.bottom_button td .cupon_text .primary-btn {
+.cart_inner .table .bottom_button td .cupon_text .primary-btn {
 	height: 40px;
 	line-height: 38px;
 	text-transform: uppercase;
@@ -157,10 +151,10 @@
 	margin-right: -3px;
 	border-radius: 0;
 }
-.cart_inner .table tbody tr.bottom_button td .cupon_text .gray_btn {
+.cart_inner .table .bottom_button td .cupon_text .gray_btn {
 	padding: 0px 40px;
 }
-.cart_inner .table tbody tr.shipping_area td:nth-child(3) {
+.cart_inner .table .shipping_area td:nth-child(3) {
 	vertical-align: top;
 }
 .cart_inner .shipping_area .shipping_box {
@@ -462,5 +456,19 @@
 		width: 90%;
 		margin: 5px auto;
 		text-align: center;
+	}
+	.cart_inner .table tbody tr td .product_count input {
+		height: 50px;
+	}
+	.cart_inner .table tbody tr td .product_count .increase:before {
+		height: 50px;
+		top: 2px;
+	}
+	.cart_inner .table tbody tr td .product_count .increase:after {
+		top: 26px;
+	}
+
+	.cart_inner .table tbody tr td .product_count .reduced {
+		bottom: -4px;
 	}
 }
