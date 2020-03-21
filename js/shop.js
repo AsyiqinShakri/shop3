@@ -13,7 +13,7 @@ const addToCart = async (id, qty = 0) => {
 		headers: {
 			"Content-Type": "application/json;charset=utf-8"
 		},
-		body: JSON.stringify(data)
+		body: btoa(JSON.stringify(data))
 	})
 		.then(res => res.json())
 		.then(res => {
