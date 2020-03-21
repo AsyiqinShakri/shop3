@@ -1,6 +1,8 @@
-const addToCart = async id => {
+const addToCart = async (id, qty = 0) => {
 	$("#ftco-loader").addClass("show");
-	const qty = qs("#qty").value;
+	if (qty == 0) {
+		qty = qs("#qty").value;
+	}
 	const data = {
 		req: "addToCart",
 		id,
