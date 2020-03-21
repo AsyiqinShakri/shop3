@@ -97,11 +97,7 @@ $js = array(
 	<? $link = strpos($js[$i], "//") !== FALSE ? $js[$i] : $site_url . "/" . $js[$i] . "?v=" . $v; ?>
 	<script src="<?= $link ?>"></script>
 <? } ?>
-<? if (frm("register") || frm("welcome")) { ?>
-	<script>
-		generateAlert("Welcome! <?= $user['fname'] ?>");
-	</script>
-<? } ?>
+<? include "notification.php"; ?>
 </body>
 
 </html>
