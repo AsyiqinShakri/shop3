@@ -22,7 +22,7 @@
 						<span class="placeholder" data-placeholder="Password"></span>
 					</div>
 					<div class="col-md-12 form-group">
-						<button type="submit" value="submit" class="primary-btn">login</button>
+						<button type="submit" value="submit" class="genric-btn primary">login</button>
 						<div class="creat_account">
 							<input type="checkbox" id="f-option" name="selector">
 							<label for="f-option">Remember me</label>
