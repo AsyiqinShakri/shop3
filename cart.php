@@ -40,7 +40,7 @@
 									</div>
 								</td>
 								<td>
-									<h5><?= $currency ?><?= $price ?></h5>
+									<h5><?= $currency ?><?= dfd($price) ?></h5>
 								</td>
 								<td>
 									<div class="product_count">
