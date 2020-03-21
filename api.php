@@ -62,6 +62,7 @@ if ($req->req == "register") {
 
 			$message = "Thank you for registering with us. We have sent you an email to verify your account. :-)";
 			set("message", $message);
+			set("messageType", "success");
 			$res["status"] = true;
 		}
 	}
@@ -97,6 +98,7 @@ if ($req->req == "login") {
 
 			$message = "Welcome, " . $u["fname"];
 			set("message", $message);
+			set("messageType", "success");
 			$res["status"] = true;
 		}
 	}
