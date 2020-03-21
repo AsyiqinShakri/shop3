@@ -6,7 +6,7 @@ ini_set("display_errors", 1);
 session_start();
 $db = mysqli_connect("localhost", "adr_shop3", "6SUBhF76aOAQICPZ!", "adr_shop3") or die(mysqli_connect_error());
 
-$session_pfx = "adr_shop3";
+$session_pfx = "adr_shop3_";
 $short_site_name = "Shop 3";
 $site_name = "Shop 3";
 $company_name = "Shop 3";
@@ -301,6 +301,34 @@ function pr($s)
 	echo "<pre>";
 	print_r($s);
 	echo "</pre>";
+}
+
+function sendEmail($recipient = "", $template = 0, $replace = array())
+{
+	global $site_url, $site_name, $site_email;
+	if ($recipient == "" || $template == 0) return false;
+	$sql = "SELECT * FROM email_template WHERE id = " . $template;
+	$mail = mfa(mq($sql));
+
+	$arr = array(
+		"[[now]]" => now(),
+		"[[site_url]]" => $site_url,
+		"[[site_name]]" => $site_name,
+		"[[mail_heading]]" => $mail["heading"],
+	);
+
+	$arr = array_merge($arr, $replace);
+
+	foreach ($arr as $key => $value) {
+		$mail["heading"] = str_replace($key, $value, $mail["heading"]);
+		$mail["data"] = str_replace($key, $value, $mail["data"]);
+		$mail["heading"] = str_replace($key, $value, $mail["heading"]);
+		$mail["data"] = str_replace($key, $value, $mail["data"]);
+	}
+	ini_set("sendmail_from", $site_email);
+	$result = mail($recipient, $mail["heading"], $mail["data"], "From: " . $site_email . "\r\nMIME-Version: 1.0\nContent-type: text/html\nX-Mailer: " . phpversion());
+	ini_restore("sendmail_from");
+	return $result;
 }
 
 $this_file = substr($_SERVER['PHP_SELF'], strrpos($_SERVER['PHP_SELF'], "/") + 1);
