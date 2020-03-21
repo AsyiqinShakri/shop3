@@ -34,19 +34,6 @@
 	margin-top: 10px;
 	margin-right: 10px;
 }
-.sorting .nice-select {
-	border-radius: 0px;
-	border: 1px solid #eee;
-	padding-right: 50px;
-}
-.sorting .nice-select:after {
-	right: 18px;
-}
-.sorting .nice-select .list {
-	border-radius: 0px;
-}
-
-
 .pagination {
 	margin-top: 10px;
 	/* border-left: 1px solid #eee; */

@@ -78,7 +78,6 @@ $js = array(
 	"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js",
 	"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js",
 	"https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js",
-	// "js/jquery.nice-select.min.js",
 	"js/jquery.sticky.js",
 	"js/nouislider.min.js",
 	"js/countdown.js",

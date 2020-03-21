@@ -26,8 +26,6 @@
 		"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css",
 		"https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css",
 		"css/nouislider.min.css",
-		"css/ion.rangeSlider.css",
-		"css/ion.rangeSlider.skinFlat.css",
 		"css/magnific-popup.css",
 		"css/loader.css",
 		"css/common.css",
