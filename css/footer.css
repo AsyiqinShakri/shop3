@@ -36,7 +36,7 @@
 	transition: all 0.3s ease 0s;
 }
 .footer-social a:hover i {
-	color: #ffba00;
+	color: var(--primary);
 }
 .footer-social i {
 	color: #cccccc;
@@ -160,5 +160,5 @@
 }
 .footer-text a,
 .footer-text i {
-	color: #ffba00;
+	color: var(--primary);
 }

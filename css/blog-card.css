@@ -19,7 +19,7 @@
 	color: #777777;
 }
 .blog_info .post_tag a.active {
-	color: #ffba00;
+	color: var(--primary);
 }
 .blog_info .blog_meta li a {
 	font: 300 14px/20px "Roboto", sans-serif;
@@ -37,7 +37,7 @@
 	vertical-align: middle;
 }
 .blog_info .blog_meta li a:hover {
-	color: #ffba00;
+	color: var(--primary);
 }
 
 .blog_post img {

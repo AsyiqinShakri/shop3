@@ -82,7 +82,7 @@
 	margin-right: 5px;
 }
 .billing_details .contact_form .form-group .creat_account a {
-	color: #ffba00;
+	color: var(--primary);
 }
 
 .order_box {
@@ -166,8 +166,8 @@
 	padding: 20px;
 }
 .order_box .payment_item.active h4:before {
-	background: #ffba00;
-	border-color: #ffba00;
+	background: var(--primary);
+	border-color: var(--primary);
 }
 .order_box .creat_account {
 	margin-bottom: 15px;
@@ -256,8 +256,8 @@
 }
 
 .radion_btn input[type="radio"]:checked ~ .check {
-	border: 1px solid #ffba00;
-	background: #ffba00;
+	border: 1px solid var(--primary);
+	background: var(--primary);
 }
 
 .radion_btn input[type="radio"]:checked ~ .check::before {

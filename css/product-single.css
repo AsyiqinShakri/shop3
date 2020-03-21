@@ -328,8 +328,8 @@
 	@icnlude transition;
 }
 .review_item .media .media-body .reply_btn:hover {
-	background: #ffba00;
-	border-color: #ffba00;
+	background: var(--primary);
+	border-color: var(--primary);
 	color: #fff;
 }
 .review_item p {

@@ -18,7 +18,7 @@
 	top: 0;
 	font-size: 20px;
 	line-height: 24px;
-	color: #ffba00;
+	color: var(--primary);
 	font-weight: 600;
 }
 .contact_info .info_item h6 {
@@ -73,7 +73,7 @@
 	height: 134px;
 }
 .contact_form .primary-btn {
-	background: #ffba00;
+	background: var(--primary);
 	color: #fff;
 	margin-top: 20px;
 	border: none;

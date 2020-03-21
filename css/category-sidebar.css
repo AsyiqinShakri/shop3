@@ -68,7 +68,7 @@
 	top: -5px;
 	border-radius: 50%;
 	border: 0px;
-	background: #ffba00;
+	background: var(--primary);
 	box-shadow: none;
 	cursor: pointer;
 	-webkit-transition: ease 0.1s;
@@ -80,7 +80,7 @@
 	outline: none;
 }
 .price-range-area .noUi-horizontal .noUi-handle:hover {
-	border: 3px solid #ffba00;
+	border: 3px solid var(--primary);
 	background: #fff;
 }
 .price-range-area .noUi-handle::after,
