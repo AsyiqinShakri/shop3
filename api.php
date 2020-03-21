@@ -24,6 +24,8 @@ if ($req->req == "addToCart") {
 			"id" => $id,
 			"name" => $r['name'],
 			"qty" => $qty + $cart[$id]["qty"],
+			"maxQty" => $r['qty'],
+			"currency" => $currency,
 			"price" => $r['price'],
 			"img" => $r["img1"],
 		);
@@ -32,6 +34,38 @@ if ($req->req == "addToCart") {
 		$res["status"] = true;
 		$res["message"] = "Successfully " . $qty . " nos of <b>" . $r['name'] . "</b> added to cart!";
 	}
+}
+
+if ($req->req == 'updateQty') {
+	$id = $req->id;
+	$qty = $req->qty;
+
+	if (isset($cart[$id])) {
+		$cart[$id]["qty"] = $qty;
+		$res["status"] = true;
+		$res["message"] = "Update <b>" . $cart[$id]["name"] . "</b>'s quantity!";
+		$res["cart"] = json_encode($cart);
+	} else {
+		$res["message"] = "Product not found in cart!";
+	}
+	set("cart", $cart);
+}
+
+if ($req->req == "deleteCartItem") {
+	$id = $req->id;
+
+	if (isset($cart[$id])) {
+		$res["message"] = "Removed <b>" . $cart[$id]["name"] . "</b> from cart.";
+		unset($cart[$id]);
+		$res["status"] = true;
+		$script = "";
+		$html = "";
+		$res["cart"] = json_encode($cart);
+	} else {
+		$res["message"] = "Product not found in cart!";
+	}
+
+	set("cart", $cart);
 }
 
 if ($req->req == "register") {
