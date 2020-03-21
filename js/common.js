@@ -1,11 +1,17 @@
-const apiUrl = "http://localhost/shop3/api.php";
+const siteUrl = "http://localhost/shop3";
+const apiUrl = siteUrl + "/api.php";
 
 const qs = s => {
 	return document.querySelector(s);
 };
 
-const generateAlert = (msg, type = "success") => {
+const go = s => {
+	window.location.href = s;
+};
+
+const generateAlert = (msg, type = "") => {
 	let icon = "lnr lnr-warning";
+	type = type == "" ? "success" : type;
 	if (type == "success") {
 		icon = "lnr lnr-checkmark-circle";
 	}
@@ -28,4 +34,5 @@ const generateAlert = (msg, type = "success") => {
 			}
 		}
 	);
+	$("#ftco-loader").removeClass("show");
 };
