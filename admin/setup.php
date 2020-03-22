@@ -7,6 +7,7 @@ $arr = array(
 	// link						name 					Description 							permission
 	"general_info.php?id=1", 	"General Info",			"Website General Information",			"isadmin",
 	"prefix.php",				"Prefix",				"Item Prefix",							"isadmin",
+	"voucher.php",				"Voucher",				"Voucher / Coupon",						"isadmin",
 	"email_template.php",		"Template",				"Email Template",						"isadmin",
 	"shipping.php",				"Shipping",				"Shipping Rate",						"isadmin",
 );
