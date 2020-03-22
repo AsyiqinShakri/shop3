@@ -195,8 +195,8 @@ if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
 			$f_vl = "'" . rvd($f_tp[1]) . "'";
 		}
 
-		$field .= "<input type='text' id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " value='" . (isnulldate($f_vl) ? "" : $f_vl) . "' " . $d . " placeholder='mm/dd/yyyy' />";
-		$post_script .= "$('#" . $f_nm . "').datepicker({showOnFocus: true});";
+		$field .= "<input type='text' id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " value='" . (isnulldate($f_vl) ? "" : $f_vl) . "' " . $d . " placeholder='yyyy-mm-ddy' />";
+		$post_script .= "$('#" . $f_nm . "').datepicker({showOnFocus: true, format: 'dd-mm-yyyy'});";
 	}
 } else if ($f_tp[0] == "upload" || $f_tp[0] == "uploadx") {
 	if ($f_tp[1] == "image") {
