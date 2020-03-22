@@ -156,7 +156,7 @@
 <section class="exclusive-deal-area">
 	<div class="container-fluid">
 		<div class="row justify-content-center align-items-center">
-			<div class="col-lg-6 p-0 exclusive-left">
+			<div class="col-lg-6 exclusive-left">
 				<div class="row clock_sec clockdiv" id="clockdiv">
 					<div class="col-lg-12">
 						<h1>Exclusive Hot Deal Ends Soon!</h1>
