@@ -188,14 +188,15 @@ if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
 	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "datex")) {
 		$field .= (isnulldate($f_vl) ? "-" : $f_vl) . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
 	} else {
-		if ($f_tp[1] == "") {
+		if ($f_vl != "0000-00-00" || $f_vl != "1970-01-01") {
+			$f_vl = "" . date("d-m-Y", strtotime($f_vl)) . "";
 		} else if ($mode == "a" && strpos($f_tp[1], "today") !== false) {
-			$f_vl = rvd(date('Y-m-d'));
+			$f_vl = rvd(date('d-m-Y'));
 		} else if ($mode == "a" && $f_tp[1] != "") {
-			$f_vl = "'" . rvd($f_tp[1]) . "'";
+			$f_vl = "" . rvd($f_tp[1]) . "";
 		}
 
-		$field .= "<input type='text' id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " value='" . (isnulldate($f_vl) ? "" : $f_vl) . "' " . $d . " placeholder='yyyy-mm-ddy' />";
+		$field .= "<input type='text' id='" . $f_nm . "' name='" . $f_nm . "' class='" . $f_cl . "' " . $js_func_action . " value='" . (isnulldate($f_vl) ? "" : $f_vl) . "' " . $d . " placeholder='dd-mm-yyyy' />";
 		$post_script .= "$('#" . $f_nm . "').datepicker({showOnFocus: true, format: 'dd-mm-yyyy'});";
 	}
 } else if ($f_tp[0] == "upload" || $f_tp[0] == "uploadx") {
