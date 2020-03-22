@@ -5,7 +5,25 @@ $lklist["country"] = array(
 	"United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican", "Venezuela", "Vietnam", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"
 );
 
-$lklist["state"] = array("", "Johor", "Kelantan", "Kedah", "Kuala Lumpur", "Pahang", "Penang", "Perak", "Perlis", "Sabah", "Sarawak", "Selangor", "Terengganu", "Wilayah Persekutuan Labuan", "Wilayah Persekutuan Putrajaya",);
+$lklist["state"] = array(
+	"",
+	"Johor",
+	"Kedah",
+	"Kelantan",
+	"Melaka",
+	"Negeri Sembilan",
+	"Pahang",
+	"Penang",
+	"Perak",
+	"Perlis",
+	"Sabah",
+	"Sarawak",
+	"Selangor",
+	"Terengganu",
+	"Wilayah Persekutuan Kuala Lumpur",
+	"Wilayah Persekutuan Labuan",
+	"Wilayah Persekutuan Putrajaya",
+);
 
 $lklist['curr'] = array("", "AUD", "BRL", "CAD", "CZK", "DKK", "EUR", "HKD", "HUF", "ILS", "JPY", "MYR", "MXN", "NOK", "NZD", "PHP", "PLN", "GBP", "SGD", "SEK", "CHF", "TWD", "THB", "USD");
 
