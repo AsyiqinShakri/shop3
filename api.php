@@ -27,7 +27,7 @@ if ($req->req == "addToCart") {
 			"maxQty" => $r['qty'],
 			"currency" => $currency,
 			"price" => $r['price'],
-			"img" => $r["img1"],
+			"img" => $site_url . '/' . img($r["img1"]),
 		);
 		set("cart", $cart);
 

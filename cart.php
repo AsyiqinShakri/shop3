@@ -22,7 +22,7 @@
 						<? foreach ($cart as $item) { ?>
 							<? $id = $item['id']; ?>
 							<? $name = $item['name']; ?>
-							<? $img = $site_url . '/' . getimg($item['img']); ?>
+							<? $img = $item['img']; ?>
 							<? $price = $item["price"]; ?>
 							<? $qty = $item["qty"]; ?>
 							<? $maxQty = $item["maxQty"]; ?>
