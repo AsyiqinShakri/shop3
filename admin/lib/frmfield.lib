@@ -111,11 +111,13 @@ if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
 	$field .= $lklist[$f_tp[1]][$f_vl] . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
 } else if ($f_tp[0] == "text" || $f_tp[0] == "textx") {
 	$f_dsp = $f_vl;
+	$dbl = 0;
 	if (strpos($p_check[$i], "int") !== false && $error == "") {
 		// $f_dsp = dfi($f_vl);
 	}
 	if (strpos($p_check[$i], "dbl") !== false && $error == "") {
 		// $f_dsp = dfd($f_vl);
+		$dbl = 1;
 	}
 	if (strpos($p_check[$i], "email") !== false) {
 		$type = "email";
@@ -123,7 +125,7 @@ if ($f_tp[0] == "" || $f_tp[0] == "hidden") {
 	if ($mode == "v" || ($mode == "e" && $f_tp[0] == "textx")) {
 		$field .= $f_dsp . "<input type='hidden' id='" . $f_nm . "' name='" . $f_nm . "' value='" . $f_vl . "'>";
 	} else {
-		$field .= "<input type='" . $type . "' id='" . $f_nm . "' name='" . $f_nm . "' size='" . (isset($f_tp[1]) ? $f_tp[1] : "20") . "' class='" . ($f_cl) . "' " . $js_func_action . " onfocus='this.select();' value='" . $f_dsp . "' " . $d . ">";
+		$field .= "<input type='" . $type . "' id='" . $f_nm . "' name='" . $f_nm . "' size='" . (isset($f_tp[1]) ? $f_tp[1] : "20") . "' class='" . ($f_cl) . "' " . $js_func_action . " onfocus='this.select();' value='" . $f_dsp . "' " . ($dbl ? 'step="0.01"' : '') . $d . ">";
 	}
 } else if ($f_tp[0] == "pwd") {
 	if ($mode == "v") {
