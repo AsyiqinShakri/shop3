@@ -89,7 +89,7 @@
 	line-height: 52px;
 	text-align: center;
 	border-radius: 50%;
-	box-shadow: 0 10px 20px rgba(255, 108, 0, 0.2);
+	box-shadow: 0 10px 20px var(--shadow);
 }
 .add-bag .add-btn span {
 	-webkit-transform: rotate(45deg);

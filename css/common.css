@@ -2,11 +2,12 @@
 :root {
 	--primary: #204051;
 	--secondary: #3b6978;
-	--default: var(--default);
-	--success: var(--success);
-	--info: var(--info);
-	--warning: var(--warning);
-	--danger: var(--danger);
+	--default: #f9f9ff;
+	--success: #4cd3e3;
+	--info: #38a4ff;
+	--warning: #f4e700;
+	--danger: #f44a40;
+	--shadow: rgba(32, 64, 81, 0.3);
 }
 
 body {
