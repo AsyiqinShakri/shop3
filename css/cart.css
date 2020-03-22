@@ -97,47 +97,14 @@
 	border: 1px solid #eeeeee;
 	height: 40px;
 	font-size: 14px;
-	color: #cccccc;
+	/* color: #cccccc; */
 	font-family: "Roboto", sans-serif;
 	font-weight: normal;
 	margin-right: -3px;
 	outline: none;
 	box-shadow: none;
 }
-.cart_inner .table .bottom_button td .cupon_text input.placeholder {
-	font-size: 14px;
-	color: #cccccc;
-	font-family: "Roboto", sans-serif;
-	font-weight: normal;
-}
-.cart_inner
-	.table
-	.bottom_button
-	td
-	.cupon_text
-	input:-moz-placeholder {
-	font-size: 14px;
-	color: #cccccc;
-	font-family: "Roboto", sans-serif;
-	font-weight: normal;
-}
-.cart_inner
-	.table
-	.bottom_button
-	td
-	.cupon_text
-	input::-moz-placeholder {
-	font-size: 14px;
-	color: #cccccc;
-	font-family: "Roboto", sans-serif;
-	font-weight: normal;
-}
-.cart_inner
-	.table
-	.bottom_button
-	td
-	.cupon_text
-	input::-webkit-input-placeholder {
+.cart_inner .table .bottom_button td .cupon_text input:-moz-placeholder, .cart_inner .table .bottom_button td input::-webkit-input-placeholder, .cart_inner .table .bottom_button td .cupon_text input::-moz-placeholder {
 	font-size: 14px;
 	color: #cccccc;
 	font-family: "Roboto", sans-serif;
