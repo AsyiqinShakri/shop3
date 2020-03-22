@@ -183,24 +183,7 @@ $lklist["country"] = array(
 	"United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican", "Venezuela", "Vietnam", "Wallis and Futuna", "Western Sahara", "Yemen", "Zambia", "Zimbabwe"
 );
 
-$lklist["state"] = array(
-	"Johor",
-	"Kedah",
-	"Kelantan",
-	"Melaka",
-	"Negeri Sembilan",
-	"Pahang",
-	"Penang",
-	"Perak",
-	"Perlis",
-	"Sabah",
-	"Sarawak",
-	"Selangor",
-	"Terengganu",
-	"Wilayah Persekutuan Kuala Lumpur",
-	"Wilayah Persekutuan Labuan",
-	"Wilayah Persekutuan Putrajaya",
-);
+
 
 $category = array();
 $category[] = "Shoe";
