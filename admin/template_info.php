@@ -6,7 +6,7 @@
 $p_flux = array(
 	// list			name				type				check
 	"id",			"",					"",					"",
-	"name",			"Name",				"text_5",			"req",
+	"name",			"Name",				"text",				"req",
 	"depar",		"Department",		"lkcbo_depar",		"",
 	"cdt",			"Created Date",		"date",				"",
 	"ctm",			"Created Time",		"tm",		"",
