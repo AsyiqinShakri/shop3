@@ -33,11 +33,13 @@
 			</div>
 		<? } ?>
 		<div class="cupon_area">
-			<div class="check_title">
-				<h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
-			</div>
-			<input type="text" name="coupon" placeholder="Enter coupon code" value="<?= $coupon ?>">
-			<a class="genric-btn primary text-uppercase" href="#">Apply Coupon</a>
+			<form action="" method="get" onsubmit="event.preventDefault(); applyCoupon();">
+				<div class="check_title">
+					<h2>Have a coupon?</h2>
+				</div>
+				<input type="text" id="coupon" name="coupon" placeholder="Enter coupon code" value="<?= $coupon ?>">
+				<input type="submit" class="genric-btn primary text-uppercase" value="Apply Coupon" />
+			</form>
 		</div>
 		<div class="billing_details">
 			<div class="row">
@@ -113,18 +115,29 @@
 						<ul class="list">
 							<li>Product <span>Total</span></li>
 							<? $total = 0; ?>
-							<? for ($i = 0; $i < sizeof($cart); $i++) { ?>
-								<? $sub = $cart[$i]["qty"] * $cart[$i]["price"]; ?>
+							<? foreach ($cart as $key => $value) { ?>
+								<? $sub = $value["qty"] * $value["price"]; ?>
 								<? $total += $sub; ?>
 								<li>
-									<span class="name"><?= $cart[$i]["name"] ?></span>
-									<span class="middle">x <?= $cart[$i]["qty"] ?></span>
+									<span class="name"><?= $value["name"] ?></span>
+									<span class="middle">x <?= $value["qty"] ?></span>
 									<span class="last"> <?= $currency . dfd($sub) ?> </span>
 								</li>
 							<? } ?>
+							<? if ($coupon != "") {
+								$sql = "SELECT * FROM voucher WHERE code = '" . $coupon . "' AND expiry_date > '" . date('Y-m-d') . "' AND ((once = 1 AND used = 0) || once = 0)";
+								$c = mfa(mq($sql));
+								if (!empty($c)) {
+									if ($c["disc_type"] == 1) {
+										$discount = $c["amount"];
+									} else if ($c["disc_type"] == 2) {
+										$discount = $c["amount"] / 100 * $total;
+									}
+								}
+							} ?>
 						</ul>
 						<ul class="list list_2">
-							<li>Discount <span><?= $currency ?><?= dfd($discount) ?></span></li>
+							<li>Discount <span><?= $currency ?><span class="cart-discount"><?= dfd($discount) ?></span></span></li>
 							<li>Subtotal <span><?= $currency ?><?= dfd($total) ?></span></li>
 							<li>Shipping <span><?= $shippingType ?> <?= $currency ?><?= dfd($shipping);
 																					$total += $shipping; ?></span></li>

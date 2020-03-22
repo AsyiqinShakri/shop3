@@ -138,4 +138,32 @@ if ($req->req == "login") {
 	}
 }
 
+if ($req->req == "applyCoupon") {
+	$coupon = "";
+	$code = $req->code;
+	$sql = "SELECT * FROM voucher WHERE code = '" . $code . "'";
+	$c = mfa(mq($sql));
+	if (empty($c)) {
+		$res["message"] = "Coupon not found!";
+	} else if ($c["once"] && $c["used"] > 0) {
+		$res["message"] = "Invalid Coupon!";
+	} else if ($c["member_id"] > 0 && $c["member_id"] != $user["id"]) {
+		$res["message"] = "You're not allow to use this coupon!";
+	} else if ($c["expiry_date"] != "0000-00-00" && $c["expiry_date"] < date("Y-m-d")) {
+		$res["message"] = "This coupon has expired!";
+	} else {
+		$coupon = $code;
+		$res["cart"] = json_encode($cart);
+		$res["disc_type"] = $c["disc_type"];
+		$res["discount"] = $c["amount"];
+		$res["status"] = true;
+		$res["message"] = "Coupon <b>" . $coupon . "</b> has been applied!";
+	}
+	set("coupon", $coupon);
+}
+
+if ($req->req == "updateShipping") {
+	$location = $req->location;
+}
+
 echo json_encode($res);

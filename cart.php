@@ -29,14 +29,27 @@
 							<? $total += ($price * $qty); ?>
 							<? include "components/cart-item.php" ?>
 						<? } ?>
+						<? if ($coupon != "") {
+							$sql = "SELECT * FROM voucher WHERE code = '" . $coupon . "' AND expiry_date > '" . date('Y-m-d') . "' AND ((once = 1 AND used = 0) || once = 0)";
+							$c = mfa(mq($sql));
+							if (!empty($c)) {
+								if ($c["disc_type"] == 1) {
+									$discount = $c["amount"];
+								} else if ($c["disc_type"] == 2) {
+									$discount = $c["amount"] / 100 * $total;
+								}
+							}
+						} ?>
 					</tbody>
 					<tfoot>
 						<tr class="bottom_button">
 							<td colspan="5" class="">
-								<div class="cupon_text d-flex align-items-center justify-content-md-end">
-									<input type="text" placeholder="Coupon Code">
-									<a class="primary-btn" href="#">Apply</a>
-								</div>
+								<form action="" method="get" onsubmit="event.preventDefault(); applyCoupon();">
+									<div class="cupon_text d-flex align-items-center justify-content-md-end">
+										<input type="text" placeholder="Coupon Code" id="coupon" value="<?= $coupon ?>">
+										<input type="submit" class="primary-btn" value="Apply" />
+									</div>
+								</form>
 							</td>
 						</tr>
 					</tfoot>
@@ -75,7 +88,7 @@
 						<select class="shipping_select" id="country">
 						</select> -->
 						<div class="">
-							<select class="shipping_select">
+							<select class="shipping_select" id="shippingLocation" onchange="updateShipping();">
 								<option value="">Select a State</option>
 								<? for ($i = 1; $i < sizeof($lklist["state"]); $i++) { ?>
 									<option value="<?= $i ?>"><?= $lklist["state"][$i] ?></option>
@@ -95,7 +108,7 @@
 				</div>
 				<div class="col-12 col-md-auto text-md-right">
 					<div class="checkout_btn_inner d-flex align-items-center">
-						<a class="primary-btn <?= sizeof($cart) == 0 ? 'genric-btn default text-muted disabled' : '' ?>" href="#">Proceed to checkout</a>
+						<a class="primary-btn <?= sizeof($cart) == 0 ? 'genric-btn default text-muted disabled' : '' ?>" href="<?= $site_url ?>/checkout.php">Proceed to checkout</a>
 					</div>
 				</div>
 			</div>
