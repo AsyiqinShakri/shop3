@@ -11,7 +11,7 @@ $p_flux = array(
 	"____",			"Details",			"split",			"",
 	"disc_type",	"Discount Type",	"lkcbo_disc-type",	"req",
 	"amount",		"Amount",			"text",				"reqdbl",
-	"expiry_date",	"Expiry Date",		"date",				"date",
+	"expiry_date",	"Expiry Date",		"date_today",		"date",
 	"used",			"Used",				"display",			"",
 	"once",			"Once Only",		"cbx",				"",
 	"info",			"Information",		"memo",				"",
