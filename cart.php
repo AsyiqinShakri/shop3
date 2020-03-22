@@ -1,5 +1,6 @@
 <? $breadcrumb = 1; ?>
 <? $page = "Shopping Cart"; ?>
+<? include "admin/__settings.php"; ?>
 <? include "header.php"; ?>
 <? $total = $discount = $shipping = 0; ?>
 <!--================Cart Area =================-->
@@ -76,7 +77,7 @@
 						<div class="">
 							<select class="shipping_select">
 								<option value="">Select a State</option>
-								<? for ($i = 0; $i < sizeof($lklist["state"]); $i++) { ?>
+								<? for ($i = 1; $i < sizeof($lklist["state"]); $i++) { ?>
 									<option value="<?= $i ?>"><?= $lklist["state"][$i] ?></option>
 								<? } ?>
 							</select>
@@ -94,7 +95,7 @@
 				</div>
 				<div class="col-12 col-md-auto text-md-right">
 					<div class="checkout_btn_inner d-flex align-items-center">
-						<a class="primary-btn" href="#">Proceed to checkout</a>
+						<a class="primary-btn <?= sizeof($cart) == 0 ? 'genric-btn default text-muted disabled' : '' ?>" href="#">Proceed to checkout</a>
 					</div>
 				</div>
 			</div>
