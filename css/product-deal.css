@@ -2,7 +2,7 @@
 ============================================================================================ */
 
 .single-related-product {
-	margin-bottom: 30px;
+	margin: 15px 0px;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
@@ -38,8 +38,26 @@
 	color: var(--primary);
 }
 
+.single-related-product .add-bag .add-btn {
+	height: 30px;
+	width: 30px;
+	line-height: 32px;
+}
+
+.single-related-product .add-bag .add-btn span {
+	transform: rotate(0deg);
+}
+
 @media (max-width: 991px) {
 	.ctg-right {
 		display: none;
+	}
+
+	.single-related-product img {
+width: 80px;
+	}
+
+	.single-related-product a {
+		font-size: 18px
 	}
 }

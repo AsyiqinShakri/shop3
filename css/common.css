@@ -118,6 +118,11 @@ h6 {
 	line-height: 1.5em;
 }
 
+.disabled {
+	cursor: not-allowed !important;
+	pointer-events: none !important;
+}
+
 .gray-bg {
 	background: var(--default);
 }
