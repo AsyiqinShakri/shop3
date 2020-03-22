@@ -16,8 +16,8 @@
 								<div class="banner-content">
 									<h1><?= $r['name'] ?></h1>
 									<p><?= $r['meta_desc'] ?></p>
-									<div class="add-bag d-flex align-items-center">
-										<a class="add-btn" href="javascript:void(0)" onclick="addToCart('<?= $r['id'] ?>', 1)"><span class="lnr lnr-cross"></span></a>
+									<div class="add-bag d-flex align-items-center" onclick="addToCart('<?= $r['id'] ?>', 1)">
+										<a class="add-btn" href="javascript:void(0)"><span class="lnr lnr-cross"></span></a>
 										<span class="add-text text-uppercase">Add to Bag</span>
 									</div>
 								</div>
