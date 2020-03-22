@@ -1,4 +1,5 @@
-const siteUrl = "http://localhost/shop3";
+// const siteUrl = "http://localhost/shop3";
+const siteUrl = "http://adrianleong.ddns.net/shop3";
 const apiUrl = siteUrl + "/api.php";
 
 const qs = s => {
