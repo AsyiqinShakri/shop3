@@ -1,7 +1,7 @@
 <?
 // include "data.php";
-// error_reporting(~E_DEPRECATED & ~E_ERROR & ~E_NOTICE & ~E_WARNING);
-error_reporting(E_ALL);
+error_reporting(~E_DEPRECATED & ~E_ERROR & ~E_NOTICE & ~E_WARNING);
+// error_reporting(E_ALL);
 ini_set("display_errors", 1);
 session_start();
 $db = mysqli_connect("localhost", "adr_shop3", "6SUBhF76aOAQICPZ!", "adr_shop3") or die(mysqli_connect_error());
@@ -14,7 +14,7 @@ $mail_sender = "noreply@adrian.com";
 $mail_recipient = "info@adrian.com";
 $site_email = "info@adrian.com";
 $site_url = "http://adrianleong.ddns.net/shop3";	//without www.
-$site_url = "http://localhost/shop3";	//without www.
+// $site_url = "http://localhost/shop3";	//without www.
 $site_phone = '+ 1235 2355 98';
 $site_address = "198 West 21th Street, Suite 721 New York NY 10016";
 
