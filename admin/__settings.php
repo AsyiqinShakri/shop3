@@ -32,3 +32,5 @@ $lklist["time"] = array("00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "0
 $lklist["gender"] = array("", "Male", "Female");
 
 $lklist["roles"] = array("Author", "Admin", "Accounts", "Finance", "HR");
+
+$lklist["disc-type"] = array("", "Flat Rate", "Percentage");
