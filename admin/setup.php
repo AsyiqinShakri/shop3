@@ -4,10 +4,11 @@
 <? $req_pm = "isadmin"; ?>
 <?
 $arr = array(
-	// link					name 					Description 							permission
-	"general_info.php?id=1", "General Info",		"Website General Information",			"isadmin",
-	"prefix.php",			"Prefix",				"Item Prefix",							"isadmin",
-	"email_template.php",	"Template",				"Email Template",						"isadmin",
+	// link						name 					Description 							permission
+	"general_info.php?id=1", 	"General Info",			"Website General Information",			"isadmin",
+	"prefix.php",				"Prefix",				"Item Prefix",							"isadmin",
+	"email_template.php",		"Template",				"Email Template",						"isadmin",
+	"shipping.php",				"Shipping",				"Shipping Rate",						"isadmin",
 );
 ?>
 <div class="content">
