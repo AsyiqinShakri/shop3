@@ -115,7 +115,7 @@ const refreshCart = (cart) => {
 		discount = total * (discountRate / 100);
 	}
 	discount = parseFloat(discount);
-	total = parseFloat(total);
+	total = parseFloat(total - discount);
 	if ($(".cart-total").length) {
 		qs(".cart-total").innerHTML = total.toFixed(2);
 	}

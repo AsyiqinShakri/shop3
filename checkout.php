@@ -134,14 +134,14 @@
 										$discount = $c["amount"] / 100 * $total;
 									}
 								}
+								$total -= $discount;
 							} ?>
 						</ul>
 						<ul class="list list_2">
-							<li>Discount <span><?= $currency ?><span class="cart-discount"><?= dfd($discount) ?></span></span></li>
-							<li>Subtotal <span><?= $currency ?><?= dfd($total) ?></span></li>
+							<li>Discount <span>- <?= $currency ?><span class="cart-discount"><?= dfd($discount) ?></span></span></li>
 							<li>Shipping <span><?= $shippingType ?> <?= $currency ?><?= dfd($shipping);
 																					$total += $shipping; ?></span></li>
-							<li>Total <span><?= $currency ?><?= dfd($total) ?></span></li>
+							<li>Total <span><?= $currency ?><span class="cart-total"><?= dfd($total) ?></span></span></li>
 						</ul>
 						<div class="payment_item">
 							<div class="radion_btn">
