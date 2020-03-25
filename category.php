@@ -8,12 +8,12 @@ $pg = frm("pg") == "" ? 1 : frm("pg");
 
 $w = "";
 $w .= " AND ishide <> 1 ";
-$w .= frm("search") == "" ? "" : " name LIKE '%" . frm("search") . "%'";
+$w .= frm("search") == "" ? "" : " AND name LIKE '%" . frm("search") . "%'";
 
 $o = " ";
 $o .= frm("order") == "" ? " ORDER BY price ASC " : frm("order");
 
-$limit = frm("limit") == "" ? 1 : frm("limit");
+$limit = frm("limit") == "" ? 12 : frm("limit");
 
 $l = " ";
 $l .= " LIMIT " . ($pg - 1) . ", " . $limit;
