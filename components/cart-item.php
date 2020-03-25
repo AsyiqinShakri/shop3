@@ -26,7 +26,7 @@
 	</td>
 	<td>
 		<div class="product_count">
-			<input type="text" name="qty<?= $id ?>" id="qty<?= $id ?>" maxlength="12" value="<?= $qty ?>" title="Quantity:" class="input-text qty">
+			<input type="text" name="qty<?= $id ?>" id="qty<?= $id ?>" maxlength="12" value="<?= $qty ?>" title="Quantity:" class="input-text qty" onblur="var result = document.getElementById('qty<?= $id ?>'); var qty = result.value; updateQty('<?= $id ?>', result.value); return false;">
 			<button onclick="var result = document.getElementById('qty<?= $id ?>'); var qty = result.value; if( !isNaN( qty ) && qty <= parseInt('<?= $maxQty ?>')) result.value++; updateQty('<?= $id ?>', result.value); return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
 			<button onclick="var result = document.getElementById('qty<?= $id ?>'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--; updateQty('<?= $id ?>', result.value); return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 		</div>
