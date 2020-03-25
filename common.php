@@ -22,7 +22,7 @@ $page =  isset($page) && $page != '' ? $page : $site_name;
 $currency = "RM";
 $breadcrumb = isset($breadcrumb) ? $breadcrumb : 0;
 
-$v = 0;
+$v = 0.1;
 
 //form parameters
 function hsc($s)
@@ -338,6 +338,7 @@ $this_page = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 $user = get("user");
 $cart = get("cart") == "" ? array() : get("cart");
+$c_i = sizeof($cart);
 $coupon = get("coupon");
 $discount = get("discount") == "" ? 0 : $discount;
 $shippingType = get("shippingType") == "" ? "" : get("shippingType") . " : ";
