@@ -202,8 +202,8 @@
 									<? } ?>
 								</div>
 								<h4><?= $r['name'] ?></h4>
-								<div class="add-bag d-flex align-items-center justify-content-center">
-									<a class="add-btn" href=""><span class="ti-bag"></span></a>
+								<div class="add-bag d-flex align-items-center justify-content-center" onclick="addToCart('<?= $r['id'] ?>', 1)">
+									<a class="add-btn" href="javascript:void(0)"><span class="ti-bag"></span></a>
 									<span class="add-text text-uppercase">Add to Bag</span>
 								</div>
 							</div>
