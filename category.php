@@ -3,6 +3,35 @@
 <? require_once "common.php"; ?>
 <? $page = frm("category") ? frm("category") : $page ?>
 <? include "header.php" ?>
+<?
+$pg = frm("pg") == "" ? 1 : frm("pg");
+
+$w = "";
+$w .= " AND ishide <> 1 ";
+$w .= frm("search") == "" ? "" : " name LIKE '%" . frm("search") . "%'";
+
+$o = " ";
+$o .= frm("order") == "" ? " ORDER BY price ASC " : frm("order");
+
+$limit = frm("limit") == "" ? 1 : frm("limit");
+
+$l = " ";
+$l .= " LIMIT " . ($pg - 1) . ", " . $limit;
+
+$tsql = "SELECT COUNT(*) as count FROM product WHERE id > 0 " . $w . $o;
+$tr = mfa(mq($tsql));
+$total = $tr['count'];
+
+$pages = ceil($total / $limit);
+$more_pages = 2;
+
+$start      = (($pg - $more_pages) > 0) ? $pg - $more_pages : 1;
+$end        = (($pg + $more_pages) < $pages) ? $pg + $more_pages : $pages;
+
+$sql = "SELECT * FROM product WHERE id > 0 " . $w . $o . $l;
+$products = mq($sql);
+
+?>
 
 <div class="container my-5">
 	<div class="row">
@@ -15,13 +44,13 @@
 			<!-- Start Best Seller -->
 			<section class="lattest-product-area pb-40 category-list">
 				<div class="row">
-					<? for ($i = 0; $i < sizeof($product); $i++) { ?>
-						<? $id = $r['id']; ?>
-						<? $name = $product[$i]["name"]; ?>
-						<? $img = $site_url . '/' . getimg($product[$i]["img"]); ?>
-						<? $link = $site_url . '/product-single.php?name=' . rawurlencode($product[$i]["name"]); ?>
-						<? $old_price = $product[$i]["old_price"]; ?>
-						<? $new_price = $product[$i]["new_price"]; ?>
+					<? while ($p = mfa($products)) { ?>
+						<? $id = $p['id']; ?>
+						<? $name = $p["name"]; ?>
+						<? $img = $site_url . '/' . getimg($p["img1"]); ?>
+						<? $link = $site_url . '/product-single.php?name=' . rawurlencode($p["name"]); ?>
+						<? $old_price = $p["price2"]; ?>
+						<? $new_price = $p["price"]; ?>
 						<!-- single product -->
 						<div class="col-lg-4 col-md-6">
 							<? include "components/product-card.php"; ?>
