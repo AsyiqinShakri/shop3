@@ -91,8 +91,8 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/login.php">Login</a></li>
-								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/tracking.php">Tracking</a></li>
-								<li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/elements.php">Elements</a></li>
+								<!-- <li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/tracking.php">Tracking</a></li> -->
+								<!-- <li class="nav-item"><a class="nav-link" href="<?= $site_url ?>/elements.php">Elements</a></li> -->
 							</ul>
 						</li>
 						<li class="nav-item <?= $this_file == 'contact.php' ? 'active' : '' ?>"><a class="nav-link" href="<?= $site_url ?>/contact.php">Contact</a></li>
