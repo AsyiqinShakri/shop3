@@ -98,7 +98,15 @@
 						<li class="nav-item <?= $this_file == 'contact.php' ? 'active' : '' ?>"><a class="nav-link" href="<?= $site_url ?>/contact.php">Contact</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item <?= $this_file == 'cart.php' ? 'active' : '' ?>"><a href="<?= $site_url ?>/cart.php" class="cart"><span class="ti-bag"></span></a></li>
+						<li class="nav-item <?= $this_file == 'cart.php' ? 'active' : '' ?>">
+							<a href="<?= $site_url ?>/cart.php" class="cart">
+								<span class="ti-bag position-relative">
+									<? if ($c_i > 0) { ?>
+										<small class="badge badge-danger position-absolute cart-count rounded-circle" style="top: -10px; right: -10px"><?= $c_i ?></small>
+									<? } ?>
+								</span>
+							</a>
+						</li>
 						<li class="nav-item submenu dropdown">
 							<a href="javascript:void(0)">
 								<span class="ti-user"></span></a>
