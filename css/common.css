@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500");
+
 :root {
 	--primary: #204051;
 	--secondary: #3b6978;
@@ -7,7 +8,10 @@
 	--info: #38a4ff;
 	--warning: #f4e700;
 	--danger: #f44a40;
-	--shadow: rgba(32, 64, 81, 0.3);
+	--shadow: rgba(0, 0, 0, 0.15);
+
+	--primary: #000000;
+	--secondary: #323232;
 }
 
 body {
@@ -53,6 +57,7 @@ a {
 	text-decoration: none;
 	transition: all 0.3s ease-in-out;
 }
+
 a:hover,
 a:focus {
 	text-decoration: none;
@@ -149,9 +154,7 @@ label {
 	height: 32px;
 }
 
-.select2-container--default
-	.select2-selection--single
-	.select2-selection__rendered {
+.select2-container--default .select2-selection--single .select2-selection__rendered {
 	line-height: 32px;
 	color: #777777;
 	padding-left: 15px;
@@ -165,6 +168,7 @@ label {
 		top: 50%;
 		left: 50%;
 	}
+
 	100% {
 		transform: translate(-50%, -50%) scale(3);
 		opacity: 0;
@@ -173,6 +177,7 @@ label {
 		position: absolute;
 	}
 }
+
 @-moz-keyframes click-wave {
 	0% {
 		transform: translate(-50%, -50%) scale(1);
@@ -181,6 +186,7 @@ label {
 		top: 50%;
 		left: 50%;
 	}
+
 	100% {
 		transform: translate(-50%, -50%) scale(3);
 		opacity: 0;
@@ -189,6 +195,7 @@ label {
 		position: absolute;
 	}
 }
+
 @keyframes click-wave {
 	0% {
 		transform: translate(-50%, -50%) scale(1);
@@ -197,6 +204,7 @@ label {
 		top: 50%;
 		left: 50%;
 	}
+
 	100% {
 		transform: translate(-50%, -50%) scale(3);
 		opacity: 0;
@@ -205,6 +213,7 @@ label {
 		position: absolute;
 	}
 }
+
 .pixel-radio {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -265,6 +274,7 @@ label {
 .section_gap {
 	padding: 100px 0;
 }
+
 @media (max-width: 991px) {
 	.section_gap {
 		padding: 80px 0;
@@ -274,6 +284,7 @@ label {
 .section_gap_top_75 {
 	padding: 75px 0;
 }
+
 @media (max-width: 991px) {
 	.section_gap_top_75 {
 		padding: 70px 0;
@@ -283,6 +294,7 @@ label {
 .section_gap_75 {
 	padding: 75px 0;
 }
+
 @media (max-width: 991px) {
 	.section_gap_75 {
 		padding: 70px 0;
@@ -292,6 +304,7 @@ label {
 .section_gap_top {
 	padding-top: 100px;
 }
+
 @media (max-width: 991px) {
 	.section_gap_top {
 		padding-top: 80px;
@@ -301,6 +314,7 @@ label {
 .section_gap_bottom {
 	padding-bottom: 100px;
 }
+
 @media (max-width: 991px) {
 	.section_gap_bottom {
 		padding-bottom: 80px;
@@ -313,9 +327,11 @@ label {
 .section-title {
 	margin-bottom: 50px;
 }
+
 .section-title h1 {
 	font-size: 36px;
 }
+
 .section-title p {
 	margin-bottom: 0;
 }
@@ -382,6 +398,7 @@ label {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
+
 .primary-btn:before {
 	position: absolute;
 	left: -145px;
@@ -401,9 +418,11 @@ label {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
+
 .primary-btn:hover {
 	color: #fff;
 }
+
 .primary-btn:hover:before {
 	left: 180px;
 	opacity: 0.3;
@@ -412,242 +431,242 @@ label {
 
 .genric-btn {
 	text-transform: uppercase;
-    display: inline-block;
-    outline: none;
-    line-height: 40px;
-    padding: 0 30px;
-    font-size: .8em;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 500;
-    cursor: pointer;
-    -webkit-transition: all .3s ease 0s;
-    -moz-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
-    transition: all .3s ease 0s
+	display: inline-block;
+	outline: none;
+	line-height: 40px;
+	padding: 0 30px;
+	font-size: .8em;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+	-webkit-transition: all .3s ease 0s;
+	-moz-transition: all .3s ease 0s;
+	-o-transition: all .3s ease 0s;
+	transition: all .3s ease 0s
 }
 
 .genric-btn:focus {
-    outline: none
+	outline: none
 }
 
 .genric-btn.e-large {
-    padding: 0 40px;
-    line-height: 50px
+	padding: 0 40px;
+	line-height: 50px
 }
 
 .genric-btn.large {
-    line-height: 45px
+	line-height: 45px
 }
 
 .genric-btn.medium {
-    line-height: 30px
+	line-height: 30px
 }
 
 .genric-btn.small {
-    line-height: 25px
+	line-height: 25px
 }
 
 .genric-btn.radius {
-    border-radius: 3px
+	border-radius: 3px
 }
 
 .genric-btn.circle {
-    border-radius: 20px
+	border-radius: 20px
 }
 
 .genric-btn.arrow {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center
 }
 
 .genric-btn.arrow span {
-    margin-left: 10px
+	margin-left: 10px
 }
 
 .genric-btn.default {
-    color: #222;
-    background: var(--default);
-    border: 1px solid transparent
+	color: #222;
+	background: var(--default);
+	border: 1px solid transparent
 }
 
 .genric-btn.default:hover {
-    border: 1px solid var(--default);
-    background: #fff
+	border: 1px solid var(--default);
+	background: #fff
 }
 
 .genric-btn.default-border {
-    border: 1px solid var(--default);
-    background: #fff
+	border: 1px solid var(--default);
+	background: #fff
 }
 
 .genric-btn.default-border:hover {
-    color: #222;
-    background: var(--default);
-    border: 1px solid transparent
+	color: #222;
+	background: var(--default);
+	border: 1px solid transparent
 }
 
 .genric-btn.primary {
-    color: #fff;
-    background: var(--primary);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--primary);
+	border: 1px solid transparent
 }
 
 .genric-btn.primary:hover {
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    background: #fff
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	background: #fff
 }
 
 .genric-btn.primary-border {
-    color: var(--primary);
-    border: 1px solid var(--primary);
-    background: #fff
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	background: #fff
 }
 
 .genric-btn.primary-border:hover {
-    color: #fff;
-    background: var(--primary);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--primary);
+	border: 1px solid transparent
 }
 
 .genric-btn.success {
-    color: #fff;
-    background: var(--success);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--success);
+	border: 1px solid transparent
 }
 
 .genric-btn.success:hover {
-    color: var(--success);
-    border: 1px solid var(--success);
-    background: #fff
+	color: var(--success);
+	border: 1px solid var(--success);
+	background: #fff
 }
 
 .genric-btn.success-border {
-    color: var(--success);
-    border: 1px solid var(--success);
-    background: #fff
+	color: var(--success);
+	border: 1px solid var(--success);
+	background: #fff
 }
 
 .genric-btn.success-border:hover {
-    color: #fff;
-    background: var(--success);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--success);
+	border: 1px solid transparent
 }
 
 .genric-btn.info {
-    color: #fff;
-    background: var(--info);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--info);
+	border: 1px solid transparent
 }
 
 .genric-btn.info:hover {
-    color: var(--info);
-    border: 1px solid var(--info);
-    background: #fff
+	color: var(--info);
+	border: 1px solid var(--info);
+	background: #fff
 }
 
 .genric-btn.info-border {
-    color: var(--info);
-    border: 1px solid var(--info);
-    background: #fff
+	color: var(--info);
+	border: 1px solid var(--info);
+	background: #fff
 }
 
 .genric-btn.info-border:hover {
-    color: #fff;
-    background: var(--info);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--info);
+	border: 1px solid transparent
 }
 
 .genric-btn.warning {
-    color: #fff;
-    background: var(--warning);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--warning);
+	border: 1px solid transparent
 }
 
 .genric-btn.warning:hover {
-    color: var(--warning);
-    border: 1px solid var(--warning);
-    background: #fff
+	color: var(--warning);
+	border: 1px solid var(--warning);
+	background: #fff
 }
 
 .genric-btn.warning-border {
-    color: var(--warning);
-    border: 1px solid var(--warning);
-    background: #fff
+	color: var(--warning);
+	border: 1px solid var(--warning);
+	background: #fff
 }
 
 .genric-btn.warning-border:hover {
-    color: #fff;
-    background: var(--warning);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--warning);
+	border: 1px solid transparent
 }
 
 .genric-btn.danger {
-    color: #fff;
-    background: var(--danger);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--danger);
+	border: 1px solid transparent
 }
 
 .genric-btn.danger:hover {
-    color: var(--danger);
-    border: 1px solid var(--danger);
-    background: #fff
+	color: var(--danger);
+	border: 1px solid var(--danger);
+	background: #fff
 }
 
 .genric-btn.danger-border {
-    color: var(--danger);
-    border: 1px solid var(--danger);
-    background: #fff
+	color: var(--danger);
+	border: 1px solid var(--danger);
+	background: #fff
 }
 
 .genric-btn.danger-border:hover {
-    color: #fff;
-    background: var(--danger);
-    border: 1px solid transparent
+	color: #fff;
+	background: var(--danger);
+	border: 1px solid transparent
 }
 
 .genric-btn.link {
-    color: #222;
-    background: var(--default);
-    text-decoration: underline;
-    border: 1px solid transparent
+	color: #222;
+	background: var(--default);
+	text-decoration: underline;
+	border: 1px solid transparent
 }
 
 .genric-btn.link:hover {
-    color: #222;
-    border: 1px solid var(--default);
-    background: #fff
+	color: #222;
+	border: 1px solid var(--default);
+	background: #fff
 }
 
 .genric-btn.link-border {
-    color: #222;
-    border: 1px solid var(--default);
-    background: #fff;
-    text-decoration: underline
+	color: #222;
+	border: 1px solid var(--default);
+	background: #fff;
+	text-decoration: underline
 }
 
 .genric-btn.link-border:hover {
-    color: #222;
-    background: var(--default);
-    border: 1px solid transparent
+	color: #222;
+	background: var(--default);
+	border: 1px solid transparent
 }
 
 .genric-btn.disable {
-    color: #222, .3;
-    background: var(--default);
-    border: 1px solid transparent;
-    cursor: not-allowed
+	color: #222, .3;
+	background: var(--default);
+	border: 1px solid transparent;
+	cursor: not-allowed
 }
 
 .generic-blockquote {
-    padding: 30px 50px 30px 30px;
-    background: var(--default);
-    border-left: 2px solid var(--primary)
+	padding: 30px 50px 30px 30px;
+	background: var(--default);
+	border-left: 2px solid var(--primary)
 }
 
 .slick-arrow {

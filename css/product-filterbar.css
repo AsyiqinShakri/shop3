@@ -4,8 +4,9 @@
 
 .filter-bar {
 	padding: 0px 20px 10px 20px;
-	background: #828bb3;
+	background: var(--secondary);
 }
+
 .filter-bar a,
 .filter-bar i {
 	color: #000;
@@ -16,17 +17,11 @@
 }
 
 .filter-bar .select2-container--default .select2-selection--single,
-.filter-bar
-	.select2-container--default
-	.select2-selection--single
-	.select2-selection__arrow {
+.filter-bar .select2-container--default .select2-selection--single .select2-selection__arrow {
 	height: 38px;
 }
 
-.filter-bar
-	.select2-container--default
-	.select2-selection--single
-	.select2-selection__rendered {
+.filter-bar .select2-container--default .select2-selection--single .select2-selection__rendered {
 	line-height: 38px;
 }
 
@@ -34,11 +29,13 @@
 	margin-top: 10px;
 	margin-right: 10px;
 }
+
 .pagination {
 	margin-top: 10px;
 	/* border-left: 1px solid #eee; */
 	border-radius: 0px;
 }
+
 .pagination a {
 	width: 40px;
 	line-height: 40px;
@@ -46,12 +43,15 @@
 	display: inline-block;
 	background: #fff;
 }
+
 .pagination a.active {
 	color: #fff;
 }
+
 .pagination a:hover {
 	color: #fff;
 }
+
 .pagination .dot-dot {
 	width: auto;
 	background: transparent;
@@ -60,6 +60,7 @@
 	color: #cccccc;
 	padding: 0 5px;
 }
+
 .pagination .dot-dot:hover {
 	background: transparent;
 	border: 0px;
