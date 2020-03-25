@@ -1,6 +1,5 @@
 <!-- Start Filter Bar -->
 <form action="" method="get">
-	<input type="hidden" name="search" value="<?= frm('search') ?>">
 	<div class="filter-bar d-flex flex-wrap align-items-center">
 		<div class="sorting">
 			<select class="form-control mx-2 border-0" onchange="$(this).closest('form').submit()" name="order">
@@ -10,12 +9,15 @@
 				<option <?= frm("order") == " ORDER BY id DESC " ? "selected" : "" ?> value=" ORDER BY id DESC ">Oldest</option>
 			</select>
 		</div>
-		<div class="sorting mr-auto">
+		<div class="sorting">
 			<select class="form-control mx-2 border-0" onchange="$(this).closest('form').submit()" name="limit">
 				<option <?= $limit == '12' ? 'selected' : '' ?> value="12">Show 12</option>
 				<option <?= $limit == '24' ? 'selected' : '' ?> value="24">Show 24</option>
 				<option <?= $limit == '36' ? 'selected' : '' ?> value="36">Show 36</option>
 			</select>
+		</div>
+		<div class="sorting mr-auto">
+			<input type="search" class="form-control" name="search" value="<?= frm('search') ?>">
 		</div>
 		<div class="pagination">
 			<?
