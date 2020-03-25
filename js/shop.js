@@ -24,7 +24,9 @@ const addToCart = async (id, qty = 0) => {
 		.then(res => {
 			$("#ftco-loader").removeClass("show");
 			if (res.status) {
+				const cart = JSON.parse(res.cart);
 				generateAlert(res.message);
+				qs(".cart-count").innerHTML = Object.keys(cart).length;
 			} else {
 				generateAlert(res.message, "danger");
 			}
