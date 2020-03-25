@@ -31,6 +31,7 @@ if ($req->req == "addToCart") {
 		);
 		set("cart", $cart);
 
+		$res["cart"] = json_encode($cart);
 		$res["status"] = true;
 		$res["message"] = "Successfully " . $qty . " nos of <b>" . $r['name'] . "</b> added to cart!";
 	}
