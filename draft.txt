@@ -1,0 +1,687 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Mar 31, 2020 at 11:42 AM
+-- Server version: 8.0.19-0ubuntu0.19.10.3
+-- PHP Version: 7.3.11-0ubuntu0.19.10.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Database: `adr_shop3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int NOT NULL,
+  `ishide` int NOT NULL,
+  `code` text,
+  `name` text,
+  `data` text,
+  `img` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `ishide`, `code`, `name`, `data`, `img`) VALUES
+(1, 0, 'CAT-000001', 'Nike', '<p>Nike Shoe.</p>\r\n<p>Just do it!</p>', '../uploads/03y48xk0d4cw7hhb.jpg'),
+(2, 0, 'CAT-000002', 'New Balance', '<p>Newb!</p>', '../uploads/7t9xspr30sfbyquw.jpg'),
+(3, 0, 'CAT-000003', 'Testing', 'some short data', '../img/62252610_487575735383161_8341870732820611072_n.png'),
+(4, 0, 'CAT-000004', 'new category', 'some new category', '../img/htb1c4rebsrrk1rjy1zeq6xalfxas_380x.jpg'),
+(5, 0, 'CAT-000005', 'Training', '', ''),
+(6, 0, 'CAT-000006', 'Retainer Fees', '', ''),
+(7, 0, 'CAT-000007', 'Adidas', '<p>Cool man!</p>', '../uploads/s6xpu0b19p75b9yt.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `email_template`
+--
+
+CREATE TABLE `email_template` (
+  `id` int NOT NULL,
+  `heading` text NOT NULL,
+  `code` text NOT NULL,
+  `name` text NOT NULL,
+  `data` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `email_template`
+--
+
+INSERT INTO `email_template` (`id`, `heading`, `code`, `name`, `data`) VALUES
+(1, '[[site_name]] - Account Verification ([[now]])', 'verify', 'Email Verification', '<table border=\"0\" width=\"100%\" bgcolor=\"#F1F1F1\">\r\n<tbody>\r\n<tr>\r\n<td height=\"399\">\r\n<table style=\"padding: 40px;\" border=\"0\" width=\"70%\" align=\"center\" bgcolor=\"#FFF\">\r\n<tbody>\r\n<tr>\r\n<td align=\"left\">\r\n<h1>[[mail_heading]]</h1>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td style=\"border-top: 2px solid #0071a2;\"><br />\r\n<p>Dear [[email]],</p>\r\n<p>Thank you for creating an account on [[site_name]].</p>\r\n<p>You can access your account area to view orders, change your password and more.</p>\r\n<p>We look forward to seeing your soon.</p>\r\n<p>To verify your account, simply click on the link below:</p>\r\n<p><a href=\"[[link1]]\" target=\"_blank\" rel=\"noopener\">[[link1]]</a> <br /><br /></p>\r\nWarmest regards,<br />[[site_name]] Team<br /><br /></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>'),
+(2, '[[site_name]] - Order [[order_no]] Confirmed', 'order-confirmed', 'Order Confirmed', '<table border=\"0\" width=\"100%\" bgcolor=\"#F1F1F1\">\r\n<tbody>\r\n<tr>\r\n<td height=\"399\">\r\n<table style=\"padding: 40px;\" border=\"0\" width=\"70%\" align=\"center\" bgcolor=\"#FFF\">\r\n<tbody>\r\n<tr>\r\n<td align=\"left\">\r\n<h1>[[mail_heading]]</h1>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td style=\"border-top: 2px solid #0071a2;\"><br />\r\n<p>Dear [[email]],</p>\r\n<p>Thank you for your order at [[site_name]].</p>\r\n<p>We have received your payment for Order [[order_no]].</p>\r\n<p>You can view your order details with the link below.</p>\r\n<p><a href=\"[[link1]]\">[[link1]]</a></p>\r\n<p>Your order will be shipped within 3 - 5 business days.</p>\r\n<p>Thank you for shopping with us. We are excited to process your order.</p>\r\nWarmest regards,<br />[[site_name]] Team<br /><br /></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>'),
+(3, '[[site_name]] - Reset Password [[now]]', 'forgot', 'Forgot Password', '<p>&nbsp;</p>\r\n<table border=\"0\" width=\"100%\" bgcolor=\"#F1F1F1\">\r\n<tbody>\r\n<tr>\r\n<td height=\"399\">\r\n<table style=\"padding: 40px;\" border=\"0\" width=\"70%\" align=\"center\" bgcolor=\"#FFF\">\r\n<tbody>\r\n<tr>\r\n<td align=\"left\">\r\n<h1 style=\"color: #0071a2; font-family: \'Helvetica Neue\',Helvetica,Arial,sans-serif;\">[[mail_heading]]</h1>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td style=\"border-top: 2px solid #0071A2;\"><br />\r\n<p>Hello [[email]],<br /><br />We received your request to reset and update your password for account. <br />To reset, simply click the link below in your browser.<br /><br />[[link]]<br /><br />If you did not make this request, you can ignore this email.<br />Regards,<br /><br />[[site_name]] Team</p>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int UNSIGNED NOT NULL,
+  `usr` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `pwd` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `name` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `designation` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `last_login` datetime NOT NULL,
+  `active` int UNSIGNED NOT NULL,
+  `isadmin` int UNSIGNED NOT NULL,
+  `info` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `skey` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `usr`, `pwd`, `name`, `designation`, `last_login`, `active`, `isadmin`, `info`, `skey`) VALUES
+(1, 'admin', '412562d5736b54ad696f4e1a301021e0', 'Administrator', 'Administrator', '2020-03-25 12:36:34', 1, 1, '-', 'g39xw3uskg0qvvqz9v5yw214pydmhanr'),
+(2, 'asdf', '18abe4db16fafd04dc5e8c6e5dbeaa3e', 'asdf', 'asdf', '2020-03-26 17:27:13', 1, 1, '', '2qmt64svp5j9sv8xuemk9j97q1rxc3w4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member`
+--
+
+CREATE TABLE `member` (
+  `id` int UNSIGNED NOT NULL,
+  `usr` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `pwd` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `fname` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `lname` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `addr` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `addr2` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `state` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `postcode` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `country` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `phone` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `dob` date NOT NULL,
+  `email` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `cdt` datetime NOT NULL,
+  `code` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `point` int UNSIGNED NOT NULL,
+  `verify` int NOT NULL,
+  `block` int NOT NULL,
+  `forgot` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`id`, `usr`, `pwd`, `fname`, `lname`, `addr`, `addr2`, `state`, `postcode`, `country`, `phone`, `dob`, `email`, `cdt`, `code`, `point`, `verify`, `block`, `forgot`) VALUES
+(2, '', '826e120e94b1493f014f7dd12b04c6c5', 'Adrian', 'Leong', '', '', '', '', '', '', '0000-00-00', 'adrian@rubysoft.com.my', '2020-03-21 17:00:33', '', 0, 1, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page`
+--
+
+CREATE TABLE `page` (
+  `id` int NOT NULL,
+  `code` text NOT NULL,
+  `name` text NOT NULL,
+  `data` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `page`
+--
+
+INSERT INTO `page` (`id`, `code`, `name`, `data`) VALUES
+(1, 'home', 'home', '<p class=\"testred\">sample content for home page</p>\r\n<p class=\"testred\">&nbsp;</p>\r\n<p class=\"testred\">&nbsp;</p>'),
+(15, 'T&amp;C', 'Terms &amp; Condition', '<h1>Terms &amp; Conditions</h1>\r\n<p>&nbsp;</p>\r\n<p>Our policy lasts 30 days. If 30 days have gone by since your purchase, unfortunately we can&rsquo;t offer you a refund or exchange.<br /><br />To be eligible for a return, your item must be unused and in the same condition that you received it. It must also be in the original packaging.<br /><br />Several types of goods are exempt from being returned. Perishable goods such as food, flowers, newspapers or magazines cannot be returned. We also do not accept products that are intimate or sanitary goods, hazardous materials, or flammable liquids or gases.<br /><br />Additional non-returnable items:<br />Gift cards<br />Downloadable software products<br />Some health and personal care items<br /><br />To complete your return, we require a receipt or proof of purchase.<br /><br />Please do not send your purchase back to the manufacturer.<br /><br />There are certain situations where only partial refunds are granted (if applicable)<br />Book with obvious signs of use<br />CD, DVD, VHS tape, software, video game, cassette tape, or vinyl record that has been opened<br />Any item not in its original condition, is damaged or missing parts for reasons not due to our error<br />Any item that is returned more than 30 days after delivery<br /><br />Refunds (if applicable)<br />Once your return is received and inspected, we will send you an email to notify you that we have received your returned item. We will also notify you of the approval or rejection of your refund.<br />If you are approved, then your refund will be processed, and a credit will automatically be applied to your credit card or original method of payment, within a certain amount of days.<br /><br />Late or missing refunds (if applicable)<br />If you haven&rsquo;t received a refund yet, first check your bank account again.<br />Then contact your credit card company, it may take some time before your refund is officially posted.<br />Next contact your bank. There is often some processing time before a refund is posted.<br />If you&rsquo;ve done all of this and you still have not received your refund yet, please contact us at [[site_email]].<br /><br />Sale items (if applicable)<br />Only regular priced items may be refunded, unfortunately sale items cannot be refunded.<br /><br />Exchanges (if applicable)<br />We only replace items if they are defective or damaged. If you need to exchange it for the same item, send us an email at [[site_email]].<br /><br />Gifts<br />If the item was marked as a gift when purchased and shipped directly to you, you&rsquo;ll receive a gift credit for the value of your return. Once the returned item is received, a gift certificate will be mailed to you.<br /><br />If the item wasn&rsquo;t marked as a gift when purchased, or the gift giver had the order shipped to themselves to give to you later, we will send a refund to the gift giver and he will find out about your return.<br /><br />You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund.<br /><br />Depending on where you live, the time it may take for your exchanged product to reach you, may vary.<br /><br />If you are shipping an item over $75, you should consider using a trackable shipping service or purchasing shipping insurance. We don&rsquo;t guarantee that we will receive your returned item.</p>'),
+(16, 'delivery', 'Delivery Policy', '<ol>\r\n<li>\r\n<p>We aim to deliver the product to your shipping address. However, please note that it might not be possible for us to deliver to some locations as requested in your order. If this is the case, we will inform you using the contact details that you provide to us when you place your order and arrange for cancellation of the order or delivery to an alternative shipping address.</p>\r\n</li>\r\n<li>\r\n<p>We endeavor to deliver within the stipulated time frame of any order but we cannot guarantee any firm delivery dates and we would update you accordingly if we could reasonably foresee that we are unable to meet our estimated delivery date, but, to the extent permitted by law, we shall not be liable to you for any losses, liabilities, costs, damages, charges or expenses arising out of late delivery.</p>\r\n</li>\r\n<li>\r\n<p>We only deliver all products in our standard packaging.</p>\r\n</li>\r\n<li>\r\n<p>All risk in the product shall pass to you upon delivery, except that, where delivery is delayed due to a breach of your obligations under a contract, risk shall pass at the date when delivery would have occurred but for your breach. From the time when risk passes to you, we will not be liable for loss or destruction of the product.</p>\r\n</li>\r\n<li>\r\n<p>You must be careful when opening the product so as not to damage it, particularly when using any sharp instruments.</p>\r\n</li>\r\n<li>\r\n<p>If you are not available to take delivery or collection, we may leave a card giving you instructions on either re-delivery or collection from the carrier.</p>\r\n</li>\r\n<li>\r\n<p>You are obliged to take all reasonable steps to ensure the safety standards and the general appropriateness of the product offered to you. You shall exercise your due care and diligence when using the product for yourself and/or any third party, and to the extent permitted by laws, you shall release from and indemnify us against all liability, cost, loss and/or expenses arising out of your use any of any of the products including (but not limited to) loss of income, loss of opportunity, personal injury and damage to your property, whether direct or consequential or, foreseeable, due to some negligent act or omission or otherwise.</p>\r\n</li>\r\n</ol>'),
+(17, 'refund', 'Refund Policy', '<ol>\r\n<li>All returned items must be unworn, unwashed, complete with original tags and/or packaging if applicable.<br /><br /></li>\r\n<li>We are not responsible for the return shipping costs of the items.<br /><br /></li>\r\n<li>All Items must be in original, resalable condition.<br /><br /></li>\r\n<li>Please make sure all returned items are well packaged, so as not to be damaged in the post.<br /><br /></li>\r\n<li>Please make sure all return packages are sent with a trackable, insured service.<br /><br /></li>\r\n<li>We cannot take responsibility for items damaged or lost in the return transit.</li>\r\n</ol>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pfx`
+--
+
+CREATE TABLE `pfx` (
+  `id` int NOT NULL,
+  `name` text,
+  `pfx` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pfx`
+--
+
+INSERT INTO `pfx` (`id`, `name`, `pfx`) VALUES
+(1, 'Category', 'CAT'),
+(2, 'PO/Invoice', 'INV'),
+(3, 'Product', 'P');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `po`
+--
+
+CREATE TABLE `po` (
+  `id` int UNSIGNED NOT NULL,
+  `code` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `member_id` int UNSIGNED NOT NULL,
+  `po_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `pay_datetime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `pay_info` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `pay_type` int NOT NULL,
+  `amount1` double NOT NULL,
+  `amount2` double NOT NULL,
+  `grand` double NOT NULL,
+  `status` int UNSIGNED NOT NULL,
+  `coupon` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `tracking` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `fname` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `lname` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `addr` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `addr2` text NOT NULL,
+  `state` text NOT NULL,
+  `postcode` text NOT NULL,
+  `country` text NOT NULL,
+  `phone` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `email` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `info` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `last_updated` datetime NOT NULL,
+  `updated_by` int NOT NULL,
+  `rnd_id` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `po`
+--
+
+INSERT INTO `po` (`id`, `code`, `member_id`, `pay_datetime`, `pay_info`, `pay_type`, `amount1`, `amount2`, `grand`, `status`, `coupon`, `tracking`, `fname`, `lname`, `addr`, `addr2`, `state`, `postcode`, `country`, `phone`, `email`, `info`, `last_updated`, `updated_by`, `rnd_id`) VALUES
+(20, 'INV000020', 6, '0000-00-00 00:00:00', 'Belantara Coffee - 5nos - 250g', 1, 190, 13, 203, 0, '', '', 'Adrian', 'Leong', '11-2A, JALAN PJU 1/3B, ', 'SUNWAY MAS COMMERCIAL CENTER', 'SELANGOR', '47301', 'Malaysia', '173628265', 'adrian@rubysoft.com.my', '', '0000-00-00 00:00:00', 0, 'ecart_shop0zrzf1r2'),
+(21, 'INV000021', 0, '0000-00-00 00:00:00', '', 2, 0, 1, 1, 0, '', '', 'Norhafizah', 'Saffian', 'Apartment  Vista Subang, 12-07', 'JLN PJU 1A/43', 'Selangor', '47301', 'Malaysia', '0132366730', '', '', '0000-00-00 00:00:00', 0, 'ecart_shopny8fb3h9');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `po_info`
+--
+
+CREATE TABLE `po_info` (
+  `id` int UNSIGNED NOT NULL,
+  `info` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `po_id` int UNSIGNED NOT NULL,
+  `product_id` int UNSIGNED NOT NULL,
+  `price` double NOT NULL,
+  `price2` double NOT NULL,
+  `qty` int UNSIGNED NOT NULL,
+  `weight` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `po_info`
+--
+
+INSERT INTO `po_info` (`id`, `info`, `po_id`, `product_id`, `price`, `price2`, `qty`, `weight`) VALUES
+(9, 'Quantity :5nos\nWeight : 250g', 20, 3, 190, 0, 5, 250);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int NOT NULL,
+  `cat_id` int DEFAULT NULL,
+  `code` text,
+  `name` text,
+  `keyword` text,
+  `meta_desc` text,
+  `data` text,
+  `info1` text,
+  `info2` text,
+  `img1` text,
+  `img2` text,
+  `img3` text,
+  `ishomebanner` int DEFAULT NULL,
+  `isupcoming` int DEFAULT NULL,
+  `isexclu` int NOT NULL,
+  `islatest` int DEFAULT NULL,
+  `isdeal` int NOT NULL,
+  `ishide` int DEFAULT NULL,
+  `pstatus` int DEFAULT NULL,
+  `qty` int DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `price2` double NOT NULL,
+  `weight` double DEFAULT NULL,
+  `remarks` text,
+  `iscustomurl` int DEFAULT NULL,
+  `customurl` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `cat_id`, `code`, `name`, `keyword`, `meta_desc`, `data`, `info1`, `info2`, `img1`, `img2`, `img3`, `ishomebanner`, `isupcoming`, `isexclu`, `islatest`, `isdeal`, `ishide`, `pstatus`, `qty`, `price`, `price2`, `weight`, `remarks`, `iscustomurl`, `customurl`) VALUES
+(68, 7, 'bean2', 'Adidas Shoe', 'a shoe', 'shoe shoe shoe', '<p>Good quality shoe</p>', '', '', '../uploads/zcw5se6a1b6a9f5r.png', '', '', 1, 0, 1, 1, 1, 0, 0, 20, 50, 90, 250, 'gooood', 0, ''),
+(69, 1, 'beans3', 'Nike', 'nike shoe', 'Just Do IT!', '<p>Do IT!</p>', '', '', '../uploads/axd10ybkzssyf1aw.png', '', '', 1, 1, 0, 1, 0, 0, 0, 2, 38, 0, 250, '', 0, ''),
+(70, 2, 'Beans1', 'NewB', 'newb, new balance', 'newB', '<p>Niu Bi!</p>', '', '', '../uploads/cy5khmxyqsfbqdgc.jpg', '', '', 0, 1, 0, 1, 1, 0, 0, 0, 25, 0, 250, 'coffee', 0, ''),
+(73, 3, 'P-000073', 'Shoe Lo', 'haiz', 'asdf', '<p>tetete</p>', NULL, NULL, '../uploads/g8g70qj872w83gcu.jpg', '', '', 0, 0, 1, 0, 1, 0, NULL, 4, 250, 500, 150, NULL, NULL, NULL),
+(74, 5, 'P-000074', 'Exclusive', 'he', 'aha', '<p>yes!</p>', NULL, NULL, '../uploads/qd61s01vmujravxe.jpg', '', '', 0, 0, 1, 0, 1, 0, NULL, 1, 1200, 1900, 500, NULL, NULL, NULL),
+(75, 7, 'bean2', 'Adidas Shoe', 'a shoe', 'shoe shoe shoe', '<p>Good quality shoe</p>', '', '', '../uploads/zcw5se6a1b6a9f5r.png', '', '', 1, 0, 1, 1, 1, 0, 0, 20, 50, 90, 250, 'gooood', 0, ''),
+(76, 1, 'beans3', 'Nike', 'nike shoe', 'Just Do IT!', '<p>Do IT!</p>', '', '', '../uploads/axd10ybkzssyf1aw.png', '', '', 1, 1, 0, 1, 0, 0, 0, 2, 38, 0, 250, '', 0, ''),
+(77, 2, 'Beans1', 'NewB', 'newb, new balance', 'newB', '<p>Niu Bi!</p>', '', '', '../uploads/cy5khmxyqsfbqdgc.jpg', '', '', 0, 1, 0, 1, 1, 0, 0, 0, 25, 0, 250, 'coffee', 0, ''),
+(78, 3, 'P-000073', 'Shoe Lo', 'haiz', 'asdf', '<p>tetete</p>', NULL, NULL, '../uploads/g8g70qj872w83gcu.jpg', '', '', 0, 0, 1, 0, 1, 0, NULL, 4, 250, 500, 150, NULL, NULL, NULL),
+(79, 5, 'P-000074', 'Exclusive', 'he', 'aha', '<p>yes!</p>', NULL, NULL, '../uploads/qd61s01vmujravxe.jpg', '', '', 0, 0, 1, 0, 1, 0, NULL, 1, 1200, 1900, 500, NULL, NULL, NULL),
+(80, 7, 'bean2', 'Adidas Shoe', 'a shoe', 'shoe shoe shoe', '<p>Good quality shoe</p>', '', '', '../uploads/zcw5se6a1b6a9f5r.png', '', '', 1, 0, 1, 1, 1, 0, 0, 20, 50, 90, 250, 'gooood', 0, ''),
+(81, 1, 'beans3', 'Nike', 'nike shoe', 'Just Do IT!', '<p>Do IT!</p>', '', '', '../uploads/axd10ybkzssyf1aw.png', '', '', 1, 1, 0, 1, 0, 0, 0, 2, 38, 0, 250, '', 0, ''),
+(82, 2, 'Beans1', 'NewB', 'newb, new balance', 'newB', '<p>Niu Bi!</p>', '', '', '../uploads/cy5khmxyqsfbqdgc.jpg', '', '', 0, 1, 0, 1, 1, 0, 0, 0, 25, 0, 250, 'coffee', 0, ''),
+(83, 3, 'P-000073', 'Shoe Lo', 'haiz', 'asdf', '<p>tetete</p>', NULL, NULL, '../uploads/g8g70qj872w83gcu.jpg', '', '', 0, 0, 1, 0, 1, 0, NULL, 4, 250, 500, 150, NULL, NULL, NULL),
+(84, 5, 'P-000074', 'Exclusive', 'he', 'aha', '<p>yes!</p>', NULL, NULL, '../uploads/qd61s01vmujravxe.jpg', '', '', 0, 0, 1, 0, 1, 0, NULL, 1, 1200, 1900, 500, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sample`
+--
+
+CREATE TABLE `sample` (
+  `id` int UNSIGNED NOT NULL,
+  `name` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `code` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `sample`
+--
+
+INSERT INTO `sample` (`id`, `name`, `code`) VALUES
+(1, 'Sample A', 'AAA'),
+(2, 'Sample B', 'BBB');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setup`
+--
+
+CREATE TABLE `setup` (
+  `id` int UNSIGNED NOT NULL,
+  `online` int UNSIGNED NOT NULL,
+  `announce` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `setup`
+--
+
+INSERT INTO `setup` (`id`, `online`, `announce`) VALUES
+(1, 1, 'example');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipping`
+--
+
+CREATE TABLE `shipping` (
+  `id` int NOT NULL,
+  `zone` int NOT NULL,
+  `basew` int NOT NULL,
+  `addw` int NOT NULL,
+  `basep` double NOT NULL,
+  `addp` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shipping`
+--
+
+INSERT INTO `shipping` (`id`, `zone`, `basew`, `addw`, `basep`, `addp`) VALUES
+(1, 12, 100, 200, 1.04, 2),
+(2, 10, 100, 200, 5, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shipping_poslaju`
+--
+
+CREATE TABLE `shipping_poslaju` (
+  `id` int NOT NULL,
+  `country` text NOT NULL,
+  `basew` double NOT NULL,
+  `addw` double NOT NULL,
+  `basep` double NOT NULL,
+  `addp` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shipping_poslaju`
+--
+
+INSERT INTO `shipping_poslaju` (`id`, `country`, `basew`, `addw`, `basep`, `addp`) VALUES
+(204, 'argentina', 0.5, 0.5, 171.5, 48.75),
+(205, 'australia', 0.5, 0.5, 94, 17.5),
+(206, 'austria', 0.5, 0.5, 125, 37.5),
+(207, 'bahrain', 0.5, 0.5, 94, 25),
+(208, 'bangladesh', 0.5, 0.5, 75, 12.5),
+(209, 'belgium', 0.5, 0.5, 125, 18.75),
+(210, 'bhutan', 0.5, 0.5, 144, 48.75),
+(211, 'brazil', 0.5, 0.5, 171.9, 47.5),
+(212, 'brunei', 0.5, 0.5, 54, 7.5),
+(213, 'bulgaria', 0.5, 0.5, 197, 50),
+(214, 'cambodia', 0.5, 0.5, 65, 7.5),
+(215, 'canada', 0.5, 0.5, 138, 27.5),
+(216, 'chile', 0.5, 0.5, 225, 68.77),
+(217, 'china', 0.5, 0.5, 79, 15),
+(218, 'cuba', 0.5, 0.5, 225.4, 68.75),
+(219, 'cyprus', 0.5, 0.5, 197, 50),
+(220, 'czech', 0.5, 0.5, 197, 50),
+(221, 'denmark', 0.5, 0.5, 125.4, 18.75),
+(222, 'egypt', 0.5, 0.5, 112.9, 18.75),
+(223, 'estonia', 0.5, 0.5, 197, 50),
+(224, 'fiji', 0.5, 0.5, 225, 68.79),
+(225, 'finland', 0.5, 0.5, 125.4, 18.75),
+(226, 'france', 0.5, 0.5, 125.4, 18.75),
+(227, 'germany', 0.5, 0.5, 125, 24),
+(228, 'ghana', 0.5, 0.5, 225, 68.79),
+(229, 'greece', 0.5, 0.5, 125, 25),
+(230, 'hong kong', 0.5, 0.5, 69, 15),
+(231, 'hungary', 0.5, 0.5, 200, 45),
+(232, 'iceland', 0.5, 0.5, 154, 25),
+(233, 'india', 0.5, 0.5, 82, 15),
+(234, 'indonesia', 0.5, 0.5, 57, 7.49),
+(235, 'iran', 0.5, 0.5, 144, 27.5),
+(236, 'ireland', 0.5, 0.5, 125.4, 18.75),
+(237, 'italy', 0.5, 0.5, 125.4, 18.75),
+(238, 'japan', 0.5, 0.5, 80.4, 18.75),
+(239, 'jordan', 0.5, 0.5, 94, 25),
+(240, 'kazakhstan', 0.5, 0.5, 197, 50),
+(241, 'kenya', 0.5, 0.5, 125, 37.5),
+(242, 'kuwait', 0.5, 0.5, 94, 25),
+(243, 'laos', 0.5, 0.5, 65, 10),
+(244, 'lebanon', 0.5, 0.5, 200, 50),
+(245, 'liechtenstein', 0.5, 0.5, 137.9, 43.75),
+(246, 'luxembourg', 0.5, 0.5, 180, 27.49),
+(247, 'macau', 0.5, 0.5, 75, 15),
+(248, 'malawi', 0.5, 0.5, 225, 52.5),
+(249, 'maldives', 0.5, 0.5, 82, 15),
+(250, 'mauritius', 0.5, 0.5, 225, 50),
+(251, 'mexico', 0.5, 0.5, 172, 37.49),
+(252, 'mongolia', 0.5, 0.5, 188, 27.49),
+(253, 'morocco', 0.5, 0.5, 225.4, 56.25),
+(254, 'myanmar', 0.5, 0.5, 100, 25),
+(255, 'nepal', 0.5, 0.5, 113, 37.49),
+(256, 'netherlands', 0.5, 0.5, 138, 7.5),
+(257, 'new zealand', 0.5, 0.5, 95, 21.5),
+(258, 'nigeria', 0.5, 0.5, 188, 52.49),
+(259, 'norway', 0.5, 0.5, 150, 31.5),
+(260, 'oman', 0.5, 0.5, 188, 50),
+(261, 'pakistan', 0.5, 0.5, 78, 15),
+(262, 'papua new guinea', 0.5, 0.5, 82.9, 18.75),
+(263, 'philippines', 0.5, 0.5, 69, 10),
+(264, 'poland', 0.5, 0.5, 200, 50),
+(265, 'portugal', 0.5, 0.5, 125.4, 18.75),
+(266, 'qatar', 0.5, 0.5, 94, 25),
+(267, 'russia', 0.5, 0.5, 138, 25),
+(268, 'saudi arabia', 0.5, 0.5, 100.4, 31.25),
+(269, 'singapore', 0.5, 0.5, 50.4, 6.25),
+(270, 'slovakia', 0.5, 0.5, 197, 50),
+(271, 'solomon islands', 0.5, 0.5, 225, 69),
+(272, 'south africa', 0.5, 0.5, 188, 48.5),
+(273, 'south korea', 0.5, 0.5, 81.5, 18.75),
+(274, 'spain', 0.5, 0.5, 144, 18.75),
+(275, 'sri lanka', 0.5, 0.5, 82, 15),
+(276, 'sudan', 0.5, 0.5, 225, 69),
+(277, 'suriname', 0.5, 0.5, 225, 69),
+(278, 'sweden', 0.5, 0.5, 163, 37.49),
+(279, 'switzerland', 0.5, 0.5, 163, 37.49),
+(280, 'syria', 0.5, 0.5, 194, 50),
+(281, 'taiwan', 0.5, 0.5, 82, 15),
+(282, 'tajikstan', 0.5, 0.5, 194, 50),
+(283, 'thailand', 0.5, 0.5, 57, 7.49),
+(284, 'tunisia', 0.5, 0.5, 125, 37.5),
+(285, 'turkey', 0.5, 0.5, 88, 25),
+(286, 'ukraine (kiev)', 0.5, 0.5, 194, 50),
+(287, 'u.a.e', 0.5, 0.5, 100, 25),
+(288, 'united kingdom', 0.5, 0.5, 125.4, 18.75),
+(289, 'u.s.a', 0.5, 0.5, 125, 25),
+(290, 'uzbekistan', 0.5, 0.5, 197, 50),
+(291, 'venezuela', 0.5, 0.5, 150, 25),
+(292, 'vietnam', 0.5, 0.5, 63, 7.49),
+(293, 'yemen', 0.5, 0.5, 197, 50),
+(294, 'serbia & montenegro', 0.5, 0.5, 197, 50),
+(295, 'rest of the world', 0.5, 0.5, 225, 69);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `voucher`
+--
+
+CREATE TABLE `voucher` (
+  `id` int UNSIGNED NOT NULL,
+  `member_id` int UNSIGNED NOT NULL,
+  `disc_type` int UNSIGNED NOT NULL,
+  `amount` double NOT NULL,
+  `expiry_date` date NOT NULL,
+  `code` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `used` int UNSIGNED NOT NULL,
+  `once` int NOT NULL,
+  `info` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `voucher`
+--
+
+INSERT INTO `voucher` (`id`, `member_id`, `disc_type`, `amount`, `expiry_date`, `code`, `used`, `once`, `info`) VALUES
+(1, 0, 2, 20, '2099-01-01', 'ADR2020', 0, 1, 'testing'),
+(2, 0, 1, 10, '2100-02-02', 'ADR1010', 0, 0, '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `email_template`
+--
+ALTER TABLE `email_template`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pfx`
+--
+ALTER TABLE `pfx`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `po`
+--
+ALTER TABLE `po`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `po_info`
+--
+ALTER TABLE `po_info`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_po_info_po_id` (`po_id`),
+  ADD KEY `FK_po_info_product_id` (`product_id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sample`
+--
+ALTER TABLE `sample`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `setup`
+--
+ALTER TABLE `setup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shipping`
+--
+ALTER TABLE `shipping`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shipping_poslaju`
+--
+ALTER TABLE `shipping_poslaju`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `voucher`
+--
+ALTER TABLE `voucher`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `email_template`
+--
+ALTER TABLE `email_template`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `pfx`
+--
+ALTER TABLE `pfx`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `po`
+--
+ALTER TABLE `po`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `po_info`
+--
+ALTER TABLE `po_info`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+
+--
+-- AUTO_INCREMENT for table `sample`
+--
+ALTER TABLE `sample`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `setup`
+--
+ALTER TABLE `setup`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `shipping`
+--
+ALTER TABLE `shipping`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `shipping_poslaju`
+--
+ALTER TABLE `shipping_poslaju`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
+
+--
+-- AUTO_INCREMENT for table `voucher`
+--
+ALTER TABLE `voucher`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `po_info`
+--
+ALTER TABLE `po_info`
+  ADD CONSTRAINT `po_info_ibfk_1` FOREIGN KEY (`po_id`) REFERENCES `po` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
